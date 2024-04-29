@@ -1,5 +1,4 @@
 package br.edu.up;
-import java.util.Arrays;
 
 public class Ponto {
 
