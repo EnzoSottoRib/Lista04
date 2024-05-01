@@ -9,6 +9,11 @@ public class Compromisso {
 
     Compromisso(String pessoa, String local, String assunto, int hora) {
 
+        this.pessoa = pessoa;
+        this.local = local;
+        this.assunto = assunto;
+        this.hora = hora;
+
     }
 
     public String getPessoa() {
@@ -45,8 +50,7 @@ public class Compromisso {
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        return "Compromisso [pessoa = " + pessoa + ", local = " + local + ", assunto = " + assunto + ", hora = " + hora + "]";
     }
     
 }
