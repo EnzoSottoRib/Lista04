@@ -2,7 +2,8 @@ package br.edu.up;
 
 public class Mes {
     
-    int nome;
+    String nome;
+    // eu preferi definir o atributo nome como String
     int qtdeDias;
     Dia[] dias;
 
@@ -34,4 +35,13 @@ public class Mes {
 
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
 }
