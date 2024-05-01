@@ -25,17 +25,17 @@ public class Mes {
         System.out.println("Compromisso adicionado com sucesso! :)");
     }
 
-    public void excluirCompromisso (String nomeMes, int diaMes, int hora) {
+    public void excluirCompromisso(String nomeMes, int diaMes, int hora) {
         for (Dia dia : dias) {
-                if (dia != null && dia.getDiaMes() == diaMes) {
-                    if (getNome().equalsIgnoreCase(nomeMes)) {
-                        if (dia.getCompromisso() != null && dia.getCompromisso().getHora() == hora) {
-                            dia.setCompromisso(null); // Define o compromisso como null para excluí-lo
-                            return;
-                    }
+            if (dia != null && dia.getDiaMes() == diaMes) {
+                if (getNome().equalsIgnoreCase(nomeMes)) {
+                    dia.excluirCompromisso(hora);
+                    return;
                 }
             }
+        }
     }
+    
 
     public String listarCompromissos (String nomeMes) {
         
