@@ -1,12 +1,12 @@
 package br.edu.up;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Dia {
     
     int diaMes;
-    private Compromisso[] compromisso;
+    List<Compromisso> compromissos;
+    // ana: preferi mudar pra lista, acho mais prático
 
     Dia(int diaMes) {
         this.diaMes = diaMes;
@@ -28,7 +28,7 @@ public class Dia {
     }
 
     public void consultarCompromisso(int hora) {
-        for (Compromisso comp : compromisso) {
+        for (Compromisso comp : compromissos) {
             // ana: o enhanced for loop é mais prático
             if (comp.getHora() == hora) { 
                 System.out.println("Compromisso encontrado: ");
@@ -40,9 +40,9 @@ public class Dia {
     }
 
     public void excluirCompromisso (int hora) {
-        for (Compromisso comp : compromisso) {
+        for (Compromisso comp : compromissos) {
             if (comp.getHora() == hora) {
-                compromisso = null;
+                compromissos = null;
                 System.out.println("Compromisso removido com sucesso! :)");
             }
         }
@@ -52,7 +52,7 @@ public class Dia {
     public String listarCompromissos() {
         StringBuilder sb = new StringBuilder();
         // ana: preferi usar o stringbuilder (e aprender o que é haha) ao string porque ele é mais prático, mutável, e administra melhor a memória :)
-        for (Compromisso comp : compromisso) {
+        for (Compromisso comp : compromissos) {
             sb.append(comp.toString()).append("\n");
             // ana: explicando o cógido: o append adiciona e vai concatenando (juntando) as infos (atributos) dos compromissos! o \n é pra quebrar a linha!
         }
