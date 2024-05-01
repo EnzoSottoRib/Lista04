@@ -3,20 +3,38 @@ package br.edu.up;
 public class Mes {
     
     String nome;
-    // eu preferi definir o atributo nome como String
+    // ana: eu preferi definir o atributo nome como String
     int qtdeDias;
     Dia[] dias;
 
     Mes (int qtdeDias, String nome) {
-
+        this.qtdeDias = qtdeDias;
+        this.nome = nome;
     }
 
     public void adicionarCompromisso (Compromisso comp, int diaMes) {
+        if (dias == null || diaMes < 1 || diaMes > qtdeDias) {
+            System.out.println("Data inválida.");
+        }
 
+        if(dias[diaMes -1] == null) {
+            dias[diaMes - 1] = new Dia(diaMes);
+        }
+
+        dias[diaMes - 1].adicionarCompromisso(comp);
+        System.out.println("Compromisso adicionado com sucesso! :)");
     }
 
     public void excluirCompromisso (String nomeMes, int diaMes, int hora) {
-
+        for (Dia dia : dias) {
+                if (dia != null && dia.getDiaMes() == diaMes) {
+                    if (getNome().equalsIgnoreCase(nomeMes)) {
+                        if (dia.getCompromisso() != null && dia.getCompromisso().getHora() == hora) {
+                            dia.setCompromisso(null); // Define o compromisso como null para excluí-lo
+                            return;
+                    }
+                }
+            }
     }
 
     public String listarCompromissos (String nomeMes) {

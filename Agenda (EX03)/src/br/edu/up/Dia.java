@@ -6,16 +6,24 @@ import java.util.List;
 public class Dia {
     
     int diaMes;
-    List<Compromisso> compromisso;
-    // ana: decidi usar uma lista porque em um vetor o seu tamanho não pode ser alterado
+    private Compromisso[] compromisso;
 
     Dia(int diaMes) {
         this.diaMes = diaMes;
-        this.compromisso = new ArrayList<>();
     }
 
     public void adicionarCompromisso(Compromisso comp) {
-        compromisso.add(comp); 
+
+        String pessoa = Prompt.lerLinha("Digite o nome da pessoa: ");
+        String local = Prompt.lerLinha("Digite o local: ");
+        String assunto = Prompt.lerLinha("Digite o assunto: ");
+        int hora = Prompt.lerInteiro("Digite a hora: ");
+
+        comp.setPessoa(pessoa);
+        comp.setLocal(local);
+        comp.setAssunto(assunto);
+        comp.setHora(hora);
+
         System.out.println("Compromisso adicionado com sucesso! :)");
     }
 
@@ -34,7 +42,7 @@ public class Dia {
     public void excluirCompromisso (int hora) {
         for (Compromisso comp : compromisso) {
             if (comp.getHora() == hora) {
-                compromisso.remove(comp);
+                compromisso = null;
                 System.out.println("Compromisso removido com sucesso! :)");
             }
         }
@@ -50,6 +58,13 @@ public class Dia {
         }
         return sb.toString(); 
     }
-    
+
+    public int getDiaMes() {
+        return diaMes;
+    }
+
+    public void setDiaMes(int diaMes) {
+        this.diaMes = diaMes;
+    }
     
 }
