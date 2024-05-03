@@ -1,16 +1,17 @@
 package br.edu.up;
 
+import java.util.Scanner;
+
 public class Estacionamento {
     private Carro[] vagas;
     private int entradas;
     private int saidas;
     private double valorPeriodo;
     private int vagasLivres;
-
     public Estacionamento(){
     }
 
-    public Estacionamento(int numVagas, int entradas, int saidas, double valorPeriodo, int vagasLivres) {
+    public Estacionamento(int numVagas, int entradas, int saidas, double valorPeriodo, int vagasLivres, String placaRemover) {
         this.vagas = new Carro[10];
         this.entradas = entradas;
         this.saidas = saidas;
@@ -37,8 +38,12 @@ public class Estacionamento {
     }
 
     public String desocuparVaga(String placa){
+
+        System.out.println("Digite a placa do carro: ");
+        String placaRemover = scanner
+
         for (int i = 0; i < 10; i++){
-            if (vagas[i] != null && vagas[i].getPlaca().equalsIgnoreCase(placa)){
+            if (vagas[i] != null && vagas[i].placa.equalsIgnoreCase(placa)){
                 vagas[i] = null;
                 vagasLivres++;
                 saidas ++;
@@ -54,5 +59,11 @@ public class Estacionamento {
         saidas + " carros sairam.\n" + 
         "Valor de pagamentos no período: R$" + valorPeriodo; 
     }
+
+    public int getVagasLivres() {
+        return vagasLivres;
+    }
+
+    
 
 }
