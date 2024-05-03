@@ -22,7 +22,6 @@ public class Mes {
         }
 
         dias[diaMes - 1].adicionarCompromisso(comp);
-        System.out.println("Compromisso adicionado com sucesso! :)");
     }
 
     public void excluirCompromisso(String nomeMes, int diaMes, int hora) {
@@ -38,19 +37,23 @@ public class Mes {
     
 
     public String listarCompromissos (String nomeMes) {
-        
-        String teste = "Oi";
-
-        return teste;
-
+        StringBuilder sb = new StringBuilder();
+        for (Dia dia : dias) {
+            if (dia != null && getNome().equalsIgnoreCase(nomeMes)) {
+                sb.append(dia.listarCompromissos()).append("\n");
+            }
+        }
+        return sb.toString(); 
     }
 
     public String listarCompromissos() {
-                
-        String teste = "Oi";
-
-        return teste;
-
+        StringBuilder sb = new StringBuilder();
+        for (Dia dia : dias) {
+            if (dia != null) {
+                sb.append(dia.listarCompromissos()).append("\n");
+            }
+        }
+        return sb.toString(); 
     }
 
     public String getNome() {
