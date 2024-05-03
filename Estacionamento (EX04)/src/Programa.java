@@ -2,7 +2,7 @@ import br.edu.up.*;
 
 public class Programa {
     public static void main(String[] args){
-        Estacionamento estacionamento = new Estacionamento(10);
+        Estacionamento estacionamento = new Estacionamento();
         Menu menu = new Menu();
         int opcao;
 
@@ -18,10 +18,18 @@ public class Programa {
                         System.out.println("Todas as vagas estão ocupadas!");
                     }break;
                 case 2:
-                    System.out.println("Digite a placa do carro: ");
-                    String placaRemover = 
-                    estacionamento.desocuparVaga(placa);
+                    String placaRemover = menu.lerPlaca();
+                    System.out.println(estacionamento.desocuparVaga(placaRemover));
+                    break;
+                case 3:
+                    System.out.println(estacionamento.emitirRelatorio());
+                    break;
+                case 0:
+                    System.out.println("Saindo do sistema");
+                    break;
+                default: 
+                    System.out.println("Opção inválida, tente novamente.");
             }
-        }
+        } while (opcao != 0);
     }
 }

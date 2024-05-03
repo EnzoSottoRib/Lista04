@@ -8,6 +8,7 @@ public class Menu {
     public Menu() {
         this.scanner = new Scanner(System.in);
     }
+    
 
     public int exibirMenu(){
         System.out.println("\n-- Menu do Estacionamento --");
@@ -30,9 +31,10 @@ public class Menu {
         return new Carro(modelo, placa, cor);
     }
 
-    public String desocuparVaga(){
+    public String lerPlaca(){
         System.out.print("Digite a placa do carro para remoção: ");
-        return scanner.next();
+        String placaRemover = scanner.next();
+        return placaRemover;
     }
 
 }
