@@ -60,6 +60,7 @@ public class Livro {
         this.isbn = isbn;
     }
 
+    //enzo: garante que ta sobreescrevendo um método ao invés de ter que criar um novo
     @Override
     public String toString() {
         return "Livro [codigo = " + codigo + ", titulo = " + titulo + ", autores = " + Arrays.toString(autores) + ", isbn = "

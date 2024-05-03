@@ -33,9 +33,10 @@ public class Estacionamento {
         return "Nenhuma vaga disponível!";
     }
 
-    public String verificarVagas(){
+    //enzo: no enunciado falava pra verificar se existiam vagas sobrando antes de adicionar um carro, mas o caso 1 já faz (deixei caso ache que precise usar esse)
+    /*public String verificarVagas(){
         return "Existem " + vagasLivres + " vagas livres!";
-    }
+    }*/
 
     public String desocuparVaga(String placaRemover){
 
@@ -60,7 +61,5 @@ public class Estacionamento {
     public int getVagasLivres() {
         return vagasLivres;
     }
-
-    
 
 }
