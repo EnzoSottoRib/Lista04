@@ -33,11 +33,13 @@ public class Estacionamento {
         return "Nenhuma vaga disponível!";
     }
 
-    //enzo: no enunciado falava pra verificar se existiam vagas sobrando antes de adicionar um carro, mas o caso 1 já faz (deixei caso ache que precise usar esse)
+    // enzo: no enunciado falava pra verificar se existiam vagas sobrando antes de adicionar um carro, mas o caso 1 já faz (deixei caso ache que precise usar esse)
     /*public String verificarVagas(){
         return "Existem " + vagasLivres + " vagas livres!";
     }*/
 
+
+    // enzo: o for roda todas as vagas do estacionamento e verifica placa uma por uma, quando acha a placa que é pra ser removida ele tira do estacionamento e uma nova vaga é liberada
     public String desocuparVaga(String placaRemover){
 
         for (int i = 0; i < 10; i++){
@@ -51,6 +53,7 @@ public class Estacionamento {
         return "Carro com placa " + placaRemover + " não encontrado.";
     }
 
+    // enzo: relatório basiquinho, e separei os textos por linha pra n ficar muito gigante
     public String emitirRelatorio(){
         Double valorPeriodo = entradas * 5.0;
         return entradas + " carros entraram.\n" + 
