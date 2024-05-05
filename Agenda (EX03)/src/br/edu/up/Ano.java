@@ -63,7 +63,7 @@ public class Ano {
 
     public void excluirCompromisso (String nomeMes, int diaMes, int hora) {
         for (Mes mes : meses) {
-            // aqui o nosso for mudou (em relação à classe Dia porque aqui [na classe Ano] a gente não tem o atributo comp)
+            // ana: aqui o nosso for mudou (em relação à classe Dia porque aqui [na classe Ano] a gente não tem o atributo comp)
                 if (mes.getNome().equalsIgnoreCase(nomeMes)) {
                     mes.excluirCompromisso(nomeMes, diaMes, hora); 
                     return; 
