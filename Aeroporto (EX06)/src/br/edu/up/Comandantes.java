@@ -1,5 +1,5 @@
 package br.edu.up;
 
-public class Comandante {
+public class Comandantes {
     private int totalHorasVoo;
 }
