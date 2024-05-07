@@ -4,7 +4,7 @@ import br.edu.up.*;
 public class ControleReserva {
      
     public void criarReserva() {
-
+        
     }
 
     public void editarReserva() {
