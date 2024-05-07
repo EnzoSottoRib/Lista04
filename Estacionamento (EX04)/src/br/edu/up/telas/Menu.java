@@ -1,6 +1,8 @@
-package br.edu.up;
+package br.edu.up.telas;
 
 import java.util.Scanner;
+
+import br.edu.up.modelos.Carro;
 
 public class Menu {
     private Scanner scanner;
