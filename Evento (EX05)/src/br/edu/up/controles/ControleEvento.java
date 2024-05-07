@@ -2,10 +2,8 @@ package br.edu.up.controles;
 import br.edu.up.modelos.Evento;
 
 public class ControleEvento {
-    
-    Evento evento = new Evento();
 
-    public void criarEvento() {
+    public void criarEvento(Evento evento) {
 
         evento.setNomeEvento(Prompt.lerLinha("Digite o nome do evento: "));
         
@@ -41,8 +39,8 @@ public class ControleEvento {
         evento.setPrecoIngresso(Prompt.lerDecimal("Digite o preço individual dos ingressos, em reais: "));
     }
 
-    public void editarEvento() {
-
+    public void editarEvento(Evento evento) {
+        
     }
 
     public void excluirEvento() {
