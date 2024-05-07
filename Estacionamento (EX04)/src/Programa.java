@@ -1,12 +1,12 @@
 import br.edu.up.*;
 import br.edu.up.modelos.Carro;
 import br.edu.up.modelos.Estacionamento;
-import br.edu.up.telas.Menu;
+import br.edu.up.telas.MenuEstacionamento;
 
 public class Programa {
     public static void main(String[] args){
         Estacionamento estacionamento = new Estacionamento();
-        Menu menu = new Menu();
+        MenuEstacionamento menu = new MenuEstacionamento();
         int opcao;
 
         do {

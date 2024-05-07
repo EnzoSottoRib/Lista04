@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 import br.edu.up.modelos.Carro;
 
-public class Menu {
+public class MenuEstacionamento {
     private Scanner scanner;
 
-    public Menu() {
+    public MenuEstacionamento() {
         this.scanner = new Scanner(System.in);
     }
     
