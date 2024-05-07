@@ -1,4 +1,4 @@
-package br.edu.up;
+package br.edu.up.Modelos;
 
 public class Pessoa {
     private String nome;
