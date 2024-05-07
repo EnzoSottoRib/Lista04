@@ -1,4 +1,5 @@
 package br.edu.up.controles;
+import br.edu.up.*;
 
 public class ControleReserva {
      
