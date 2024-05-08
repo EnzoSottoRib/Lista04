@@ -29,37 +29,44 @@ public class MenuAeroporto{
         System.out.println("Digite a quantidade de assentos: ");
         int quantidadeAssentos = scanner.nextInt();
 
-        Pessoa pessoa = new Pessoa(nome, rg, codigoAeronave, tipoAeronave, quantidadeAssentos);
-
-        System.out.println("Que tipo de pessoa deseja registrar?\n1 - Passageiro\n2 - Tripulação");
-        int resposta = scanner.nextInt();
-        switch(resposta){
-            case 1: 
-                System.out.println("Digite o id da bagagem: ");
-                String idBagagem = scanner.nextLine();
-                System.out.println("Digite a passagem: ");
-                String idPassagem = scanner.nextLine();
-                System.out.println("Digite o número do assento: ");
-                String numAssento = scanner.nextLine();
-                System.out.println("Digite a classe do assento: ");
-                String classeAssento = scanner.nextLine();
-                System.out.println("Digite a data do voo: ");
-                int dataVoo = scanner.nextInt();
-
-                Passagem passagem = new Passagem(numAssento, classeAssento, dataVoo);
-
-                Passageiro passageiro = new Passageiro(nome, rg, codigoAeronave, tipoAeronave, quantidadeAssentos, idBagagem, idPassagem);
-                break;
-            case 2:
-            System.out.println("Digite o id da aeronáutica: ");
-            String idAeronautica = scanner.nextLine();
-            System.out.println("Digite a matrícula de funcionário: ");
-            String matriculaFuncionario = scanner.nextLine();
-            
-
-        }
+        return new Pessoa(nome, rg, codigoAeronave, tipoAeronave, quantidadeAssentos);
         
     }
+        
+    public int tipoPessoa(){
+        System.out.println("Que tipo de pessoa deseja registrar?\n1 - Passageiro\n2 - Tripulação");
+        int opcao2 = scanner.nextInt();
+
+        return opcao2;
+    }
+    
+    public Passageiro registrarPassageiro(String nome, String rg, String codigoAeronave, String tipoAeronave, int quantidadeAssentos){
+        System.out.println("Digite o id da bagagem: ");
+        String idBagagem = scanner.nextLine();
+        System.out.println("Digite a passagem: ");
+        String idPassagem = scanner.nextLine();
+        System.out.println("Digite o número do assento");
+        String numAssento = scanner.nextLine();
+        System.out.println("Digite a classe do assento");
+        String classeAssento = scanner.nextLine();
+        System.out.println("Digite a data do voo: ");
+        int dataVoo = scanner.nextInt();
+
+        Passagem passagem = new Passagem(numAssento, classeAssento, dataVoo);
+
+        return new Passageiro(nome, rg, codigoAeronave, tipoAeronave, quantidadeAssentos, idBagagem, idPassagem);
+    }
+
+    public Tripulacao registrarTripulacao(){
+        System.out.println("Digite o id da aeronáutica: ");
+        String idAeronautica = scanner.nextLine();
+        System.out.println("Digite a matrícula de funcionário: ");
+        String matriculaFuncionario = scanner.nextLine();
+    }
+
+            
+
+}         
 
     
-}
+

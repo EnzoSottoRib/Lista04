@@ -10,6 +10,7 @@ public class Passageiro extends Pessoa {
         this.idBagagem = idBagagem;
         this.idPassagem = passagem;
     }
+    
     public String getIdBagagem() {
         return idBagagem;
     }
