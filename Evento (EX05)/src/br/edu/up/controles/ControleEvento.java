@@ -95,7 +95,7 @@ public class ControleEvento {
             return "Não há eventos listados.";
         } else {
             StringBuilder sb = new StringBuilder();
-            int index = 1; 
+            int index = 0; 
     
             for (Evento evento : listaEventos) {
                 sb.append("Evento ").append(index).append(":\n");

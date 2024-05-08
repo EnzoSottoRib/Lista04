@@ -10,6 +10,7 @@ public class Reserva {
     double valorTotal;
     String nomeResponsavel;
     int qtdePessoas;
+    Evento evento;
     
     public Reserva(String nomeResponsavel, int qtdePessoas) {
         this.nomeResponsavel = nomeResponsavel;
@@ -82,5 +83,15 @@ public class Reserva {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    
 
 }
