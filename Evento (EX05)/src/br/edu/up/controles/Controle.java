@@ -50,46 +50,46 @@ public class Controle {
     
     }
 
-    public void editarNome(Evento evento) {
-        evento.setNomeEvento(Prompt.lerLinha("Digite o nome atualizado do evento: "));
+    public void editarNome(int b) {
+        listaEventos.get(b-1).setNomeEvento(Prompt.lerLinha("Digite o nome atualizado do evento: "));
     }
 
-    public void editarLocal(Evento evento) {
-        evento.setLocalEvento(Prompt.lerLinha("Digite o novo local do evento: "));
+    public void editarLocal(int b) {
+        listaEventos.get(b-1).setLocalEvento(Prompt.lerLinha("Digite o novo local do evento: "));
     }
 
-    public void editarHora(Evento evento) {
+    public void editarHora(int b) {
         do {
-            evento.setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
-        } while  (evento.getHora() < 0 && evento.getHora() > 24);
+            listaEventos.get(b-1).setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
+        } while  (listaEventos.get(b-1).getHora() < 0 && listaEventos.get(b-1).getHora() > 24);
     }
 
-    public void editarDia(Evento evento) {
-        evento.setDia(Prompt.lerInteiro("Digite o novo dia (seu número, no formato 'DD'): "));
+    public void editarDia(int b) {
+        listaEventos.get(b-1).setDia(Prompt.lerInteiro("Digite o novo dia (seu número, no formato 'DD'): "));
     }
 
-    public void editarMes(Evento evento) {
-        evento.setMes(Prompt.lerInteiro("Digite o novo mês (seu número, no formato 'MM'): "));
+    public void editarMes(int b) {
+        listaEventos.get(b-1).setMes(Prompt.lerInteiro("Digite o novo mês (seu número, no formato 'MM'): "));
     }
 
-    public void editarAno(Evento evento) {
-        evento.setAno(Prompt.lerInteiro("Digite o novo ano (seu número, no formato 'AAAA'): "));
+    public void editarAno(int b) {
+        listaEventos.get(b-1).setAno(Prompt.lerInteiro("Digite o novo ano (seu número, no formato 'AAAA'): "));
     }
 
-    public void editarLotacaoMax(Evento evento) {
-        evento.setLotacaoMax(Prompt.lerInteiro("Digite a nova lotação máxima: "));
+    public void editarLotacaoMax(int b) {
+        listaEventos.get(b-1).setLotacaoMax(Prompt.lerInteiro("Digite a nova lotação máxima: "));
     }
 
-    public void editarIngressosVendidos (Evento evento) {
-        evento.setIngressosVendidos(Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: "));
+    public void editarIngressosVendidos (int b) {
+        listaEventos.get(b-1).setIngressosVendidos(Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: "));
     }
 
-    public void editarPrecoIngressos (Evento evento) {
-        evento.setPrecoIngresso(Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: "));
+    public void editarPrecoIngressos (int b) {
+        listaEventos.get(b-1).setPrecoIngresso(Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: "));
     }
 
-    public void excluirEvento(Evento evento) {
-        evento = null;
+    public void excluirEvento(int b) {
+        listaEventos.remove(listaEventos.get(b-1));
     }
 
     public String listarEvento() {
@@ -132,16 +132,16 @@ public class Controle {
 
     }
 
-    public void editarNomeResponsavel(Reserva reserva) {
-        reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
+    public void editarNomeResponsavel(int b) {
+        listaReservas.get(b-1).setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
     }
 
-    public void editarQtdePessoas(Reserva reserva) {
-        reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
+    public void editarQtdePessoas(int b) {
+        listaReservas.get(b-1).setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
     }
 
-    public void excluirReserva(Reserva reserva) {
-        listaReservas.remove(reserva);
+    public void excluirReserva(int b) {
+        listaReservas.remove(listaReservas.get(b-1));
     }
 
     public String listarReserva() {
