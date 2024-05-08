@@ -84,7 +84,7 @@ public class Controle {
         evento.setIngressosVendidos(Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: "));
     }
 
-    public void editarPrecoIngresos (Evento evento) {
+    public void editarPrecoIngressos (Evento evento) {
         evento.setPrecoIngresso(Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: "));
     }
 
