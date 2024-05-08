@@ -95,11 +95,16 @@ public class ControleEvento {
             return "Não há eventos listados.";
         } else {
             StringBuilder sb = new StringBuilder();
+            int index = 1; 
+    
             for (Evento evento : listaEventos) {
+                sb.append("Evento ").append(index).append(":\n");
                 sb.append(evento.toString()).append("\n");
+                index++;
             }
+    
             return sb.toString(); 
-            }
+        }
     }
     
 }
