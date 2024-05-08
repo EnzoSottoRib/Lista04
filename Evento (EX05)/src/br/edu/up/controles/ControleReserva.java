@@ -27,6 +27,8 @@ public class ControleReserva {
         do {
             reserva.setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
         } while  (reserva.getHora() < 0 && reserva.getHora() > 24);
+
+        reserva.setValorTotal(Prompt.lerDecimal("Digite o valor total, em reais: "));
     }
 
     public void editarReserva() {

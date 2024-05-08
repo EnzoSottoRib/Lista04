@@ -15,6 +15,9 @@ public class Reserva {
         this.qtdePessoas = qtdePessoas;
     }
 
+    public Reserva() {
+    }
+
     public int getDia() {
         return dia;
     }
