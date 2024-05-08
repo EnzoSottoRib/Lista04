@@ -39,12 +39,48 @@ public class ControleEvento {
         evento.setPrecoIngresso(Prompt.lerDecimal("Digite o preço individual dos ingressos, em reais: "));
     }
 
-    public void editarEvento(Evento evento) {
-        
+    public void editarNome(Evento evento) {
+        evento.setNomeEvento(Prompt.lerLinha("Digite o nome atualizado do evento: "));
     }
 
-    public void excluirEvento() {
-
+    public void editarLocal(Evento evento) {
+        evento.setLocalEvento(Prompt.lerLinha("Digite o novo local do evento: "));
     }
+
+    public void editarHora(Evento evento) {
+        do {
+            evento.setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
+        } while  (evento.getHora() < 0 && evento.getHora() > 24);
+    }
+
+    public void editarDia(Evento evento) {
+        evento.setDia(Prompt.lerInteiro("Digite o novo dia (seu número, no formato 'DD'): "));
+    }
+
+    public void editarMes(Evento evento) {
+        evento.setMes(Prompt.lerInteiro("Digite o novo mês (seu número, no formato 'MM'): "));
+    }
+
+    public void editarAno(Evento evento) {
+        evento.setAno(Prompt.lerInteiro("Digite o novo ano (seu número, no formato 'AAAA'): "));
+    }
+
+    public void editarLotacaoMax(Evento evento) {
+        evento.setLotacaoMax(Prompt.lerInteiro("Digite a nova lotação máxima: "));
+    }
+
+    public void editarIngressosVendidos (Evento evento) {
+        evento.setIngressosVendidos(Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: "));
+    }
+
+    public void editarPrecoIngresos (Evento evento) {
+        evento.setPrecoIngresso(Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: "));
+    }
+
+    public void excluirEvento(Evento evento) {
+        evento = null;
+    }
+
+    // ana: terminando
     
 }
