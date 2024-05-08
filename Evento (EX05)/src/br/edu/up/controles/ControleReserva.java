@@ -3,7 +3,6 @@ package br.edu.up.controles;
 import br.edu.up.modelos.Reserva;
 import java.util.List;
 import br.edu.up.modelos.Evento;
-import br.edu.up.controles.ControleEvento;
 
 public class ControleReserva {
 
