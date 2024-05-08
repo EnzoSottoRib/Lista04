@@ -4,7 +4,7 @@ import java.util.List;
 import br.edu.up.modelos.Evento;
 import br.edu.up.modelos.Reserva;
 
-public class ControleEvento {
+public class Controle {
 
     private List<Evento> listaEventos;
     private List<Reserva> listaReservas;
@@ -113,15 +113,31 @@ public class ControleEvento {
 
         Reserva reserva = new Reserva();
 
-        Prompt.imprimir("Defina o número de seu evento: ");
+        Prompt.imprimir("Os seguintes eventos existem: ");
         listarEvento();
+        int n = Prompt.lerInteiro("Defina o número de seu evento: ");
+        
+        Evento eventoEscolhido = listaEventos.get(n-1);
 
+        reserva.setAno(eventoEscolhido.getAno());
+        reserva.setMes(eventoEscolhido.getMes());
+        reserva.setDia(eventoEscolhido.getDia());
+        reserva.setHora(eventoEscolhido.getHora());
+        reserva.setPrecoIngresso(eventoEscolhido.getPrecoIngresso());
 
         reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
         reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
 
         listaReservas.add(reserva);
 
+    }
+
+    public void editarNomeResponsavel(Reserva reserva) {
+        reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
+    }
+
+    public void editarQtdePessoas(Reserva reserva) {
+        reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
     }
 
     public void excluirReserva(Reserva reserva) {
