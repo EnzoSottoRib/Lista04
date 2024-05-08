@@ -50,12 +50,22 @@ public class Reserva {
         this.hora = hora;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
+    public String getNomeResponsavel() {
+        return nomeResponsavel;
     }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setNomeResponsavel(String nomeResponsavel) {
+        this.nomeResponsavel = nomeResponsavel;
     }
+
+    public int getQtdePessoas() {
+        return qtdePessoas;
+    }
+
+    public void setQtdePessoas(int qtdePessoas) {
+        this.qtdePessoas = qtdePessoas;
+    }
+
+
 
 }
