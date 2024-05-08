@@ -67,4 +67,11 @@ public class Evento {
         this.precoIngresso = precoIngresso;
     }
 
+    @Override
+    public String toString() {
+        return "Evento [Nome do Evento = " + nomeEvento + ", Local do Evento = " + localEvento + ", Dia = " + dia + ", Mês = " + mes
+                + ", Ano = " + ano + ", Hora = " + hora + ", Lotação Máxima = " + lotacaoMax + ", Ingressos Vendidos = "
+                + ingressosVendidos + ", Preço Ingresso = R$ " + precoIngresso + "]";
+    }
+
 }
