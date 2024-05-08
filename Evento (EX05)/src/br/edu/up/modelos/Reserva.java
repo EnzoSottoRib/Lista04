@@ -6,6 +6,7 @@ public class Reserva {
     int mes;
     int ano;
     int hora;
+    double precoIngresso;
     double valorTotal;
     String nomeResponsavel;
     int qtdePessoas;
@@ -66,6 +67,20 @@ public class Reserva {
         this.qtdePessoas = qtdePessoas;
     }
 
+    public double getPrecoIngresso() {
+        return precoIngresso;
+    }
 
+    public void setPrecoIngresso(double precoIngresso) {
+        this.precoIngresso = precoIngresso;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 
 }

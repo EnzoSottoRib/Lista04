@@ -35,8 +35,8 @@ public class ControleReserva {
 
     }
 
-    public void editarReserva() {
-
+    public void valorTotal() {
+        
     }
 
     public void excluirReserva() {
