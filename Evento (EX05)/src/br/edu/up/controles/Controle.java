@@ -113,17 +113,13 @@ public class Controle {
 
         Reserva reserva = new Reserva();
 
-        Prompt.imprimir("Os seguintes eventos existem: ");
-        listarEvento();
-        int n = Prompt.lerInteiro("Defina o número de seu evento: ");
-        
-        Evento eventoEscolhido = listaEventos.get(n-1);
+        int n = selecionarEvento();
 
-        reserva.setAno(eventoEscolhido.getAno());
-        reserva.setMes(eventoEscolhido.getMes());
-        reserva.setDia(eventoEscolhido.getDia());
-        reserva.setHora(eventoEscolhido.getHora());
-        reserva.setPrecoIngresso(eventoEscolhido.getPrecoIngresso());
+        reserva.setAno(listaEventos.get(n-1).getAno());
+        reserva.setMes(listaEventos.get(n-1).getMes());
+        reserva.setDia(listaEventos.get(n-1).getDia());
+        reserva.setHora(listaEventos.get(n-1).getHora());
+        reserva.setPrecoIngresso(listaEventos.get(n-1).getPrecoIngresso());
 
         reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
         reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
@@ -156,6 +152,15 @@ public class Controle {
     
             return sb.toString(); 
         }
+    }
+
+    public int selecionarEvento() {
+
+        Prompt.imprimir("Os seguintes eventos existem: ");
+        listarEvento();
+        int a = Prompt.lerInteiro("Defina o número de seu evento: ");
+
+        return a;
     }
     
 }
