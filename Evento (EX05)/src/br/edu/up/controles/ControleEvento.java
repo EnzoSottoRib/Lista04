@@ -5,7 +5,7 @@ import br.edu.up.modelos.Evento;
 
 public class ControleEvento {
 
-    private List<Evento> eventos;
+    private List<Evento> listaEventos;
 
     public void criarEvento() {
 
@@ -43,6 +43,9 @@ public class ControleEvento {
         evento.setLotacaoMax(Prompt.lerInteiro("Digite a lotação máxima: "));
         evento.setIngressosVendidos(Prompt.lerInteiro("Digite a quantidade de ingressos vendidos: "));
         evento.setPrecoIngresso(Prompt.lerDecimal("Digite o preço individual dos ingressos, em reais: "));
+    
+        listaEventos.add(evento);
+    
     }
 
     public void editarNome(Evento evento) {
@@ -88,11 +91,11 @@ public class ControleEvento {
     }
 
     public String listarEvento() {
-        if (eventos.isEmpty()) {
+        if (listaEventos.isEmpty()) {
             return "Não há eventos listados.";
         } else {
             StringBuilder sb = new StringBuilder();
-            for (Evento evento : eventos) {
+            for (Evento evento : listaEventos) {
                 sb.append(evento.toString()).append("\n");
             }
             return sb.toString(); 
