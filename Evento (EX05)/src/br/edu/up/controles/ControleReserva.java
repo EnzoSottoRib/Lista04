@@ -1,5 +1,6 @@
 package br.edu.up.controles;
 import br.edu.up.modelos.Reserva;
+import br.edu.up.modelos.Evento;
 
 public class ControleReserva {
      
@@ -31,7 +32,7 @@ public class ControleReserva {
         reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
         reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
 
-        
+
     }
 
     public void editarReserva() {
@@ -40,6 +41,10 @@ public class ControleReserva {
 
     public void excluirReserva() {
 
+    }
+
+    public void listarReserva() {
+        
     }
        
 }

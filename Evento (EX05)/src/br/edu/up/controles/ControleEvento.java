@@ -81,6 +81,8 @@ public class ControleEvento {
         evento = null;
     }
 
-    // ana: terminando
+    public void listarEvento() {
+        
+    }
     
 }
