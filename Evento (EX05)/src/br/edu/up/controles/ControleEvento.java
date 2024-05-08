@@ -1,9 +1,16 @@
 package br.edu.up.controles;
+import java.util.List;
+
+import br.edu.up.Compromisso;
 import br.edu.up.modelos.Evento;
 
 public class ControleEvento {
 
-    public void criarEvento(Evento evento) {
+    private List<Evento> eventos;
+
+    public void criarEvento() {
+
+        Evento evento = new Evento();
 
         evento.setNomeEvento(Prompt.lerLinha("Digite o nome do evento: "));
         
@@ -81,8 +88,16 @@ public class ControleEvento {
         evento = null;
     }
 
-    public void listarEvento() {
-        
+    public String listarEvento() {
+        if (eventos.isEmpty()) {
+            return "Não há eventos listados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (Evento evento : eventos) {
+                sb.append(evento.toString()).append("\n");
+            }
+            return sb.toString(); 
+            }
     }
     
 }
