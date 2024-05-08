@@ -1,8 +1,12 @@
 package br.edu.up.controles;
+
 import br.edu.up.modelos.Reserva;
+import java.util.List;
 import br.edu.up.modelos.Evento;
 
 public class ControleReserva {
+
+    private List<Reserva> listaReservas;
      
     public void criarReserva(Reserva reserva) {
         
@@ -32,10 +36,7 @@ public class ControleReserva {
         reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
         reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
 
-
-    }
-
-    public void valorTotal() {
+        listaReservas.add(reserva);
 
     }
 
@@ -44,7 +45,8 @@ public class ControleReserva {
     }
 
     public void listarReserva() {
-        
+        StringBuilder sb = new StringBuilder();
+
     }
        
 }
