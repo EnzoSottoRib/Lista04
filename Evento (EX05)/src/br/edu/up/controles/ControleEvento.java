@@ -2,10 +2,12 @@ package br.edu.up.controles;
 import java.util.List;
 
 import br.edu.up.modelos.Evento;
+import br.edu.up.modelos.Reserva;
 
 public class ControleEvento {
 
     private List<Evento> listaEventos;
+    private List<Reserva> listaReservas;
 
     public void criarEvento() {
 
@@ -101,6 +103,39 @@ public class ControleEvento {
                 sb.append("Evento ").append(index).append(":\n");
                 sb.append(evento.toString()).append("\n");
                 index++;
+            }
+    
+            return sb.toString(); 
+        }
+    }
+
+    public void criarReserva() {
+
+        Reserva reserva = new Reserva();
+
+        Prompt.imprimir("Defina o número de seu evento: ");
+        listarEvento();
+
+
+        reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
+        reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
+
+        listaReservas.add(reserva);
+
+    }
+
+    public void excluirReserva(Reserva reserva) {
+        listaReservas.remove(reserva);
+    }
+
+    public String listarReserva() {
+        if (listaReservas.isEmpty()) {
+            return "Não há reservas.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+    
+            for (Reserva reserva : listaReservas) {
+                sb.append(reserva.toString()).append("\n");
             }
     
             return sb.toString(); 
