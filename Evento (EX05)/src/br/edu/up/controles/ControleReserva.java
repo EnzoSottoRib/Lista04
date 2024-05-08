@@ -40,13 +40,22 @@ public class ControleReserva {
 
     }
 
-    public void excluirReserva() {
-
+    public void excluirReserva(Reserva reserva) {
+        reserva = null;
     }
 
-    public void listarReserva() {
-        StringBuilder sb = new StringBuilder();
-
+    public String listarReserva() {
+        if (listaReservas.isEmpty()) {
+            return "Não há reservas.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+    
+            for (Reserva reserva : listaReservas) {
+                sb.append(reserva.toString()).append("\n");
+            }
+    
+            return sb.toString(); 
+        }
     }
        
 }
