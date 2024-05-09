@@ -1,11 +1,12 @@
 
-import br.edu.up.controles.ControleEstacionamento;
+
+import br.edu.up.telas.MenuEstacionamento;
 
 public class Programa {
     public static void main(String[] args){
         
-            ControleEstacionamento controle = new ControleEstacionamento();
-            controle.executar();
+            MenuEstacionamento menu = new MenuEstacionamento();
+            menu.executar();
 
     }
 }

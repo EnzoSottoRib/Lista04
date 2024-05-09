@@ -15,39 +15,6 @@ public class ControleEstacionamento {
         this.estacionamento = new Estacionamento();
     }
 
-    public void executar() {
-        int opcao;
-        do {
-            opcao = exibirMenu();
-            switch (opcao) {
-                case 1:
-                    adicionarCarro();
-                    break;
-                case 2:
-                    removerCarro();
-                    break;
-                case 3:
-                    emitirRelatorio();
-                    break;
-                case 0:
-                    System.out.println("Saindo do sistema");
-                    break;
-                default:
-                    System.out.println("Opção inválida, tente novamente.");
-            }
-        } while (opcao != 0);
-    }
-
-    public int exibirMenu() {
-        System.out.println("\n-- Menu do Estacionamento --");
-        System.out.println("1- Adicionar carro");
-        System.out.println("2- Remover carro");
-        System.out.println("3- Emitir relatório");
-        System.out.println("0- Sair ");
-        System.out.print("Escolha uma opção: ");
-        return scanner.nextInt();
-    }
-
     public void adicionarCarro() {
         if (estacionamento.getVagasLivres() > 0) {
             Carro carro = lerDadosCarro();
@@ -77,4 +44,6 @@ public class ControleEstacionamento {
 
         return new Carro(modelo, placa, cor);
     }
+
+    
 }
