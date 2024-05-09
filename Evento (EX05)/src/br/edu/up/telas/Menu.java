@@ -38,7 +38,7 @@ public class Menu {
                 case 7 : controle.editarLotacaoMax(a); break;
                 case 8 : controle.editarIngressosVendidos(a); break;
                 case 9 : controle.editarPrecoIngressos(a); break;
-                case 0 : Prompt.imprimir("Saindo"); break;
+                case 0 : Prompt.imprimir("Saindo\n"); break;
                 default : Prompt.imprimir("Dígito inválido!\n");
             }
         } while (b != 0);
@@ -55,12 +55,29 @@ public class Menu {
                 switch (d) {
                     case 1 : controle.editarNomeResponsavel(c); break;
                     case 2 : controle.editarQtdePessoas(c); break;
-                    case 0 : Prompt.imprimir("Saindo"); break;
+                    case 0 : Prompt.imprimir("Saindo\n"); break;
                     default : Prompt.imprimir("Dígito inválido!\n"); break;
                 }
             } while (d != 0);
         }
+
+        if (n == 5) {
+            controle.listarEvento();
+        }
+
+        if (n == 6) {
+            controle.listarReserva();
+        }
         
+        if (n == 7) {
+            int f = controle.selecionarEvento();
+            controle.excluirEvento(f);
+        }
+
+        if (n == 8) {
+            int f = controle.selecionarEvento();
+            controle.excluirReserva(f);
+        }
     } while (n != 0);
 
 }
