@@ -27,7 +27,7 @@ public class Estacionamento {
                 vagas[i] = carro;
                 vagasLivres --;
                 entradas ++;
-                return "Carro adicionado na vaga" + i;
+                return "Carro adicionado na vaga!";
             }
         }
         return "Nenhuma vaga disponível!";
