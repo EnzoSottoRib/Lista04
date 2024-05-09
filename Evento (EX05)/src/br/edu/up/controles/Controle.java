@@ -162,5 +162,14 @@ public class Controle {
 
         return a;
     }
+
+    public int selecionarReserva() {
+
+        Prompt.imprimir("As seguintes reservas existem: ");
+        listarReserva();
+        int a = Prompt.lerInteiro("Defina o número de sua reserva: ");
+
+        return a;
+    }
     
 }

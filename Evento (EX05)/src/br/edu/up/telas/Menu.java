@@ -75,9 +75,10 @@ public class Menu {
         }
 
         if (n == 8) {
-            int f = controle.selecionarEvento();
+            int f = controle.selecionarReserva();
             controle.excluirReserva(f);
         }
+
     } while (n != 0);
 
 }
