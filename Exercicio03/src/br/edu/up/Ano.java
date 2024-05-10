@@ -6,7 +6,7 @@ public class Ano {
     boolean bissexto;
     Mes[] meses;
 
-    Ano(int ano, boolean bissexto) {
+    public Ano(int ano, boolean bissexto) {
 
         this.ano = ano;
         this.bissexto = bissexto;
