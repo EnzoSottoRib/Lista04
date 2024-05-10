@@ -1,10 +1,8 @@
 package br.edu.up;
-import java.util.Scanner;
 
 public class MenuCompromissos {
 
     private Ano ano;
-    private Mes[] meses;
 
     public void exibirMenu() {
 
