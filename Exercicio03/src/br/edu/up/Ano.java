@@ -11,34 +11,26 @@ public class Ano {
         this.ano = ano;
         this.bissexto = bissexto;
         this.meses = new Mes[12];
-        int dias = 28;
-
-            if (bissexto) {
-                dias = 29;
-            }
-
-            meses[1] = new Mes(dias, "Fevereiro");
 
     }
 
     // ana: em Ano a gente só colocou que quando o ano é bissexto fevereiro tem 29 dias
 
-    public void adicionarMes(Mes mes) {
+    public void adicionarMes(Mes mes, int nMes) {
 
-        for (int i = 0; i < meses.length; i++) {
-
+            mes.set
             int dias = 31; 
             String[] nome = new String[12];
             
-            if (i == 1 && bissexto) {
+            if (nMes == 1 && bissexto) {
                 dias = 29;
-            } else if (i == 1) {
+            } else if (nMes == 1) {
                 dias = 28;
-            } else if (i == 3 || i == 5 || i == 8 || i == 10) {
+            } else if (nMes == 3 || nMes == 5 || nMes == 8 || nMes == 10) {
                 dias = 30; 
             }
 
-            switch(i + 1) {
+            switch(nMes) {
                 case 1 : nome[0] = "Janeiro"; break;
                 case 2 : nome[1] = "Fevereiro"; break;
                 case 3 : nome[2] = "Março"; break;
@@ -53,7 +45,7 @@ public class Ano {
                 case 12 : nome[11] = "Dezembro"; break;
             }
 
-            meses[i] = new Mes(dias, nome[i]);
+            meses[nMes-1] = mes;
 
         }
 

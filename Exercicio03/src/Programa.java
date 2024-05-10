@@ -1,5 +1,10 @@
+import br.edu.up.telas.MenuAgendaC;
+
 public class Programa {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        MenuAgendaC menu = new MenuAgendaC();
+        menu.executar();
+        
     }
 }

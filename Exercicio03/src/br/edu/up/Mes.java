@@ -3,24 +3,19 @@ package br.edu.up;
 public class Mes {
     
     String nome;
-    // ana: eu preferi definir o atributo nome como String
     int qtdeDias;
     Dia[] dias;
 
     Mes (int qtdeDias, String nome) {
         this.qtdeDias = qtdeDias;
         this.nome = nome;
+        this.dias = new Dia[qtdeDias];
+        for (int i = 0; i < qtdeDias; i++) {
+            dias[i] = new Dia(i + 1);
+        }
     }
 
     public void adicionarCompromisso (Compromisso comp, int diaMes) {
-        if (dias == null || diaMes < 1 || diaMes > qtdeDias) {
-            System.out.println("Data inválida.");
-        }
-
-        if(dias[diaMes -1] == null) {
-            dias[diaMes - 1] = new Dia(diaMes);
-        }
-
         dias[diaMes - 1].adicionarCompromisso(comp);
     }
 
@@ -35,15 +30,8 @@ public class Mes {
         }
     }
     
-
-    public String listarCompromissos (String nomeMes) {
-        StringBuilder sb = new StringBuilder();
-        for (Dia dia : dias) {
-            if (dia != null && getNome().equalsIgnoreCase(nomeMes)) {
-                sb.append(dia.listarCompromissos()).append("\n");
-            }
-        }
-        return sb.toString(); 
+    public String listarCompromissos(int diaMes) {
+        return dias[diaMes - 1].listarCompromissos();
     }
 
     public String listarCompromissos() {

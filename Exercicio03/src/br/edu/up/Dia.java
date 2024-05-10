@@ -1,58 +1,32 @@
 package br.edu.up;
 
-import java.util.List;
-
 public class Dia {
     
     int diaMes;
-    List<Compromisso> compromissos;
-    // ana: preferi mudar pra lista, acho mais prático
+    Compromisso[] compromissos;
 
     Dia(int diaMes) {
         this.diaMes = diaMes;
+        this.compromissos = new Compromisso[24];
     }
 
     public void adicionarCompromisso(Compromisso comp) {
-
-        String pessoa = Prompt.lerLinha("Digite o nome da pessoa: ");
-        String local = Prompt.lerLinha("Digite o local: ");
-        String assunto = Prompt.lerLinha("Digite o assunto: ");
-        int hora = Prompt.lerInteiro("Digite a hora: ");
-
-        comp.setPessoa(pessoa);
-        comp.setLocal(local);
-        comp.setAssunto(assunto);
-        comp.setHora(hora);
-
-        System.out.println("Compromisso adicionado com sucesso! :)");
+        compromissos[comp.getHora()] = comp;
     }
 
-    public void consultarCompromisso(int hora) {
-        for (Compromisso comp : compromissos) {
-            // ana: o enhanced for loop é mais prático
-            if (comp.getHora() == hora) { 
-                System.out.println("Compromisso encontrado: ");
-                System.out.println(comp); 
-                return; 
-            }
-        }
-        System.out.println("Nenhum compromisso encontrado para o horário mencionado. ");
+    public Compromisso consultarCompromisso(int hora) {
+        return compromissos[hora];
     }
 
     public void excluirCompromisso (int hora) {
-        for (Compromisso comp : compromissos) {
-            if (comp.getHora() == hora) {
-                compromissos = null;
-                System.out.println("Compromisso removido com sucesso! :)");
-            }
-        }
-        System.out.println("Nenhum compromisso encontrado para o horário mencionado. ");
+        compromissos[hora] = null;
     }
 
     public String listarCompromissos() {
         StringBuilder sb = new StringBuilder();
         // ana: preferi usar o stringbuilder (e aprender o que é haha) ao string porque ele é mais prático, mutável, e administra melhor a memória :)
         for (Compromisso comp : compromissos) {
+            // ana: o for enhanced loop é mais prático
             sb.append(comp.toString()).append("\n");
             // ana: explicando o cógido: o append adiciona e vai concatenando (juntando) as infos (atributos) dos compromissos! o \n é pra quebrar a linha!
         }
