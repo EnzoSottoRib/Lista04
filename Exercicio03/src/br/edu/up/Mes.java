@@ -19,15 +19,8 @@ public class Mes {
         dias[diaMes - 1].adicionarCompromisso(comp);
     }
 
-    public void excluirCompromisso(String nomeMes, int diaMes, int hora) {
-        for (Dia dia : dias) {
-            if (dia != null && dia.getDiaMes() == diaMes) {
-                if (getNome().equalsIgnoreCase(nomeMes)) {
-                    dia.excluirCompromisso(hora);
-                    return;
-                }
-            }
-        }
+    public void excluirCompromisso(int diaMes, int hora) {
+        dias[diaMes - 1].excluirCompromisso(hora);
     }
     
     public String listarCompromissos(int diaMes) {
@@ -52,5 +45,12 @@ public class Mes {
         this.nome = nome;
     }
 
-    
+    public int getQtdeDias() {
+        return qtdeDias;
+    }
+
+    public void setQtdeDias(int qtdeDias) {
+        this.qtdeDias = qtdeDias;
+    }
+
 }
