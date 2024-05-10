@@ -14,7 +14,7 @@ public class Programa {
                 Pessoa pessoa = menu.registrarPessoa();
                 opcao2 = menu.tipoPessoa();
                 if(opcao2 == 1){
-                    Passageiro passageiro = menu.registrarPassageiro(nome, rg, );
+                    Passageiro passageiro = menu.registrarPassageiro(nome, rg, codigoAeronave);
                 } else {
                     Tripulacao tripulacao = menu.registrarTripulacao();
                 }
