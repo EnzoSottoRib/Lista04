@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class MenuCompromissos {
 
     private Ano ano;
+    private Mes[] mes;
 
     public MenuCompromissos(Ano ano) {
         this.ano = ano;
