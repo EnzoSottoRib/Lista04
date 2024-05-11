@@ -1,6 +1,7 @@
 package br.edu.up;
-import br.edu.up.Controle.*;
-import br.edu.up.Tela.MenuAgenda;
+import br.edu.up.controles.*;
+import br.edu.up.telas.MenuAgenda;
+
 import java.util.Scanner;
 
 public class Programa {
@@ -9,14 +10,6 @@ public class Programa {
         MenuAgenda menuAgenda = new MenuAgenda();
 
         menuAgenda.exibirMenu();
-        
-
-        
-
-        
-
-    
-
 
     }
 }

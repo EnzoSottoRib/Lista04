@@ -1,19 +1,19 @@
-package br.edu.up.Controle;
+package br.edu.up.modelos;
 
 public class Comercial extends Contato {
+
+    private String cnpj;
+
     public Comercial(int Codigo, String Nome, String Telefone) {
         super(Codigo, Nome, Telefone);
     }
 
-    private String Cnpj;
-
     public String getCnpj() {
-        return Cnpj;
+        return cnpj;
     }
 
     public void setCnpj(String cnpj) {
-        Cnpj = cnpj;
+        this.cnpj = cnpj;
     }
 
-    
 }

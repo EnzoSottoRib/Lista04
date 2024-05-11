@@ -1,5 +1,4 @@
-package br.edu.up.Controle;
-import br.edu.up.Controle.Contato;
+package br.edu.up.modelos;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,4 +16,5 @@ public class Agenda {
     public void adicionarContato(Contato contato) {
         listaContatos.add(contato);
     }
+    
 }
