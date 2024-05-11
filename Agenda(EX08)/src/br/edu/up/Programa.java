@@ -1,4 +1,5 @@
 package br.edu.up;
+import br.edu.up.Controle.*;
 import br.edu.up.Tela.MenuAgenda;
 import java.util.Scanner;
 
@@ -7,10 +8,10 @@ public class Programa {
         Scanner leitor = new Scanner(System.in);
         MenuAgenda menuAgenda = new MenuAgenda();
 
-        int escolha1;
-
         menuAgenda.exibirMenu();
-        escolha1 = leitor.nextInt();
+        
+
+        
 
         
 

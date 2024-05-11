@@ -1,15 +1,20 @@
 package br.edu.up.Controle;
+import br.edu.up.Controle.Contato;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Agenda {
-    private Contato contatos;
+    private List<Contato> listaContatos;
 
-    public Contato getContatos() {
-        return contatos;
+    public Agenda() {
+        this.listaContatos = new ArrayList<>();
     }
 
-    public void setContatos(Contato contatos) {
-        this.contatos = contatos;
+    public List<Contato> getListaContatos() {
+        return listaContatos;
     }
 
-    
+    public void adicionarContato(Contato contato) {
+        listaContatos.add(contato);
+    }
 }
