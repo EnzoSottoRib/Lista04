@@ -21,7 +21,7 @@ public class Agenda {
     public void listarContatos() {
         System.out.println("Lista de Contatos:");
         for (Contato contato : listaContatos) {
-            System.out.println(contato); // Supondo que você tenha implementado o método toString() na classe Contato
+            System.out.println(contato); // Supondo que você tenha implementado o método toString()  na classe Contato
         }
     }
 =======
