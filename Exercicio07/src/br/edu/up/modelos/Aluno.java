@@ -1,7 +1,5 @@
 package br.edu.up.modelos;
 
-import java.util.Arrays;
-
 public class Aluno extends Pessoa {
 
     Aprovado aprovado;
