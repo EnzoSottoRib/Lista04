@@ -11,7 +11,7 @@ public class MenuAgenda {
     Scanner leitor = new Scanner (System.in);
     int inicio = 0;
     Contato contato = new Contato(inicio, null, null);
-    Pessoal pessoal = new Pessoal(null);
+    Pessoal pessoal = new Pessoal(inicio, null, null, null);
     Agenda agenda = new Agenda();
     Comercial comercial = new Comercial(inicio, null, null, null);
 
@@ -29,13 +29,13 @@ public class MenuAgenda {
           opcao = leitor.nextInt();
   
           if (opcao == 1) {
-            Pessoal novoContatoPessoal = new Pessoal(null); // Cria um novo contato pessoal
+              Pessoal novoContatoPessoal = new Pessoal(opcao, null, null, null); 
               novoContatoPessoal.criarContato();
               pessoal.criarContatoPessoal();
               agenda.adicionarContato(novoContatoPessoal);
           }
           if (opcao == 2) {
-              Comercial novoContatoComercial = new Comercial(0, null, null, null); // Cria um novo contato comercial
+              Comercial novoContatoComercial = new Comercial(0, null, null, null); 
               novoContatoComercial.criarContato();
               comercial.criarContatoComercial();
               agenda.adicionarContato(novoContatoComercial);

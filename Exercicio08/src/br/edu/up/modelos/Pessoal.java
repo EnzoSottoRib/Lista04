@@ -7,8 +7,9 @@ public class Pessoal extends Contato {
 
     Scanner leitor = new Scanner(System.in);
 
-    public Pessoal(String aniversario) {
-        super(codigo, aniversario, aniversario);
+    public Pessoal(int Codigo, String Nome, String Telefone, String aniversario) {
+        super(Codigo, Nome, Telefone);
+        this.aniversario = aniversario;
     }
 
     public String getAniversario() {
@@ -20,7 +21,7 @@ public class Pessoal extends Contato {
     }
 
     public void criarContatoPessoal(){
-        Pessoal pessoal = new Pessoal(aniversario);
+        Pessoal pessoal = new Pessoal(getCodigo(), getNome(), getTelefone(), aniversario);
         System.out.printf("Digite o aniversário de seu contato: ");
         aniversario = leitor.nextLine();
     }
