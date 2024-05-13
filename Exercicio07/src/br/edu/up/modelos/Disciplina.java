@@ -10,6 +10,7 @@ public class Disciplina {
     Aluno[] alunos = new Aluno[30];
     Competencia competencia;
     int contadorAlunos;
+    boolean satisfatorio;
     
     public Disciplina(String nome, String id, Prof prof) {
         this.nome = nome;
@@ -76,6 +77,12 @@ public class Disciplina {
         this.contadorAlunos = contadorAlunos;
     }
 
-    
+    public boolean isSatisfatorio() {
+        return satisfatorio;
+    }
+
+    public void setSatisfatorio(boolean satisfatorio) {
+        this.satisfatorio = satisfatorio;
+    }
 
 }

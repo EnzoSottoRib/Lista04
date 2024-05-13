@@ -65,6 +65,9 @@ public class ControleAcademico {
 
         } while (c != 0);
         
+        Competencia competencia = new Competencia();
+        competencia.setDescricao(Prompt.lerLinha("Digite a descrição da competência"));
+        competencia.setNecessidade(null);
         /* ana: 
         falta adicionar prof: OK 
         e alunos: OK
