@@ -179,4 +179,9 @@ public class ControleAcademico {
     public void excluirDisciplina(int b) {
         vetorDisciplina[b] = null;
     }
+
+    public void editarAluno(int b) {
+        Prompt.imprimir("Informações atuais: ");
+        vetorAluno[b].toString();
+    }
 }
