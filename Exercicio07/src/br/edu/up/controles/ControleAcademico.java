@@ -66,12 +66,21 @@ public class ControleAcademico {
         } while (c != 0);
         
         Competencia competencia = new Competencia();
-        competencia.setDescricao(Prompt.lerLinha("Digite a descrição da competência"));
-        competencia.setNecessidade(null);
-        /* ana: 
-        falta adicionar prof: OK 
-        e alunos: OK
-        (e competencia):  */
+        competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
+
+        String comp = "A";
+        
+        do {
+            comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
+        } while (comp != "N" || comp != "C");
+
+        if (comp.equals("N")) {
+            competencia.setObrigatoria(true);
+        } else if (comp.equals("C")) {
+            competencia.setObrigatoria(false);
+        }
+
+        disciplina.setCompetencia(competencia);
 
         vetorDisciplina[d] = disciplina;
         d++;
