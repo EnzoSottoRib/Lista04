@@ -3,7 +3,7 @@ package br.edu.up.controles;
 import br.edu.up.modelos.*;
 import br.edu.up.Prompt;
 
-public class Controle {
+public class ControleAcademico {
     
     Aluno vetorAluno[] = new Aluno[600];
 
