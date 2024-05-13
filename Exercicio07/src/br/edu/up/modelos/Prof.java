@@ -4,6 +4,7 @@ public class Prof extends Pessoa {
     
     int nLattes;
     Titulacao titulacao;
+    Disciplina disciplina;
     
     public int getnLattes() {
         return nLattes;
@@ -18,6 +19,12 @@ public class Prof extends Pessoa {
         this.titulacao = titulacao;
     }
 
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
 
 }
 

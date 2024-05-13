@@ -46,4 +46,17 @@ public class Controle {
         p++;
     }
 
+    public void adicionarDisciplina() {
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
+        disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
+        
+        // falta adicionar prof e alunos
+
+        vetorDisciplina[d] = disciplina;
+        d++;
+    }
+
+    
+
 }
