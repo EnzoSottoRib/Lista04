@@ -135,4 +135,38 @@ public class ControleAcademico {
         return a;
     }
 
+    public int consultarAluno() {
+        Aluno aluno = new Aluno();
+        aluno.setRg(Prompt.lerLinha("Digite o RG do aluno: "));
+        for (int a = 0; a < vetorAluno.length; a++) {
+            if (aluno.getRg() == vetorAluno[a].getRg()) {
+                break;
+            }
+        }
+        return a;
+    }
+
+    public int consultarProf() {
+        Prof prof = new Prof();
+        prof.setRg(Prompt.lerLinha("Digite o RG do professor: "));
+        for (int a = 0; a < vetorProf.length; a++) {
+            if (prof.getRg() == vetorProf[a].getRg()) {
+                break;
+            }
+        }
+        return a;
+    }
+
+    public int consultarDisciplina() {
+        Disciplina disciplina = new Disciplina();
+        disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
+        for (int a = 0; a < vetorDisciplina.length; a++) {
+            if (disciplina.getId() == vetorDisciplina[a].getId()) {
+                break;
+            }
+        }
+        return a;
+    }
+
+    
 }
