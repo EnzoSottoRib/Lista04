@@ -1,5 +1,7 @@
 package br.edu.up.modelos;
 
+import java.util.Arrays;
+
 public class Aluno extends Pessoa {
 
     Disciplina[] disciplinas[];
@@ -15,5 +17,12 @@ public class Aluno extends Pessoa {
     public enum Aprovado {
         APROVADO, REPROVADO, PENDENTE
     }
+
+    @Override
+    public String toString() {
+        return "Aluno [nome=" + nome + ", rg=" + rg + ", disciplinas=" + Arrays.toString(disciplinas) + ", matricula="
+                + matricula + ", aprovado=" + aprovado + "]";
+    }
+
     
 }

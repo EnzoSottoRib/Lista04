@@ -1,5 +1,7 @@
 package br.edu.up.modelos;
 
+import java.util.Arrays;
+
 public class Disciplina {
     
     String nome;
@@ -59,5 +61,13 @@ public class Disciplina {
     public void setCompetencia(Competencia competencia) {
         this.competencia = competencia;
     }
+
+    @Override
+    public String toString() {
+        return "Disciplina [nome=" + nome + ", id=" + id + ", prof=" + prof + ", alunos=" + Arrays.toString(alunos)
+                + ", competencia=" + competencia + ", contadorAlunos=" + contadorAlunos + "]";
+    }
+
+    
 
 }

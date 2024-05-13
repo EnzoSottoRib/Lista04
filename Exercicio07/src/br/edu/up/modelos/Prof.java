@@ -25,6 +25,12 @@ public class Prof extends Pessoa {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
+    
+    @Override
+    public String toString() {
+        return "Prof [nome=" + nome + ", nLattes=" + nLattes + ", rg=" + rg + ", matricula=" + matricula
+                + ", titulacao=" + titulacao + ", disciplina=" + disciplina + "]";
+    }
 
 }
 
