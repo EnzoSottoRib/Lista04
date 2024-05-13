@@ -51,12 +51,61 @@ public class Controle {
         disciplina.setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
         disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
         
-        // falta adicionar prof e alunos
+        // ana: falta adicionar prof e alunos
 
         vetorDisciplina[d] = disciplina;
         d++;
     }
 
+    public String listarAlunos() {
+        if (vetorAluno == null) {
+            return "Não há alunos registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
     
+            for (Aluno aluno : vetorAluno) {
+                sb.append("Aluno ").append(index).append(":\n");
+                sb.append(aluno.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString(); 
+        }
+    }
+
+    public String listarProf() {
+        if (vetorProf == null) {
+            return "Não há professores registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (Prof prof : vetorProf) {
+                sb.append("Prof ").append(index).append(":\n");
+                sb.append(prof.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString(); 
+        }
+    }
+
+    public String listarDisciplina() {
+        if (vetorDisciplina == null) {
+            return "Não há disciplinas registradas.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (Disciplina disciplina : vetorDisciplina) {
+                sb.append("Disciplina ").append(index).append(":\n");
+                sb.append(disciplina.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString(); 
+        }
+    }
 
 }
