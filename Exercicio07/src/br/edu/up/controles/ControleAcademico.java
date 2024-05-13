@@ -86,10 +86,6 @@ public class ControleAcademico {
         d++;
     }
 
-    public void adicionarAlunoDisciplina() {
-        
-    }
-
     public String listarAlunos() {
         if (vetorAluno == null) {
             return "Não há alunos registrados.";
@@ -213,7 +209,13 @@ public class ControleAcademico {
         vetorDisciplina[b] = null;
     }
 
-    public void editarAluno(int b) {
-        
+    public void editarNomeAluno() {
+        int a = selecionarAluno();
+        vetorAluno[a].setNome(Prompt.lerLinha("Digite o nome do aluno: "));
+    }
+
+    public void editarNomeProf() {
+        int a = selecionarProf();
+        vetorProf[a].setNome(Prompt.lerLinha("Digite o nome do professor: "));
     }
 }
