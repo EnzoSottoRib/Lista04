@@ -1,6 +1,7 @@
 package br.edu.up.modelos;
 
 public class Competencia {
+    
     String descricao;
     Necessidade necessidade;
 

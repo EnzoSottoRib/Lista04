@@ -5,18 +5,19 @@ public class Disciplina {
     String nome;
     String id;
     Prof prof;
-    int cargaHoraria;
-    Aluno[] alunos;
-    Competencia curriculo;
+    Aluno[] alunos = new Aluno[30];
+    Competencia competencia;
+    int contadorAlunos;
     
-    public Disciplina(String nome, String id, Prof prof, int cargaHoraria) {
+    public Disciplina(String nome, String id, Prof prof) {
         this.nome = nome;
         this.id = id;
         this.prof = prof;
-        this.cargaHoraria = cargaHoraria;
+        contadorAlunos = 0;
     }
 
     public Disciplina() {
+        contadorAlunos = 0;
     }
 
     public String getNome() {
@@ -43,14 +44,6 @@ public class Disciplina {
         this.prof = prof;
     }
 
-    public int getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
     public Aluno[] getAlunos() {
         return alunos;
     }
@@ -59,12 +52,12 @@ public class Disciplina {
         this.alunos = alunos;
     }
 
-    public Competencia getCurriculo() {
-        return curriculo;
+    public Competencia getCompetencia() {
+        return competencia;
     }
 
-    public void setCurriculo(Competencia curriculo) {
-        this.curriculo = curriculo;
+    public void setCompetencia(Competencia competencia) {
+        this.competencia = competencia;
     }
 
 }

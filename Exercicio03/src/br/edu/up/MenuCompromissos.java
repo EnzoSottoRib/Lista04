@@ -8,7 +8,11 @@ public class MenuCompromissos {
 
         int anoAtual = Prompt.lerInteiro("Informe o ano atual: ");
         String b = Prompt.lerLinha("O ano é bissexto? (S/N): ");
-        boolean bissexto = b.equalsIgnoreCase("s");
+        boolean bissexto = false;
+        
+        if (b.equalsIgnoreCase("s")) {
+            bissexto = true;
+        }
 
         Mes meses[] = new Mes[12];
         ano = new Ano(anoAtual, bissexto);

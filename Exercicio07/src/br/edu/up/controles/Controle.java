@@ -5,9 +5,9 @@ import br.edu.up.Prompt;
 
 public class Controle {
     
-    Aluno vetorAluno[] = new Aluno[1000];
-    Prof vetorProf[] = new Prof[50];
-    Disciplina vetorDisciplina[] = new Disciplina[50];
+    Aluno vetorAluno[] = new Aluno[600];
+    Prof vetorProf[] = new Prof[30];
+    Disciplina vetorDisciplina[] = new Disciplina[30];
 
     int a = 0;
     int p = 0;
