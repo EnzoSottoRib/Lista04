@@ -50,11 +50,33 @@ public class ControleAcademico {
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
         disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
+
+        int a = selecionarProf();
+        disciplina.setProf(vetorProf[a]);
+
+        int c = 0;
+
+        do {
+
+            Prompt.imprimir("Digite 0 para sair: ");
+            int b = consultarAluno();
+            disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[b];
+            disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+
+        } while (c != 0);
         
-        // ana: falta adicionar prof e alunos
+        /* ana: 
+        falta adicionar prof: OK 
+        e alunos: OK
+        (e competencia):  */
 
         vetorDisciplina[d] = disciplina;
         d++;
+    }
+
+    public void adicionarAlunoDisciplina() {
+        selecionarAluno();
+        
     }
 
     public String listarAlunos() {

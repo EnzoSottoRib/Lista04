@@ -68,6 +68,14 @@ public class Disciplina {
                 + ", competencia=" + competencia + ", contadorAlunos=" + contadorAlunos + "]";
     }
 
+    public int getContadorAlunos() {
+        return contadorAlunos;
+    }
+
+    public void setContadorAlunos(int contadorAlunos) {
+        this.contadorAlunos = contadorAlunos;
+    }
+
     
 
 }
