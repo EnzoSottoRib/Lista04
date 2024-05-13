@@ -1,16 +1,19 @@
 package br.edu.up.modelos;
 
 public class Competencia {
-    
     String descricao;
-    boolean necessario;
-    
-    public Competencia(String descricao, boolean necessario) {
+    Necessidade necessidade;
+
+    public Competencia(String descricao, Necessidade necessidade) {
         this.descricao = descricao;
-        this.necessario = necessario;
+        this.necessidade = necessidade;
     }
 
     public Competencia() {
+    }
+
+    public enum Necessidade {
+        NECESSARIO, COMPLEMENTAR
     }
 
     public String getDescricao() {
@@ -21,12 +24,11 @@ public class Competencia {
         this.descricao = descricao;
     }
 
-    public boolean isNecessario() {
-        return necessario;
+    public Necessidade getNecessidade() {
+        return necessidade;
     }
 
-    public void setNecessario(boolean necessario) {
-        this.necessario = necessario;
+    public void setNecessidade(Necessidade necessidade) {
+        this.necessidade = necessidade;
     }
-
 }

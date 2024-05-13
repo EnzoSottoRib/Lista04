@@ -18,7 +18,6 @@ public class Controle {
         aluno.setNome(Prompt.lerLinha("Digite o nome do aluno: "));
         aluno.setRg(Prompt.lerLinha("Digite o RG do aluno: "));
         aluno.setMatricula(Prompt.lerLinha("Digite a matrícula do aluno: "));
-        aluno.set
     }
 
 }
