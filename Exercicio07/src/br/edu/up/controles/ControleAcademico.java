@@ -181,7 +181,6 @@ public class ControleAcademico {
     }
 
     public void editarAluno(int b) {
-        Prompt.imprimir("Informações atuais: ");
-        vetorAluno[b].toString();
+        
     }
 }
