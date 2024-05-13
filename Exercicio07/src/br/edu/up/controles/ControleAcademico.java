@@ -108,4 +108,31 @@ public class ControleAcademico {
         }
     }
 
+    public int selecionarAluno() {
+
+        Prompt.imprimir("Os seguintes alunos estão registrados: ");
+        listarAlunos();
+        int a = Prompt.lerInteiro("Defina o índice de seu aluno: ");
+
+        return a;
+    }
+
+    public int selecionarProf() {
+
+        Prompt.imprimir("Os seguintes professores estão registrados: ");
+        listarProf();
+        int a = Prompt.lerInteiro("Defina o índice de seu professor: ");
+
+        return a;
+    }
+
+    public int selecionarDisciplina() {
+
+        Prompt.imprimir("As seguintes disciplinas estão registrados: ");
+        listarDisciplina();
+        int a = Prompt.lerInteiro("Defina o índice de sua disciplina: ");
+
+        return a;
+    }
+
 }
