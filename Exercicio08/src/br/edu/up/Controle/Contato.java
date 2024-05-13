@@ -1,6 +1,7 @@
 package br.edu.up.Controle;
 import java.util.Scanner;
 
+
 public class Contato {
 
     static int Codigo;
@@ -8,10 +9,10 @@ public class Contato {
     private String Telefone;
     Scanner leitor = new Scanner(System.in);
     
-public Contato(int Codigo, String Nome, String Telefone){
+public Contato(int Codigo, String cnpj, String cnpj2){
     this.Codigo = Codigo;
-    this.Nome = Nome;
-    this.Telefone = Telefone;
+    this.Nome = cnpj;
+    this.Telefone = cnpj2;
 }
 
 public int getCodigo() {

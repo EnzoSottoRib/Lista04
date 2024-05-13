@@ -8,6 +8,7 @@ public class Programa {
         Scanner leitor = new Scanner(System.in);
         MenuAgenda menuAgenda = new MenuAgenda();
 
+        
         menuAgenda.exibirMenu();
         
 

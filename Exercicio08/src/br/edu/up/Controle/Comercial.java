@@ -1,8 +1,12 @@
 package br.edu.up.Controle;
+import java.util.Scanner;
 
 public class Comercial extends Contato {
-    public Comercial(int Codigo, String Nome, String Telefone) {
-        super(Codigo, Nome, Telefone);
+
+    Scanner leitor = new Scanner(System.in);
+
+    public Comercial(String Cnpj) {
+        super(Codigo, Cnpj, Cnpj);
     }
 
     private String Cnpj;
@@ -13,6 +17,12 @@ public class Comercial extends Contato {
 
     public void setCnpj(String cnpj) {
         Cnpj = cnpj;
+    }
+
+    public void criarContatoComercial(){
+        Comercial comercial = new Comercial(Cnpj);
+        System.out.printf("Digite o CNPJ de seu contato: ");
+        Cnpj = leitor.nextLine();
     }
 
     
