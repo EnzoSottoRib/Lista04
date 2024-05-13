@@ -8,7 +8,7 @@ public class Programa {
     public static void main(String[] args) throws Exception {
         Scanner leitor = new Scanner(System.in);
         MenuAgenda menuAgenda = new MenuAgenda();
-
+        
         
         menuAgenda.exibirMenu();
 

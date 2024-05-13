@@ -16,15 +16,28 @@ public class Agenda {
     public void adicionarContato(Contato contato) {
         listaContatos.add(contato);
     }
-<<<<<<< HEAD:Exercicio08/src/br/edu/up/Controle/Agenda.java
+
 
     public void listarContatos() {
         System.out.println("Lista de Contatos:");
         for (Contato contato : listaContatos) {
-            System.out.println(contato); // Supondo que você tenha implementado o método toString() na classe Contato
+            System.out.println(contato); 
         }
     }
-=======
-    
->>>>>>> bc95d46a08d3e32aab7ec2c2047028c123581021:Exercicio08/src/br/edu/up/modelos/Agenda.java
+
+    public void excluirContato(int codigo) {
+        boolean contatoEncontrado = false;
+        for (Contato contato : listaContatos) {
+            if (contato.getCodigo() == codigo) {
+                listaContatos.remove(contato);
+                System.out.println("Contato removido com sucesso.");
+                contatoEncontrado = true;
+                break; // Para evitar a ConcurrentModificationException
+            }
+        }
+        if (!contatoEncontrado) {
+            System.out.println("Nenhum contato encontrado com o código especificado.");
+        }
+    }
 }
+

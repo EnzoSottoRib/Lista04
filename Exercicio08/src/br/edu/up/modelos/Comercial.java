@@ -1,23 +1,14 @@
-<<<<<<< HEAD:Exercicio08/src/br/edu/up/Controle/Comercial.java
-package br.edu.up.Controle;
+package br.edu.up.modelos;
+
 import java.util.Scanner;
 
 public class Comercial extends Contato {
-
+    private String cnpj;
     Scanner leitor = new Scanner(System.in);
 
-    public Comercial(String Cnpj) {
-        super(Codigo, Cnpj, Cnpj);
-=======
-package br.edu.up.modelos;
-
-public class Comercial extends Contato {
-
-    private String cnpj;
-
-    public Comercial(int Codigo, String Nome, String Telefone) {
+    public Comercial(int Codigo, String Nome, String Telefone, String cnpj) {
         super(Codigo, Nome, Telefone);
->>>>>>> bc95d46a08d3e32aab7ec2c2047028c123581021:Exercicio08/src/br/edu/up/modelos/Comercial.java
+        this.cnpj = cnpj;
     }
 
     public String getCnpj() {
@@ -28,14 +19,14 @@ public class Comercial extends Contato {
         this.cnpj = cnpj;
     }
 
-<<<<<<< HEAD:Exercicio08/src/br/edu/up/Controle/Comercial.java
     public void criarContatoComercial(){
-        Comercial comercial = new Comercial(Cnpj);
         System.out.printf("Digite o CNPJ de seu contato: ");
-        Cnpj = leitor.nextLine();
+        cnpj = leitor.nextLine();
+        Comercial comercial = new Comercial(getCodigo(), getNome(), getTelefone(), cnpj);
     }
 
+
     
-=======
->>>>>>> bc95d46a08d3e32aab7ec2c2047028c123581021:Exercicio08/src/br/edu/up/modelos/Comercial.java
 }
+
+    
