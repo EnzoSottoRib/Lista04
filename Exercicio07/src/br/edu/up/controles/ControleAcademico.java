@@ -168,5 +168,15 @@ public class ControleAcademico {
         return a;
     }
 
-    
+    public void excluirAluno(int b) {
+        vetorAluno[b] = null;
+    }
+
+    public void excluirProf(int b) {
+        vetorProf[b] = null;
+    }
+
+    public void excluirDisciplina(int b) {
+        vetorDisciplina[b] = null;
+    }
 }
