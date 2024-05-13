@@ -1,16 +1,16 @@
 package br.edu.up.modelos;
 
-public class Curriculo {
+public class Competencia {
     
     String descricao;
     boolean necessario;
     
-    public Curriculo(String descricao, boolean necessario) {
+    public Competencia(String descricao, boolean necessario) {
         this.descricao = descricao;
         this.necessario = necessario;
     }
 
-    public Curriculo() {
+    public Competencia() {
     }
 
     public String getDescricao() {

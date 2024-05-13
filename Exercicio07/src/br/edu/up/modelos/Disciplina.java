@@ -6,8 +6,8 @@ public class Disciplina {
     String id;
     Prof prof;
     int cargaHoraria;
-    Aluno[] alunos; // ??
-    Curriculo curriculo;
+    Aluno[] alunos;
+    Competencia curriculo;
     
     public Disciplina(String nome, String id, Prof prof, int cargaHoraria) {
         this.nome = nome;
@@ -59,11 +59,11 @@ public class Disciplina {
         this.alunos = alunos;
     }
 
-    public Curriculo getCurriculo() {
+    public Competencia getCurriculo() {
         return curriculo;
     }
 
-    public void setCurriculo(Curriculo curriculo) {
+    public void setCurriculo(Competencia curriculo) {
         this.curriculo = curriculo;
     }
 
