@@ -30,7 +30,7 @@ public class Prompt {
 	}
 
 	/**
-	 * Imprime uma linha separadora  no console.
+	 * Imprime uma linha separadora no console.
 	 */
 	public static void separador() {
 		imprimir("---------------------------------------------------");
