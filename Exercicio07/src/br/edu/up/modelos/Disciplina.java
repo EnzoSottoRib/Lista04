@@ -9,7 +9,6 @@ public class Disciplina {
     Prof prof;
     Aluno[] alunos = new Aluno[30];
     Competencia[] competencias = new Competencia[4];
-    int contadorCompetencia;
     int contadorAlunos;
     
     public Disciplina(String nome, String id, Prof prof) {
@@ -17,12 +16,10 @@ public class Disciplina {
         this.id = id;
         this.prof = prof;
         contadorAlunos = 0;
-        contadorCompetencia = 0;
     }
 
     public Disciplina() {
         contadorAlunos = 0;
-        contadorCompetencia = 0;
     }
 
     public String getNome() {
@@ -65,14 +62,6 @@ public class Disciplina {
         this.competencias = competencias;
     }
 
-    public int getContadorCompetencia() {
-        return contadorCompetencia;
-    }
-
-    public void setContadorCompetencia(int contadorCompetencia) {
-        this.contadorCompetencia = contadorCompetencia;
-    }
-
     public int getContadorAlunos() {
         return contadorAlunos;
     }
@@ -84,8 +73,7 @@ public class Disciplina {
     @Override
     public String toString() {
         return "Disciplina [nome=" + nome + ", id=" + id + ", prof=" + prof + ", alunos=" + Arrays.toString(alunos)
-                + ", competencias=" + Arrays.toString(competencias) + ", contadorCompetencia=" + contadorCompetencia
-                + ", contadorAlunos=" + contadorAlunos + "]";
+                + ", competencias=" + Arrays.toString(competencias) + "]";
     }
 
 }

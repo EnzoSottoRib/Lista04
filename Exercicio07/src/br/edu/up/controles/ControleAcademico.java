@@ -64,23 +64,27 @@ public class ControleAcademico {
             disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
 
         } while (c != 0);
-        
-        Competencia competencia = new Competencia();
-        competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
 
-        String comp = "A";
-        
-        do {
-            comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
-        } while (comp != "N" || comp != "C");
+        c = 1;
 
-        if (comp.equals("N")) {
-            competencia.setObrigatoria(true);
-        } else if (comp.equals("C")) {
-            competencia.setObrigatoria(false);
+        for (int i = 0; i < 4; i++) {
+            Competencia competencia = new Competencia();
+            competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
+    
+            String comp = "A";
+            
+            do {
+                comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
+            } while (comp != "N" || comp != "C");
+    
+            if (comp.equals("N")) {
+                competencia.setObrigatoria(true);
+            } else if (comp.equals("C")) {
+                competencia.setObrigatoria(false);
+            }
+    
+            disciplina.getCompetencias()[i] = competencia;
         }
-
-        disciplina.setCompetencia(competencia);
 
         vetorDisciplina[d] = disciplina;
         d++;
