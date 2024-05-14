@@ -291,4 +291,43 @@ public class ControleAcademico {
         vetorProf[b].setDisciplina(vetorDisciplina[a]);
     }
 
+    public void aprovado() {
+        Prompt.imprimir("Qual sua disciplina? ");
+        int a = selecionarDisciplina();
+
+        for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
+
+            int contadorNecessaria = 0;
+            int contadorComplementar = 0;
+            int satisfatoriaN = 0;
+            int satisfatoriaC = 0;
+
+            Prompt.imprimir("Aluno: " + vetorDisciplina[a].getAlunos()[i].getNome() + "\nRGM: " + vetorDisciplina[a].getAlunos()[i].getMatricula());
+
+            for (int j = 0; j < vetorDisciplina[a].getCompetencias().length; j++) {
+                Prompt.imprimir("Competência: " + vetorDisciplina[a].getCompetencias()[j].getDescricao());
+                
+                String satisfatorio = "";
+
+                do {
+                    satisfatorio = Prompt.lerLinha("Digite S para satisfatório e I para insastifatório: ");
+                } while (satisfatorio != "S" || satisfatorio != "I");
+
+                if (vetorDisciplina[a].getCompetencias()[j].isObrigatoria()) {
+                    contadorNecessaria++;
+
+                    if (satisfatorio == "S") {
+                        satisfatoriaN++;
+                    }
+                } else {
+                    contadorComplementar++;
+
+                    if (satisfatorio == "S") {
+                        satisfatoriaN++;
+                    }
+                }
+            }
+        }
+    }
+
 }
