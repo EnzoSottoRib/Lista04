@@ -218,4 +218,22 @@ public class ControleAcademico {
         int a = selecionarProf();
         vetorProf[a].setNome(Prompt.lerLinha("Digite o nome do professor: "));
     }
+
+    public void editarTitulacao() {
+        int a = selecionarProf();
+
+        Titulacao titulacao = new Titulacao();
+        titulacao.setAno(Prompt.lerInteiro("Digite o ano de conclusão: "));
+        titulacao.setNomeInstituicao(Prompt.lerLinha("Digite o nome da instituição"));
+        titulacao.setTituloObtido(Prompt.lerLinha("Digite o título obtido: "));
+        titulacao.setTituloTCC(Prompt.lerLinha("Digite o título do TCC: "));
+
+        vetorProf[a].setTitulacao(titulacao);
+    }
+
+    public void editarNomeDisciplina() {
+        int a = selecionarDisciplina();
+
+        vetorDisciplina[a].setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
+    }
 }
