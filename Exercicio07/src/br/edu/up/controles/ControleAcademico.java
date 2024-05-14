@@ -291,10 +291,4 @@ public class ControleAcademico {
         vetorProf[b].setDisciplina(vetorDisciplina[a]);
     }
 
-    public void editarAlunoDisciplina() {
-        listarAlunosDisciplina();
-        Prompt.imprimir("Digite o índice do aluno que deseja atualizar o nome: ");
-
-
-    }
 }
