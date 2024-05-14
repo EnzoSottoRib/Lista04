@@ -327,6 +327,31 @@ public class ControleAcademico {
                     }
                 }
             }
+
+           float mediaN = satisfatoriaN / contadorNecessaria;
+           float mediaC = satisfatoriaC / contadorComplementar; 
+
+           if (mediaN == 1.0 && mediaC >= 0.5) {
+                vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.APROVADO);
+           } else if (mediaN < 0.5 && mediaC < 0.5) {
+               vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.REPROVADO);
+           } else {
+               vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.PENDENTE);
+           }
+        }
+
+        for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
+            switch (vetorDisciplina[a].getAlunos()[i].getAprovado()) {
+                case APROVADO : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Aprovado!");
+                break;
+                case PENDENTE : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Pendente!");
+                break;
+                case REPROVADO : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Reprovado!");
+                break;
+            }
         }
     }
 
