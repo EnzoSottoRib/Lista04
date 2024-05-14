@@ -156,6 +156,33 @@ public class ControleAcademico {
         }
     }
 
+    public String listarAlunosDisciplina() {
+        int a = selecionarDisciplina();
+    
+        if (a >= 0 && a < vetorDisciplina.length) {
+            Disciplina disciplina = vetorDisciplina[a];
+    
+            if (disciplina.getAlunos() == null) {
+                return "Não há alunos registrados nesta disciplina.";
+            } else {
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+    
+                for (Aluno aluno : disciplina.getAlunos()) {
+                    if (aluno != null) { 
+                        sb.append("Aluno ").append(index).append(":\n");
+                        sb.append(aluno.toString()).append("\n");
+                        index++;
+                    }
+                }
+    
+                return sb.toString(); 
+            }
+        } else {
+            return "Disciplina não encontrada.";
+        }
+    }    
+
     public int selecionarAluno() {
 
         Prompt.imprimir("Os seguintes alunos estão registrados: ");
@@ -258,6 +285,15 @@ public class ControleAcademico {
 
     public void editarProfDisciplina() {
         int a = selecionarDisciplina();
+
+        int b = selecionarProf();
+        vetorDisciplina[a].setProf(vetorProf[b]);
+        vetorProf[b].setDisciplina(vetorDisciplina[a]);
+    }
+
+    public void editarAlunoDisciplina() {
+        listarAlunosDisciplina();
+        Prompt.imprimir("Digite o índice do aluno que deseja atualizar o nome: ");
 
 
     }
