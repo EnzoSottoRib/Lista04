@@ -1,4 +1,4 @@
-package br.edu.up.modelos;
+package br.edu.up.controles;
 import java.util.Scanner;
 
 public class Contato {

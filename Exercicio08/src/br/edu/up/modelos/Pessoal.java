@@ -1,6 +1,8 @@
 package br.edu.up.modelos;
 import java.util.Scanner;
 
+import br.edu.up.controles.Contato;
+
 public class Pessoal extends Contato {
 
     private String aniversario;

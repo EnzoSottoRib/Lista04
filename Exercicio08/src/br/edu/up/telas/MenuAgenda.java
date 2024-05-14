@@ -2,9 +2,7 @@ package br.edu.up.telas;
 import java.util.Scanner;
 
 import br.edu.up.controles.*;
-import br.edu.up.modelos.Agenda;
 import br.edu.up.modelos.Comercial;
-import br.edu.up.modelos.Contato;
 import br.edu.up.modelos.Pessoal;
 
 public class MenuAgenda {

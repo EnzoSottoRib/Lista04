@@ -1,4 +1,4 @@
-package br.edu.up.modelos;
+package br.edu.up.controles;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -21,11 +21,9 @@ public class Agenda {
     public void listarContatos() {
         System.out.println("Lista de Contatos:");
         for (Contato contato : listaContatos) {
-<<<<<<< HEAD
+
             System.out.println(contato); 
-=======
-            System.out.println(contato); // Supondo que você tenha implementado o método toString()  na classe Contato
->>>>>>> 30fc90256ac9f1bb6925cd21adedc471ff8deef2
+            
         }
     }
 

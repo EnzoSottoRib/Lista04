@@ -2,6 +2,8 @@ package br.edu.up.modelos;
 
 import java.util.Scanner;
 
+import br.edu.up.controles.Contato;
+
 public class Comercial extends Contato {
     private String cnpj;
     Scanner leitor = new Scanner(System.in);
