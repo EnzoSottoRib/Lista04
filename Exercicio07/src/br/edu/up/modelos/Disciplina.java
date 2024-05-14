@@ -8,19 +8,21 @@ public class Disciplina {
     String id;
     Prof prof;
     Aluno[] alunos = new Aluno[30];
-    Competencia competencia;
+    Competencia[] competencias = new Competencia[4];
+    int contadorCompetencia;
     int contadorAlunos;
-    boolean satisfatorio;
     
     public Disciplina(String nome, String id, Prof prof) {
         this.nome = nome;
         this.id = id;
         this.prof = prof;
         contadorAlunos = 0;
+        contadorCompetencia = 0;
     }
 
     public Disciplina() {
         contadorAlunos = 0;
+        contadorCompetencia = 0;
     }
 
     public String getNome() {
@@ -55,18 +57,20 @@ public class Disciplina {
         this.alunos = alunos;
     }
 
-    public Competencia getCompetencia() {
-        return competencia;
+    public Competencia[] getCompetencias() {
+        return competencias;
     }
 
-    public void setCompetencia(Competencia competencia) {
-        this.competencia = competencia;
+    public void setCompetencias(Competencia[] competencias) {
+        this.competencias = competencias;
     }
 
-    @Override
-    public String toString() {
-        return "Disciplina [nome=" + nome + ", id=" + id + ", prof=" + prof + ", alunos=" + Arrays.toString(alunos)
-                + ", competencia=" + competencia + ", contadorAlunos=" + contadorAlunos + "]";
+    public int getContadorCompetencia() {
+        return contadorCompetencia;
+    }
+
+    public void setContadorCompetencia(int contadorCompetencia) {
+        this.contadorCompetencia = contadorCompetencia;
     }
 
     public int getContadorAlunos() {
@@ -77,12 +81,11 @@ public class Disciplina {
         this.contadorAlunos = contadorAlunos;
     }
 
-    public boolean isSatisfatorio() {
-        return satisfatorio;
-    }
-
-    public void setSatisfatorio(boolean satisfatorio) {
-        this.satisfatorio = satisfatorio;
+    @Override
+    public String toString() {
+        return "Disciplina [nome=" + nome + ", id=" + id + ", prof=" + prof + ", alunos=" + Arrays.toString(alunos)
+                + ", competencias=" + Arrays.toString(competencias) + ", contadorCompetencia=" + contadorCompetencia
+                + ", contadorAlunos=" + contadorAlunos + "]";
     }
 
 }
