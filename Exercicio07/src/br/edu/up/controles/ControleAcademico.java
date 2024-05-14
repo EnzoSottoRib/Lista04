@@ -50,32 +50,47 @@ public class ControleAcademico {
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
         disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
-
+    
         int a = selecionarProf();
         disciplina.setProf(vetorProf[a]);
-
+        vetorProf[a].setDisciplina(vetorDisciplina[d]);
+    
         int c = 0;
-
+    
         do {
+            
+            if (disciplina.getContadorAlunos() >= 30) {
+                Prompt.imprimir("Turma cheia.");
+                c = 0;
+                break;
+            }
 
             Prompt.imprimir("Digite 0 para sair: ");
             int b = consultarAluno();
-            disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[b];
-            disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+
+            if (vetorAluno[b].getContadorDisciplina() >= 5) {
+                Prompt.imprimir("O aluno não tem espaço para novas disciplinas.");
+            } else {
+                disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[b];
+                disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+    
+                vetorAluno[b].getDisciplinas()[vetorAluno[b].getContadorDisciplina()] = vetorDisciplina[d];
+                vetorAluno[b].setContadorDisciplina(vetorAluno[b].getContadorDisciplina() + 1);
+            }
 
         } while (c != 0);
-
+    
         c = 1;
-
+    
         for (int i = 0; i < 4; i++) {
             Competencia competencia = new Competencia();
             competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
     
             String comp = "A";
-            
+    
             do {
                 comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
-            } while (comp != "N" || comp != "C");
+            } while (!comp.equals("N") && !comp.equals("C"));
     
             if (comp.equals("N")) {
                 competencia.setObrigatoria(true);
@@ -85,10 +100,10 @@ public class ControleAcademico {
     
             disciplina.getCompetencias()[i] = competencia;
         }
-
+    
         vetorDisciplina[d] = disciplina;
         d++;
-    }
+    }    
 
     public String listarAlunos() {
         if (vetorAluno == null) {
@@ -239,5 +254,11 @@ public class ControleAcademico {
         int a = selecionarDisciplina();
 
         vetorDisciplina[a].setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
+    }
+
+    public void editarProfDisciplina() {
+        int a = selecionarDisciplina();
+
+
     }
 }
