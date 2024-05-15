@@ -1,4 +1,4 @@
-import br.edu.up.Livro;
+package br.edu.up;
 import br.edu.up.Util.Prompt;
 
 public class Programa {
