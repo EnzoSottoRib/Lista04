@@ -9,9 +9,9 @@ public class ClientePessoa extends Cliente{
         return super.getSaldo();
     }
 
-    public String getDados(){
+    /*public String getDados(){
 
-    }
+    }*/
 
     public double clientePessoa(){
         double credito = 10000; 

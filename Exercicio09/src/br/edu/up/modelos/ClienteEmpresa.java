@@ -14,9 +14,9 @@ public class ClienteEmpresa extends Cliente{
         return super.getSaldo();
     }
 
-    public String getDados(){
+    /*public String getDados(){
 
-    }
+    }*/
 
     public String getCnpj() {
         return cnpj;
