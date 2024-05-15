@@ -5,6 +5,7 @@ public class Pessoa {
     String nome;
     String rg;
     String matricula;
+    Disciplina[] disciplinas = new Disciplina[10];
 
     public Pessoa() {
     }

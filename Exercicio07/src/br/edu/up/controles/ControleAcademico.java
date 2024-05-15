@@ -50,41 +50,60 @@ public class ControleAcademico {
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
         disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
-
+    
         int a = selecionarProf();
         disciplina.setProf(vetorProf[a]);
-
+        vetorProf[a].setDisciplina(vetorDisciplina[d]);
+    
         int c = 0;
-
+    
         do {
+            
+            if (disciplina.getContadorAlunos() >= 30) {
+                Prompt.imprimir("Turma cheia.");
+                c = 0;
+                break;
+            }
 
             Prompt.imprimir("Digite 0 para sair: ");
             int b = consultarAluno();
-            disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[b];
-            disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+
+            if (vetorAluno[b].getContadorDisciplina() >= 5) {
+                Prompt.imprimir("O aluno não tem espaço para novas disciplinas.");
+            } else {
+                disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[b];
+                disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+    
+                vetorAluno[b].getDisciplinas()[vetorAluno[b].getContadorDisciplina()] = vetorDisciplina[d];
+                vetorAluno[b].setContadorDisciplina(vetorAluno[b].getContadorDisciplina() + 1);
+            }
 
         } while (c != 0);
-        
-        Competencia competencia = new Competencia();
-        competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
-
-        String comp = "A";
-        
-        do {
-            comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
-        } while (comp != "N" || comp != "C");
-
-        if (comp.equals("N")) {
-            competencia.setObrigatoria(true);
-        } else if (comp.equals("C")) {
-            competencia.setObrigatoria(false);
+    
+        c = 1;
+    
+        for (int i = 0; i < 4; i++) {
+            Competencia competencia = new Competencia();
+            competencia.setDescricao(Prompt.lerLinha("Digite uma breve descrição da competência: "));
+    
+            String comp = "A";
+    
+            do {
+                comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
+            } while (!comp.equals("N") && !comp.equals("C"));
+    
+            if (comp.equals("N")) {
+                competencia.setObrigatoria(true);
+            } else if (comp.equals("C")) {
+                competencia.setObrigatoria(false);
+            }
+    
+            disciplina.getCompetencias()[i] = competencia;
         }
-
-        disciplina.setCompetencia(competencia);
-
+    
         vetorDisciplina[d] = disciplina;
         d++;
-    }
+    }    
 
     public String listarAlunos() {
         if (vetorAluno == null) {
@@ -136,6 +155,33 @@ public class ControleAcademico {
             return sb.toString(); 
         }
     }
+
+    public String listarAlunosDisciplina() {
+        int a = selecionarDisciplina();
+    
+        if (a >= 0 && a < vetorDisciplina.length) {
+            Disciplina disciplina = vetorDisciplina[a];
+    
+            if (disciplina.getAlunos() == null) {
+                return "Não há alunos registrados nesta disciplina.";
+            } else {
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+    
+                for (Aluno aluno : disciplina.getAlunos()) {
+                    if (aluno != null) { 
+                        sb.append("Aluno ").append(index).append(":\n");
+                        sb.append(aluno.toString()).append("\n");
+                        index++;
+                    }
+                }
+    
+                return sb.toString(); 
+            }
+        } else {
+            return "Disciplina não encontrada.";
+        }
+    }    
 
     public int selecionarAluno() {
 
@@ -218,4 +264,95 @@ public class ControleAcademico {
         int a = selecionarProf();
         vetorProf[a].setNome(Prompt.lerLinha("Digite o nome do professor: "));
     }
+
+    public void editarTitulacao() {
+        int a = selecionarProf();
+
+        Titulacao titulacao = new Titulacao();
+        titulacao.setAno(Prompt.lerInteiro("Digite o ano de conclusão: "));
+        titulacao.setNomeInstituicao(Prompt.lerLinha("Digite o nome da instituição"));
+        titulacao.setTituloObtido(Prompt.lerLinha("Digite o título obtido: "));
+        titulacao.setTituloTCC(Prompt.lerLinha("Digite o título do TCC: "));
+
+        vetorProf[a].setTitulacao(titulacao);
+    }
+
+    public void editarNomeDisciplina() {
+        int a = selecionarDisciplina();
+
+        vetorDisciplina[a].setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
+    }
+
+    public void editarProfDisciplina() {
+        int a = selecionarDisciplina();
+
+        int b = selecionarProf();
+        vetorDisciplina[a].setProf(vetorProf[b]);
+        vetorProf[b].setDisciplina(vetorDisciplina[a]);
+    }
+
+    public void aprovado() {
+        Prompt.imprimir("Qual sua disciplina? ");
+        int a = selecionarDisciplina();
+
+        for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
+
+            int contadorNecessaria = 0;
+            int contadorComplementar = 0;
+            int satisfatoriaN = 0;
+            int satisfatoriaC = 0;
+
+            Prompt.imprimir("Aluno: " + vetorDisciplina[a].getAlunos()[i].getNome() + "\nRGM: " + vetorDisciplina[a].getAlunos()[i].getMatricula());
+
+            for (int j = 0; j < vetorDisciplina[a].getCompetencias().length; j++) {
+                Prompt.imprimir("Competência: " + vetorDisciplina[a].getCompetencias()[j].getDescricao());
+                
+                String satisfatorio = "";
+
+                do {
+                    satisfatorio = Prompt.lerLinha("Digite S para satisfatório e I para insastifatório: ");
+                } while (satisfatorio != "S" || satisfatorio != "I");
+
+                if (vetorDisciplina[a].getCompetencias()[j].isObrigatoria()) {
+                    contadorNecessaria++;
+
+                    if (satisfatorio == "S") {
+                        satisfatoriaN++;
+                    }
+                } else {
+                    contadorComplementar++;
+
+                    if (satisfatorio == "S") {
+                        satisfatoriaN++;
+                    }
+                }
+            }
+
+           float mediaN = satisfatoriaN / contadorNecessaria;
+           float mediaC = satisfatoriaC / contadorComplementar; 
+
+           if (mediaN == 1.0 && mediaC >= 0.5) {
+                vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.APROVADO);
+           } else if (mediaN < 0.5 && mediaC < 0.5) {
+               vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.REPROVADO);
+           } else {
+               vetorDisciplina[a].getAlunos()[i].setAprovado(Aluno.Aprovado.PENDENTE);
+           }
+        }
+
+        for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
+            switch (vetorDisciplina[a].getAlunos()[i].getAprovado()) {
+                case APROVADO : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Aprovado!");
+                break;
+                case PENDENTE : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Pendente!");
+                break;
+                case REPROVADO : 
+                Prompt.imprimir("Aluno " + vetorDisciplina[a].getAlunos()[i].getNome() + ": Reprovado!");
+                break;
+            }
+        }
+    }
+
 }

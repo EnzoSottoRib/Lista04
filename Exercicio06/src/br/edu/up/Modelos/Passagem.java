@@ -1,40 +1,36 @@
 package br.edu.up.Modelos;
 
-public class Passagem {
-    private String numAssento;
+public class Passagem extends Passageiro{
+    private int idPassagem;
+    private int numAssentos;
     private String classeAssento;
     private int dataVoo;
-    
-    public Passagem(String numAssento, String classeAssento, int dataVoo) {
-        this.numAssento = numAssento;
-        this.classeAssento = classeAssento;
-        this.dataVoo = dataVoo;
-    }
 
-    public String getNumAssento() {
-        return numAssento;
-    }
 
-    public void setNumAssento(String numAssento) {
-        this.numAssento = numAssento;
+    public int getIdPassagem() {
+        return idPassagem;
     }
-
+    public void setIdPassagem(int idPassagem) {
+        this.idPassagem = idPassagem;
+    }
+    public int getNumAssentos() {
+        return numAssentos;
+    }
+    public void setNumAssentos(int numAssentos) {
+        this.numAssentos = numAssentos;
+    }
     public String getClasseAssento() {
         return classeAssento;
     }
-
     public void setClasseAssento(String classeAssento) {
         this.classeAssento = classeAssento;
     }
-
     public int getDataVoo() {
         return dataVoo;
     }
-
     public void setDataVoo(int dataVoo) {
         this.dataVoo = dataVoo;
     }
 
     
-
 }
