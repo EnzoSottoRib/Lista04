@@ -5,12 +5,13 @@ public class ClienteEmpresa extends Cliente{
     private String inscEstadual;
     private int anoFuncadao;
 
-    public void ClienteEmpresa(){
-
+    public double ClienteEmpresa(){
+        double credito = 25000;
+        return credito;
     }
 
     public double getSaldo(){
-
+        return super.getSaldo();
     }
 
     public String getDados(){

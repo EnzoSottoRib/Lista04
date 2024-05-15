@@ -6,15 +6,16 @@ public class ClientePessoa extends Cliente{
     private double altura;
 
     public double getSaldo(){
-
+        return super.getSaldo();
     }
 
     public String getDados(){
 
     }
 
-    public void clientePessoa(){
-
+    public double clientePessoa(){
+        double credito = 10000; 
+        return credito;
     }
 
     public String getCPF() {

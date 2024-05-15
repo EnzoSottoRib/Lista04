@@ -10,16 +10,28 @@ public abstract class Cliente {
 
 
     public void emprestar(double valor){
-        if (getVlrEmprestado())
-        setVlrEmprestado(valor);
+
+        double valtot = valor + getVlrEmprestado();
+
+        if (valtot > vlrMaxCredito){
+            System.out.println("Valor maior que o limite.");
+        } else {
+            vlrEmprestado += valor;
+        }
     }
 
-    public void devolver(double valor){
-        setVlrEmprestado(valor*-1);
+    public double devolver(double valor){
+        if (vlrEmprestado < valor){
+            valor -= vlrEmprestado;
+            vlrEmprestado = 0;
+        } else {
+            vlrEmprestado -= valor;
+        }
+        return valor;
     }
 
-    public void getSaldo(){
-        
+    public double getSaldo(){
+        return getVlrEmprestado();
     }
 
 
