@@ -1,60 +1,43 @@
 package br.edu.up.Modelos;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
-    private String rg;
-    private String codigoAeronave;
+    private int rg;
+    private int codigoAeronave;
     private String tipoAeronave;
-    private int quantidadeAssentos;
-
-    public Pessoa(String nome, String rg, String codigoAeronave, String tipoAeronave, int quantidadeAssentos) {
-        this.nome = nome;
-        this.rg = rg;
-        this.codigoAeronave = codigoAeronave;
-        this.tipoAeronave = tipoAeronave;
-        this.quantidadeAssentos = quantidadeAssentos;
-    }
-
+    private int qtdAssentos;
+    
+    
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public String getRg() {
+    public int getRg() {
         return rg;
     }
-
-    public void setRg(String rg) {
+    public void setRg(int rg) {
         this.rg = rg;
     }
-
-    public String getCodigoAeronave() {
+    public int getCodigoAeronave() {
         return codigoAeronave;
     }
-
-    public void setCodigoAeronave(String codigoAeronave) {
+    public void setCodigoAeronave(int codigoAeronave) {
         this.codigoAeronave = codigoAeronave;
     }
-
     public String getTipoAeronave() {
         return tipoAeronave;
     }
-
     public void setTipoAeronave(String tipoAeronave) {
         this.tipoAeronave = tipoAeronave;
     }
-
-    public int getQuantidadeAssentos() {
-        return quantidadeAssentos;
+    public int getQtdAssentos() {
+        return qtdAssentos;
+    }
+    public void setQtdAssentos(int qtdAssentos) {
+        this.qtdAssentos = qtdAssentos;
     }
 
-    public void setQuantidadeAssentos(int quantidadeAssentos) {
-        this.quantidadeAssentos = quantidadeAssentos;
-    }
-
-    
     
 }

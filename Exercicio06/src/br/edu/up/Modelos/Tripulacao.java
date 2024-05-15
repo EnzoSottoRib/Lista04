@@ -1,31 +1,22 @@
 package br.edu.up.Modelos;
 
-public class Tripulacao extends Pessoa{
-    private String idAeronautica;
-    private String matriculaFuncionario;
-    
-    public Tripulacao(String nome, String rg, String codigoAeronave, String tipoAeronave, int quantidadeAssentos,
-            String idAeronautica, String matriculaFuncionario) {
-        super(nome, rg, codigoAeronave, tipoAeronave, quantidadeAssentos);
-        this.idAeronautica = idAeronautica;
-        this.matriculaFuncionario = matriculaFuncionario;
-    }
+public abstract class Tripulacao extends Pessoa{
+    private int idAeronautica;
+    private int matriculaFuncionario;
 
-    public String getIdAeronautica() {
+
+    public int getIdAeronautica() {
         return idAeronautica;
     }
-
-    public void setIdAeronautica(String idAeronautica) {
+    public void setIdAeronautica(int idAeronautica) {
         this.idAeronautica = idAeronautica;
     }
-
-    public String getMatriculaFuncionario() {
+    public int getMatriculaFuncionario() {
         return matriculaFuncionario;
     }
-
-    public void setMatriculaFuncionario(String matriculaFuncionario) {
+    public void setMatriculaFuncionario(int matriculaFuncionario) {
         this.matriculaFuncionario = matriculaFuncionario;
     }
 
+    
 }
-
