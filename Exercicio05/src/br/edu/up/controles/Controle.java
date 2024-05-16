@@ -1,7 +1,7 @@
-package br.edu.up.controles;
+package controles;
 
-import br.edu.up.modelos.Evento;
-import br.edu.up.modelos.Reserva;
+import modelos.Evento;
+import modelos.Reserva;
 
 public class Controle {
 

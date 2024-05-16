@@ -1,4 +1,4 @@
-package br.edu.up.telas;
+package telas;
 
 import java.io.BufferedReader;
 import java.io.IOException;

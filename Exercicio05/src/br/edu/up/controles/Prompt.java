@@ -1,4 +1,4 @@
-package br.edu.up.controles;
+package controles;
 
 import java.io.BufferedReader;
 import java.io.IOException;

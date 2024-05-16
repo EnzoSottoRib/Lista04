@@ -1,6 +1,6 @@
-package br.edu.up.telas;
+package telas;
 
-import br.edu.up.controles.Controle;
+import controles.Controle;
 
 public class Menu {
     

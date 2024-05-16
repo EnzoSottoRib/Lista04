@@ -1,4 +1,4 @@
-package br.edu.up.modelos;
+package modelos;
 
 import java.io.BufferedReader;
 import java.io.IOException;

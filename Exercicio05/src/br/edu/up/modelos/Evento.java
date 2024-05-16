@@ -1,4 +1,4 @@
-package br.edu.up.modelos;
+package modelos;
 
 public class Evento {
     
