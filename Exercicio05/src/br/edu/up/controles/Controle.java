@@ -10,7 +10,7 @@ public class Controle {
     int iE = 0;
     int iR = 0;
 
-    public void criarEvento(String nomeEvento, String dataEvento, int horaEvento, String localEvento, int lotacaoMax, int ingressosVendidos, double precoIngresso) throws IllegalArgumentException {
+    public Evento criarEvento(String nomeEvento, String dataEvento, int horaEvento, String localEvento, int lotacaoMax, int ingressosVendidos, double precoIngresso) {
         Evento evento = new Evento();
     
         evento.setNomeEvento(nomeEvento);
@@ -26,20 +26,24 @@ public class Controle {
                 evento.setMes(mes);
                 evento.setAno(ano);
             } catch (NumberFormatException e) {
+                return null; 
             }
-        } 
+        } else {
+            return null; 
+        }
     
         if (horaEvento >= 0 && horaEvento <= 24) {
             evento.setHora(horaEvento);
-        } 
+        } else {
+            return null; 
+        }
     
         evento.setLocalEvento(localEvento);
         evento.setLotacaoMax(lotacaoMax);
         evento.setIngressosVendidos(ingressosVendidos);
         evento.setPrecoIngresso(precoIngresso);
     
-        listaEventos[iE] = evento;
-        iE++;
+        return evento;
     }    
 
     public void editarNome(int b) {

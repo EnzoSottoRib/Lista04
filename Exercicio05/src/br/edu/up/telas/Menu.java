@@ -1,6 +1,7 @@
 package telas;
 
 import controles.Controle;
+import modelos.Evento;
 
 public class Menu {
     
@@ -13,7 +14,26 @@ public class Menu {
         n = Prompt.lerInteiro("Digite:\n1: Para criar um evento\n2: Para criar uma reserva\n3: Para alterar um evento\n4: Para alterar uma reserva\n5: Para listar os eventos existentes\n6: Para listar as reservas existentes\n7: Para excluir um evento\n8: Para excluir uma reserva\n0: Para sair");
 
         if (n == 1) {
-            controle.criarEvento();
+            String nomeEvento = Prompt.lerLinha("Digite o nome do evento: ");
+            String dataEvento = Prompt.lerLinha("Digite a data do evento seguindo o formato DD/MM/AAAA: ");
+            int horaEvento;
+
+            do {
+               horaEvento = Prompt.lerInteiro("Digite o horário no formato 24H: ");
+            } while (horaEvento < 0 || horaEvento > 24);
+            String localEvento = Prompt.lerLinha("Digite o local do evento: ");
+            int lotacaoMax = Prompt.lerInteiro("Digite a lotação máxima: ");
+            int ingressosVendidos = Prompt.lerInteiro("Digite a quantidade de ingressos vendidos: ");
+            double precoIngresso = Prompt.lerDecimal("Digite o preço individual dos ingressos, em reais: ");
+
+            Evento eventoCriado = controle.criarEvento(nomeEvento, dataEvento, horaEvento, localEvento, lotacaoMax, ingressosVendidos, precoIngresso);
+                if (eventoCriado != null) {
+                    controle.listaEventos[iE] = eventoCriado;
+                    iE++;
+                } else {
+                    Prompt.imprimir("Erro ao criar o evento. Verifique os dados inseridos.");
+                }
+
         }
 
         if (n == 2) {
