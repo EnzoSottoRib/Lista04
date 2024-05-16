@@ -10,47 +10,37 @@ public class Controle {
     int iE = 0;
     int iR = 0;
 
-    public void criarEvento() {
-
+    public void criarEvento(String nomeEvento, String dataEvento, int horaEvento, String localEvento, int lotacaoMax, int ingressosVendidos, double precoIngresso) throws IllegalArgumentException {
         Evento evento = new Evento();
-
-        evento.setNomeEvento(Prompt.lerLinha("Digite o nome do evento: "));
-        
-        String input = Prompt.lerLinha("Digite a data do evento seguindo o formato DD/MM/AAAA: ");
-        String[] data = input.split("/");
-        // ana: o split divide o vetor String em várias partes, ou seja: de "19/04/2005", nós vamos para "19", "04", "2005"
-
+    
+        evento.setNomeEvento(nomeEvento);
+    
+        String[] data = dataEvento.split("/");
         if (data.length == 3) {
             try {
                 int dia = Integer.parseInt(data[0]);
                 int mes = Integer.parseInt(data[1]);
                 int ano = Integer.parseInt(data[2]);
-                // ana: o parseInt transforma um String em int!
-
+    
                 evento.setDia(dia);
                 evento.setMes(mes);
                 evento.setAno(ano);
             } catch (NumberFormatException e) {
-                // ana: encontra exceções / partes erradas no input do usuário
-                Prompt.imprimir("Formato inválido. Por favor escreva a data no formato DD/MM/AAAA: ");
             }
-        } else {
-            Prompt.imprimir("Formato inválido. Por favor escreva a data no formato DD/MM/AAAA: ");
-        }
-
-        do {
-            evento.setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
-        } while  (evento.getHora() < 0 && evento.getHora() > 24);
-
-        evento.setLocalEvento(Prompt.lerLinha("Digite o local do evento: "));
-        evento.setLotacaoMax(Prompt.lerInteiro("Digite a lotação máxima: "));
-        evento.setIngressosVendidos(Prompt.lerInteiro("Digite a quantidade de ingressos vendidos: "));
-        evento.setPrecoIngresso(Prompt.lerDecimal("Digite o preço individual dos ingressos, em reais: "));
+        } 
+    
+        if (horaEvento >= 0 && horaEvento <= 24) {
+            evento.setHora(horaEvento);
+        } 
+    
+        evento.setLocalEvento(localEvento);
+        evento.setLotacaoMax(lotacaoMax);
+        evento.setIngressosVendidos(ingressosVendidos);
+        evento.setPrecoIngresso(precoIngresso);
     
         listaEventos[iE] = evento;
         iE++;
-    
-    }
+    }    
 
     public void editarNome(int b) {
         listaEventos[b].setNomeEvento(Prompt.lerLinha("Digite o nome atualizado do evento: "));
