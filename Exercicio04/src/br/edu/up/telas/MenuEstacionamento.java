@@ -1,8 +1,8 @@
-package br.edu.up.telas;
+package edu.up.telas;
 
 import java.util.Scanner;
 
-import br.edu.up.controles.ControleEstacionamento;
+import edu.up.controles.ControleEstacionamento;
 
 public class MenuEstacionamento {
 

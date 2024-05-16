@@ -1,7 +1,7 @@
-package br.edu.up.controles;
+package edu.up.controles;
 
-import br.edu.up.modelos.Carro;
-import br.edu.up.modelos.Estacionamento;
+import edu.up.modelos.Carro;
+import edu.up.modelos.Estacionamento;
 
 import java.util.Scanner;
 

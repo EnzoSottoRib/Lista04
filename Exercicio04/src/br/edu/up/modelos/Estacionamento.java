@@ -1,4 +1,4 @@
-package br.edu.up.modelos;
+package edu.up.modelos;
 
 public class Estacionamento {
     private Carro[] vagas;

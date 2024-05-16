@@ -34,7 +34,6 @@ public abstract class Cliente {
         return getVlrEmprestado();
     }
 
-
     public String getNome() {
         return nome;
     }

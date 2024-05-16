@@ -5,7 +5,7 @@ public class ClienteEmpresa extends Cliente{
     private String inscEstadual;
     private int anoFuncadao;
 
-    public double ClienteEmpresa(){
+    public double clienteEmpresa(){
         double credito = 25000;
         return credito;
     }
