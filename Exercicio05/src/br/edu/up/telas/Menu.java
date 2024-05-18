@@ -21,6 +21,7 @@ public class Menu {
             do {
                horaEvento = Prompt.lerInteiro("Digite o horário no formato 24H: ");
             } while (horaEvento < 0 || horaEvento > 24);
+
             String localEvento = Prompt.lerLinha("Digite o local do evento: ");
             int lotacaoMax = Prompt.lerInteiro("Digite a lotação máxima: ");
             int ingressosVendidos = Prompt.lerInteiro("Digite a quantidade de ingressos vendidos: ");
@@ -28,8 +29,8 @@ public class Menu {
 
             Evento eventoCriado = controle.criarEvento(nomeEvento, dataEvento, horaEvento, localEvento, lotacaoMax, ingressosVendidos, precoIngresso);
                 if (eventoCriado != null) {
-                    controle.listaEventos[iE] = eventoCriado;
-                    iE++;
+                    controle.getListaEventos()[controle.getiE()] = eventoCriado;
+                    controle.incrementariE();
                 } else {
                     Prompt.imprimir("Erro ao criar o evento. Verifique os dados inseridos.");
                 }

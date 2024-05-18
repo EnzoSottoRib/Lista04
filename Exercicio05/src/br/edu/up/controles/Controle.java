@@ -10,6 +10,42 @@ public class Controle {
     int iE = 0;
     int iR = 0;
 
+    public Evento[] getListaEventos() {
+        return listaEventos;
+    }
+
+    public void setListaEventos(Evento[] listaEventos) {
+        this.listaEventos = listaEventos;
+    }
+
+    public Reserva[] getListaReservas() {
+        return listaReservas;
+    }
+
+    public void setListaReservas(Reserva[] listaReservas) {
+        this.listaReservas = listaReservas;
+    }
+
+    public int getiE() {
+        return iE;
+    }
+
+    public void incrementariE() {
+        iE++;
+    }
+
+    public void setiE(int iE) {
+        this.iE = iE;
+    }
+
+    public int getiR() {
+        return iR;
+    }
+
+    public void setiR(int iR) {
+        this.iR = iR;
+    }
+
     public Evento criarEvento(String nomeEvento, String dataEvento, int horaEvento, String localEvento, int lotacaoMax, int ingressosVendidos, double precoIngresso) {
         Evento evento = new Evento();
     
