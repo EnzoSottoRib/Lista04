@@ -1,7 +1,7 @@
 package telas;
 
 import controles.Controle;
-import modelos.Evento;
+import modelos.*;
 
 public class Menu {
     
@@ -38,7 +38,37 @@ public class Menu {
         }
 
         if (n == 2) {
-            controle.criarReserva();
+            if (controle.getListaEventos() == null) {
+                Prompt.imprimir("Não há eventos listados.");
+            } else {
+                Prompt.imprimir("Os seguintes eventos existem: ");
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+        
+                for (Evento evento : controle.getListaEventos()) {
+                    sb.append("Evento ").append(index).append(":\n");
+                    sb.append(evento.toString()).append("\n");
+                    index++;
+                }
+            }
+
+            int a = Prompt.lerInteiro("Defina o número de seu evento: ");
+            String nomeResponsavel = Prompt.lerLinha("Digite o nome do responsável: ");
+            int qtdePessoas = 0;
+            do {
+                qtdePessoas = Prompt.lerInteiro("Digite a quantidade de pessoas: ");
+                if (controle.getListaEventos()[n].getLotacaoMax() > (controle.getListaEventos()[n].getIngressosVendidos() + qtdePessoas)) {
+                    Prompt.imprimir("Não há ingressos suficientes.");
+                }
+            } while (controle.getListaEventos()[n].getLotacaoMax() <= (controle.getListaEventos()[n].getIngressosVendidos() + qtdePessoas));
+
+            Reserva reservaCriada = controle.criarReserva(a, nomeResponsavel, qtdePessoas);
+            if (reservaCriada != null) {
+                controle.getListaReservas()[controle.getiR()] = reservaCriada;
+                controle.incrementariR();
+            } else {
+                Prompt.imprimir("Erro ao criar a reserva. Verifique os dados inseridos.");
+            }
         }
 
         if (n == 3) {
@@ -83,7 +113,19 @@ public class Menu {
         }
 
         if (n == 5) {
-            controle.listarEvento();
+            if (controle.getListaEventos() == null) {
+                Prompt.imprimir("Não há eventos listados.");
+            } else {
+                Prompt.imprimir("Os seguintes eventos existem: ");
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+        
+                for (Evento evento : controle.getListaEventos()) {
+                    sb.append("Evento ").append(index).append(":\n");
+                    sb.append(evento.toString()).append("\n");
+                    index++;
+                }
+            }
         }
 
         if (n == 6) {

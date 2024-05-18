@@ -42,6 +42,10 @@ public class Controle {
         return iR;
     }
 
+    public void incrementariR() {
+        iR++;
+    }
+
     public void setiR(int iR) {
         this.iR = iR;
     }
@@ -141,11 +145,9 @@ public class Controle {
         }
     }
 
-    public void criarReserva() {
+    public Reserva criarReserva(int n, String nomeResponsavel, int qtdePessoas) {
 
         Reserva reserva = new Reserva();
-
-        int n = selecionarEvento();
 
         reserva.setAno(listaEventos[n].getAno());
         reserva.setMes(listaEventos[n].getMes());
@@ -165,6 +167,8 @@ public class Controle {
         
         listaReservas[iR] = reserva;
         iR++;
+
+        return reserva;
     }        
 
     public void editarNomeResponsavel(int b) {
