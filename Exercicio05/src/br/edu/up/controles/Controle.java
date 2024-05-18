@@ -86,42 +86,40 @@ public class Controle {
         return evento;
     }    
 
-    public void editarNome(int b) {
-        listaEventos[b].setNomeEvento(Prompt.lerLinha("Digite o nome atualizado do evento: "));
+    public void editarNome(int b, String editarNome) {
+        listaEventos[b].setNomeEvento(editarNome);
     }
 
-    public void editarLocal(int b) {
-        listaEventos[b].setLocalEvento(Prompt.lerLinha("Digite o novo local do evento: "));
+    public void editarLocal(int b, String editarLocal) {
+        listaEventos[b].setLocalEvento(editarLocal);
     }
 
-    public void editarHora(int b) {
-        do {
-            listaEventos[b].setHora(Prompt.lerInteiro("Digite o horário no formato 24H: "));
-        } while  (listaEventos[b].getHora() < 0 && listaEventos[b].getHora() > 24);
+    public void editarHora(int b, int editarHora) {
+        listaEventos[b].setHora(editarHora);
     }
 
-    public void editarDia(int b) {
-        listaEventos[b].setDia(Prompt.lerInteiro("Digite o novo dia (seu número, no formato 'DD'): "));
+    public void editarDia(int b, int editarDia) {
+        listaEventos[b].setDia(editarDia);
     }
 
-    public void editarMes(int b) {
-        listaEventos[b].setMes(Prompt.lerInteiro("Digite o novo mês (seu número, no formato 'MM'): "));
+    public void editarMes(int b, int editarMes) {
+        listaEventos[b].setMes(editarMes);
     }
 
-    public void editarAno(int b) {
-        listaEventos[b].setAno(Prompt.lerInteiro("Digite o novo ano (seu número, no formato 'AAAA'): "));
+    public void editarAno(int b, int editarAno) {
+        listaEventos[b].setAno(editarAno);
     }
 
-    public void editarLotacaoMax(int b) {
-        listaEventos[b].setLotacaoMax(Prompt.lerInteiro("Digite a nova lotação máxima: "));
+    public void editarLotacaoMax(int b, int lotacaoMax) {
+        listaEventos[b].setLotacaoMax(lotacaoMax);
     }
 
-    public void editarIngressosVendidos (int b) {
-        listaEventos[b].setIngressosVendidos(Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: "));
+    public void editarIngressosVendidos (int b, int editarIngressosVendidos) {
+        listaEventos[b].setIngressosVendidos(editarIngressosVendidos);
     }
 
-    public void editarPrecoIngressos (int b) {
-        listaEventos[b].setPrecoIngresso(Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: "));
+    public void editarPrecoIngressos (int b, double editarPrecoIngressos) {
+        listaEventos[b].setPrecoIngresso(editarPrecoIngressos);
     }
 
     public void excluirEvento(int b) {

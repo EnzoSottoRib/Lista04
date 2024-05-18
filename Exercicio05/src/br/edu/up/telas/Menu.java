@@ -72,23 +72,56 @@ public class Menu {
         }
 
         if (n == 3) {
-        
-        int a = controle.selecionarEvento();
-        int b = 1;
+            if (controle.getListaEventos() == null) {
+                Prompt.imprimir("Não há eventos listados.");
+            } else {
+                Prompt.imprimir("Os seguintes eventos existem: ");
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+            
+                for (Evento evento : controle.getListaEventos()) {
+                    sb.append("Evento ").append(index).append(":\n");
+                    sb.append(evento.toString()).append("\n");
+                    index++;
+                }
+            }
+            int a = Prompt.lerInteiro("Defina o número de seu evento: ");
+            int b = 1;
 
         do {
             b = Prompt.lerInteiro("Digite:\n1: Editar nome\n2: Editar local:\n3: Editar hora\n4: Editar dia\n5: Editar mes\n6: Editar ano\n7: Editar lotação máxima\n8: Editar ingressos vendidos\n9: Editar preço ingressos\n0: Sair");
 
             switch (b) {
-                case 1 : controle.editarNome(a); break;
-                case 2 : controle.editarLocal(a); break;
-                case 3 : controle.editarHora(a); break;
-                case 4 : controle.editarDia(a); break;
-                case 5 : controle.editarMes(a); break;
-                case 6 : controle.editarAno(a); break;
-                case 7 : controle.editarLotacaoMax(a); break;
-                case 8 : controle.editarIngressosVendidos(a); break;
-                case 9 : controle.editarPrecoIngressos(a); break;
+                case 1 : 
+                String editarNome = Prompt.lerLinha("Digite o nome atualizado do evento: ");
+                controle.editarNome(a, editarNome); break;
+                case 2 : 
+                String editarLocal = Prompt.lerLinha("Digite o novo local do evento: ");
+                controle.editarLocal(a, editarLocal); break;
+                case 3 : 
+                int editarHora = 0;
+                do {
+                    editarHora = Prompt.lerInteiro("Digite o horário no formato 24H: ");
+                } while  (editarHora < 0 && editarHora > 24);
+                controle.editarHora(a, editarHora); break;
+                case 4 : 
+                int editarDia = Prompt.lerInteiro("Digite o novo dia (seu número, no formato 'DD'): ");
+                controle.editarDia(a, editarDia); break;
+                case 5 : 
+                int editarMes = Prompt.lerInteiro("Digite o novo mês (seu número, no formato 'MM'): ");
+                controle.editarMes(a, editarMes); break;
+                case 6 : 
+                int editarAno = Prompt.lerInteiro("Digite o novo ano (seu número, no formato 'AAAA'): ");
+                controle.editarAno(a, editarAno); break;
+                case 7 : 
+                int lotacaoMax = Prompt.lerInteiro("Digite a nova lotação máxima: ");
+                controle.editarLotacaoMax(a, lotacaoMax); break;
+                case 8 : 
+                int editarIngressosVendidos = Prompt.lerInteiro("Digite a nova quantidade de ingressos vendidos: ");
+                controle.editarIngressosVendidos(a, editarIngressosVendidos); break;
+                case 9 : 
+                double editarPrecoIngressos = Prompt.lerDecimal("Digite o novo preço do ingresso, em reais: ");
+                controle.editarPrecoIngressos(a, editarPrecoIngressos); break;
                 case 0 : Prompt.imprimir("Saindo\n"); break;
                 default : Prompt.imprimir("Dígito inválido!\n");
             }
