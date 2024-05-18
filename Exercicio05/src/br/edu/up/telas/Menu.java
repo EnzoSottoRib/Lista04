@@ -130,15 +130,38 @@ public class Menu {
 
         if (n == 4) {
 
-            int c = controle.selecionarEvento();
+            if (controle.getListaEventos() == null) {
+                Prompt.imprimir("Não há eventos listados.");
+            } else {
+                Prompt.imprimir("Os seguintes eventos existem: ");
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+            
+                for (Evento evento : controle.getListaEventos()) {
+                    sb.append("Evento ").append(index).append(":\n");
+                    sb.append(evento.toString()).append("\n");
+                    index++;
+                }
+            }
+            int c = Prompt.lerInteiro("Defina o número de seu evento: ");
             int d = 1;
 
             do {
                 d = Prompt.lerInteiro("Digite:\n1: Editar Nome Responsável\n2: Editar Quantidade de Pessoas\n0: Sair\n");
 
                 switch (d) {
-                    case 1 : controle.editarNomeResponsavel(c); break;
-                    case 2 : controle.editarQtdePessoas(c); break;
+                    case 1 : 
+                    String nomeResponsavel = Prompt.lerLinha("Digite o nome do responsável: ");
+                    controle.editarNomeResponsavel(c, nomeResponsavel); break;
+                    case 2 : 
+                    int editarQtdePessoas = 0;
+                    do {
+                        editarQtdePessoas = Prompt.lerInteiro("Digite a quantidade de pessoas: ");
+                        if (controle.getListaEventos()[c].getLotacaoMax() > (controle.getListaEventos()[c].getIngressosVendidos() + editarQtdePessoas)) {
+                            Prompt.imprimir("Não há ingressos suficientes.");
+                        }
+                    } while (controle.getListaEventos()[c].getLotacaoMax() <= (controle.getListaEventos()[c].getIngressosVendidos() + editarQtdePessoas));;
+                    controle.editarQtdePessoas(c, editarQtdePessoas); break;
                     case 0 : Prompt.imprimir("Saindo\n"); break;
                     default : Prompt.imprimir("Dígito inválido!\n"); break;
                 }
@@ -158,20 +181,58 @@ public class Menu {
                     sb.append(evento.toString()).append("\n");
                     index++;
                 }
+
+                Prompt.imprimir(sb.toString());
             }
         }
 
         if (n == 6) {
-            controle.listarReserva();
+            if (controle.getListaReservas() == null) {
+                Prompt.imprimir("Não há reservas.");
+            } else {
+                StringBuilder sb = new StringBuilder();
+        
+                for (Reserva reserva : controle.getListaReservas()) {
+                    sb.append("Reserva ").append(reserva.toString()).append("\n");
+                }
+        
+                Prompt.imprimir(sb.toString());
+            }
         }
         
         if (n == 7) {
-            int f = controle.selecionarEvento();
+            if (controle.getListaEventos() == null) {
+                Prompt.imprimir("Não há eventos listados.");
+            } else {
+                Prompt.imprimir("Os seguintes eventos existem: ");
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+        
+                for (Evento evento : controle.getListaEventos()) {
+                    sb.append("Evento ").append(index).append(":\n");
+                    sb.append(evento.toString()).append("\n");
+                    index++;
+                }
+            }
+
+            int f = Prompt.lerInteiro("Defina o número de seu evento: ");
             controle.excluirEvento(f);
         }
 
         if (n == 8) {
-            int f = controle.selecionarReserva();
+            if (controle.getListaReservas() == null) {
+                Prompt.imprimir("Não há reservas.");
+            } else {
+                StringBuilder sb = new StringBuilder();
+        
+                for (Reserva reserva : controle.getListaReservas()) {
+                    sb.append("Reserva ").append(reserva.toString()).append("\n");
+                }
+        
+                Prompt.imprimir(sb.toString());
+            }
+
+            int f = Prompt.lerInteiro("Defina o número de sua reserva: ");
             controle.excluirReserva(f);
         }
 

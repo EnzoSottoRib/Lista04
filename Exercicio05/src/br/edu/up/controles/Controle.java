@@ -126,23 +126,6 @@ public class Controle {
         listaEventos[b] = null;
     }
 
-    public String listarEvento() {
-        if (listaEventos == null) {
-            return "Não há eventos listados.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0; 
-    
-            for (Evento evento : listaEventos) {
-                sb.append("Evento ").append(index).append(":\n");
-                sb.append(evento.toString()).append("\n");
-                index++;
-            }
-    
-            return sb.toString(); 
-        }
-    }
-
     public Reserva criarReserva(int n, String nomeResponsavel, int qtdePessoas) {
 
         Reserva reserva = new Reserva();
@@ -169,48 +152,16 @@ public class Controle {
         return reserva;
     }        
 
-    public void editarNomeResponsavel(int b) {
-        listaReservas[b].setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
+    public void editarNomeResponsavel(int b, String editarNomeResponsavel) {
+        listaReservas[b].setNomeResponsavel(editarNomeResponsavel);
     }
 
-    public void editarQtdePessoas(int b) {
-        listaReservas[b].setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
+    public void editarQtdePessoas(int b, int editarQtdePessoas) {
+        listaReservas[b].setQtdePessoas(editarQtdePessoas);
     }
 
     public void excluirReserva(int b) {
         listaReservas[b] = null;
-    }
-
-    public String listarReserva() {
-        if (listaReservas == null) {
-            return "Não há reservas.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-    
-            for (Reserva reserva : listaReservas) {
-                sb.append(reserva.toString()).append("\n");
-            }
-    
-            return sb.toString(); 
-        }
-    }
-
-    public int selecionarEvento() {
-
-        Prompt.imprimir("Os seguintes eventos existem: ");
-        listarEvento();
-        int a = Prompt.lerInteiro("Defina o número de seu evento: ");
-
-        return a;
-    }
-
-    public int selecionarReserva() {
-
-        Prompt.imprimir("As seguintes reservas existem: ");
-        listarReserva();
-        int a = Prompt.lerInteiro("Defina o número de sua reserva: ");
-
-        return a;
     }
     
 }
