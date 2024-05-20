@@ -172,15 +172,6 @@ public class ControleAcademico {
         }
     }    
 
-    public int selecionarDisciplina() {
-
-        Prompt.imprimir("As seguintes disciplinas estão registrados: ");
-        listarDisciplina();
-        int a = Prompt.lerInteiro("Defina o índice de sua disciplina: ");
-
-        return a;
-    }
-
     public int consultarAluno() {
         Aluno aluno = new Aluno();
         aluno.setRg(Prompt.lerLinha("Digite o RG do aluno: "));

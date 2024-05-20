@@ -3,12 +3,63 @@ package br.edu.up.telas;
 import br.edu.up.Prompt;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.Aluno;
+import br.edu.up.modelos.Disciplina;
 import br.edu.up.modelos.Prof;
 
 public class Menu07 {
     
     ControleAcademico controle = new ControleAcademico();
     int n = 1;
+
+    public String listarAlunos() {
+        if (controle.getVetorAluno() == null) {
+            return "Não há alunos registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+    
+            for (Aluno aluno : controle.getVetorAluno()) {
+                sb.append("Aluno ").append(index).append(":\n");
+                sb.append(aluno.toString()).append("\n");
+                index++;
+            }
+    
+            return sb.toString();
+        }
+    }
+
+    public String listarProf() {
+        if (controle.getVetorProf() == null) {
+            return "Não há professores registrados.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+
+            for (Prof prof : controle.getVetorProf()) {
+                sb.append("Prof ").append(index).append(":\n");
+                sb.append(prof.toString()).append("\n");
+                index++;
+            }
+            return sb.toString();
+        }
+    }
+
+    public String listarDisciplina() {
+        if (controle.getVetorDisciplina() == null) {
+            return "Não há disciplinas registradas.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            int index = 0; 
+        
+            for (Disciplina disciplina : controle.getVetorDisciplina()) {
+                sb.append("Disciplina ").append(index).append(":\n");
+                sb.append(disciplina.toString()).append("\n");
+                index++;
+            }
+        
+            return sb.toString(); 
+        }
+    }
 
     public void executar() {
         Prompt.imprimir("Bem-vindo ao Menu! :)");
@@ -40,56 +91,17 @@ public class Menu07 {
             
                     controle.adicionarAluno(nome, rg, matricula); 
                     break;
-                case 2 : 
-                    if (controle.getVetorAluno() == null) {
-                        Prompt.imprimir("Não há alunos registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-                
-                        for (Aluno aluno : controle.getVetorAluno()) {
-                            sb.append("Aluno ").append(index).append(":\n");
-                            sb.append(aluno.toString()).append("\n");
-                            index++;
-                        }
-                
-                        Prompt.imprimir(sb.toString());
-                    }
-                  break;
+                case 2 :
+                    listarAlunos();
+                    break;
                 case 3 :
-                    if (controle.getVetorAluno() == null) {
-                        Prompt.imprimir("Não há alunos registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-                
-                        for (Aluno aluno : controle.getVetorAluno()) {
-                            sb.append("Aluno ").append(index).append(":\n");
-                            sb.append(aluno.toString()).append("\n");
-                            index++;
-                        }
-                
-                        Prompt.imprimir(sb.toString());
-                    }
+                    listarAlunos();
                     int a = Prompt.lerInteiro("Defina o índice de seu aluno:");
                     String editarNomeAluno = Prompt.lerLinha("Digite o nome do aluno: ");
                     controle.editarNomeAluno(a, editarNomeAluno);
                     break;
                 case 4 : 
-                    if (controle.getVetorAluno() == null) {
-                        Prompt.imprimir("Não há alunos registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-                
-                        for (Aluno aluno : controle.getVetorAluno()) {
-                            sb.append("Aluno ").append(index).append(":\n");
-                            sb.append(aluno.toString()).append("\n");
-                            index++;
-                        }
-                
-                        Prompt.imprimir(sb.toString());
-                    }
+                    listarAlunos();
                     int b = Prompt.lerInteiro("Defina o índice de seu aluno:");
                     controle.excluirAluno(b);
                     break;
@@ -125,52 +137,16 @@ public class Menu07 {
                     controle.adicionarProf(nome, rg, matricula, nLattes, nomeInstituicao, ano, tituloObtido, tituloTCC);
                     break;
                 case 2 :
-                    if (controle.getVetorProf() == null) {
-                        Prompt.imprimir("Não há professores registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-    
-                        for (Prof prof : controle.getVetorProf()) {
-                            sb.append("Prof ").append(index).append(":\n");
-                            sb.append(prof.toString()).append("\n");
-                            index++;
-                        }
-                        Prompt.imprimir(sb.toString());
-                    }
+                    listarProf();
                     break;
                 case 3 :
-                    if (controle.getVetorProf() == null) {
-                        Prompt.imprimir("Não há professores registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-
-                        for (Prof prof : controle.getVetorProf()) {
-                            sb.append("Prof ").append(index).append(":\n");
-                            sb.append(prof.toString()).append("\n");
-                            index++;
-                        }
-                        Prompt.imprimir(sb.toString());
-                    } 
+                    listarProf();
                     int a = Prompt.lerInteiro("Defina o índice de seu professor: ");
                     String editarNomeProfessor = Prompt.lerLinha("Digite o nome do professor: ");
                     controle.editarNomeProf(a, editarNomeProfessor);
                     break;
                 case 4 :
-                    if (controle.getVetorProf() == null) {
-                        Prompt.imprimir("Não há professores registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-
-                        for (Prof prof : controle.getVetorProf()) {
-                            sb.append("Prof ").append(index).append(":\n");
-                            sb.append(prof.toString()).append("\n");
-                            index++;
-                        }
-                        Prompt.imprimir(sb.toString());
-                    } 
+                    listarProf();
                     int b = Prompt.lerInteiro("Defina o índice de seu professor: ");
 
                     int anoE = Prompt.lerInteiro("Digite o ano de conclusão: ");
@@ -181,19 +157,7 @@ public class Menu07 {
                     controle.editarTitulacao(anoE, nomeInstituicaoE, tituloObtidoE, tituloTCCE, b);
                     break;
                 case 5 :
-                    if (controle.getVetorProf() == null) {
-                        Prompt.imprimir("Não há professores registrados.");
-                    } else {
-                        StringBuilder sb = new StringBuilder();
-                        int index = 0; 
-
-                        for (Prof prof : controle.getVetorProf()) {
-                            sb.append("Prof ").append(index).append(":\n");
-                            sb.append(prof.toString()).append("\n");
-                            index++;
-                        }
-                        Prompt.imprimir(sb.toString());
-                    } 
+                    listarProf();
                     int c = Prompt.lerInteiro("Defina o índice de seu professor: ");
                     controle.excluirProf(c);
                     break;
