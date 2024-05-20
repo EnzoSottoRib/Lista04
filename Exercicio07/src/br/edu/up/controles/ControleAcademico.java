@@ -190,15 +190,6 @@ public class ControleAcademico {
         }
     }    
 
-    public int selecionarAluno() {
-
-        Prompt.imprimir("Os seguintes alunos estão registrados: ");
-        listarAlunos();
-        int a = Prompt.lerInteiro("Defina o índice de seu aluno: ");
-
-        return a;
-    }
-
     public int selecionarProf() {
 
         Prompt.imprimir("Os seguintes professores estão registrados: ");
@@ -262,9 +253,8 @@ public class ControleAcademico {
         vetorDisciplina[b] = null;
     }
 
-    public void editarNomeAluno() {
-        int a = selecionarAluno();
-        vetorAluno[a].setNome(Prompt.lerLinha("Digite o nome do aluno: "));
+    public void editarNomeAluno(int a, String editarNomeAluno) {
+        vetorAluno[a].setNome(editarNomeAluno);
     }
 
     public void editarNomeProf() {

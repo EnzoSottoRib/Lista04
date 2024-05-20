@@ -27,18 +27,18 @@ public class Menu07 {
             Prompt.imprimir("2: Listar alunos existentes");
             Prompt.imprimir("3: Alterar nome de aluno");
             Prompt.imprimir("4: Excluir aluno");
-            Prompt.imprimir("5: Sair");
+            Prompt.imprimir("0: Sair");
 
             o = Prompt.lerInteiro();
 
             switch (o) {
                 case 1 : 
-                String nome = Prompt.lerLinha("Digite o nome do aluno: ");
-                String rg = Prompt.lerLinha("Digite o RG do aluno: ");
-                String matricula = Prompt.lerLinha("Digite a matrícula do aluno: ");
-        
-                controle.adicionarAluno(nome, rg, matricula); 
-                break;
+                    String nome = Prompt.lerLinha("Digite o nome do aluno: ");
+                    String rg = Prompt.lerLinha("Digite o RG do aluno: ");
+                    String matricula = Prompt.lerLinha("Digite a matrícula do aluno: ");
+            
+                    controle.adicionarAluno(nome, rg, matricula); 
+                    break;
                 case 2 : 
                     if (controle.getVetorAluno() == null) {
                         Prompt.imprimir("Não há alunos registrados.");
@@ -54,11 +54,46 @@ public class Menu07 {
                 
                         Prompt.imprimir(sb.toString());
                     }
-                break;
-                case 3 : ; break;
-                case 4 : ; break;
-                case 5 : ; break;
-                default : ; break;
+                  break;
+                case 3 :
+                    if (controle.getVetorAluno() == null) {
+                        Prompt.imprimir("Não há alunos registrados.");
+                    } else {
+                        StringBuilder sb = new StringBuilder();
+                        int index = 0; 
+                
+                        for (Aluno aluno : controle.getVetorAluno()) {
+                            sb.append("Aluno ").append(index).append(":\n");
+                            sb.append(aluno.toString()).append("\n");
+                            index++;
+                        }
+                
+                        Prompt.imprimir(sb.toString());
+                    }
+                    int a = Prompt.lerInteiro("Defina o índice de seu aluno:");
+                    String editarNomeAluno = Prompt.lerLinha("Digite o nome do aluno: ");
+                    controle.editarNomeAluno(a, editarNomeAluno);
+                    break;
+                case 4 : 
+                    if (controle.getVetorAluno() == null) {
+                        Prompt.imprimir("Não há alunos registrados.");
+                    } else {
+                        StringBuilder sb = new StringBuilder();
+                        int index = 0; 
+                
+                        for (Aluno aluno : controle.getVetorAluno()) {
+                            sb.append("Aluno ").append(index).append(":\n");
+                            sb.append(aluno.toString()).append("\n");
+                            index++;
+                        }
+                
+                        Prompt.imprimir(sb.toString());
+                    }
+                    int b = Prompt.lerInteiro("Defina o índice de seu aluno:");
+                    controle.excluirAluno(b);
+                    break;
+                case 0 : Prompt.imprimir("Saindo..."); break;
+                default : Prompt.imprimir("Dígito inválido"); break;
             }
 
             break;
