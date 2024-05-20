@@ -3,15 +3,16 @@ package edu.up.telas;
 import java.util.Scanner;
 
 import edu.up.controles.ControleEstacionamento;
+import edu.up.modelos.Carro;
+import edu.up.controles.*;
 
 public class MenuEstacionamento {
 
     private static ControleEstacionamento controle = new ControleEstacionamento();
     
+    Scanner scanner = new Scanner(System.in);
 
     public void executar() {
-
-        Scanner scanner = new Scanner(System.in);
         int a = 1;
         
         do {
@@ -26,13 +27,13 @@ public class MenuEstacionamento {
 
             switch (a) {
                 case 1:
-                    controle.adicionarCarro();
+                    lerDadosCarro();
                     break;
                 case 2:
-                    controle.removerCarro();
+                    removerCarro();
                     break;
                 case 3:
-                    controle.emitirRelatorio();
+                    emitirRelatorio();
                     break;
                 case 0:
                     System.out.println("Saindo do sistema");
@@ -43,4 +44,30 @@ public class MenuEstacionamento {
 
         } while (a != 0);
     }
+
+    private Carro lerDadosCarro() {
+        System.out.println("Informe o modelo do carro: ");
+        String modelo = scanner.next();
+        System.out.println("Informe a placa do carro: ");
+        String placa = scanner.next();
+        System.out.println("Informe a cor do carro: ");
+        String cor = scanner.next();
+
+        return new Carro(modelo, placa, cor);
+    }
+
+    private void removerCarro() {
+        System.out.print("Digite a placa do carro para remoção: ");
+        String placa = scanner.next();
+        String resultado = controle.removerCarro(placa);
+        System.out.println(resultado);
+    }
+
+    private void emitirRelatorio() {
+        String relatorio = controle.emitirRelatorio();
+        System.out.println(relatorio);
+    }
+
+    
+
 }
