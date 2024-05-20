@@ -194,8 +194,8 @@ public class Menu07 {
                         }
                         Prompt.imprimir(sb.toString());
                     } 
-                    int b = Prompt.lerInteiro("Defina o índice de seu professor: ");
-                    controle.excluirProf(b);
+                    int c = Prompt.lerInteiro("Defina o índice de seu professor: ");
+                    controle.excluirProf(c);
                     break;
                 case 0 : Prompt.imprimir("Saindo..."); break;
                 default : Prompt.imprimir("Dígito inválido"); break;
