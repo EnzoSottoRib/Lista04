@@ -49,21 +49,20 @@ public class ControleAcademico {
         a++;
     }    
 
-    public void adicionarProf() {
+    public void adicionarProf(String nome, String rg, String matricula, int nLattes, 
+    String nomeInstituicao, int ano, String tituloObtido, String tituloTCC) {
         Prof prof = new Prof();
-        prof.setNome(Prompt.lerLinha("Digite o nome do professor: "));
-        prof.setRg(Prompt.lerLinha("Digite o RG do professor: "));
-        prof.setMatricula(Prompt.lerLinha("Digite a matrícula do professor: "));
-        prof.setnLattes(Prompt.lerInteiro("Digite o número Lattes do professor: "));
-
-        Prompt.imprimir("Agora vamos registrar sua titulação: ");
+        prof.setNome(nome);
+        prof.setRg(rg);
+        prof.setMatricula(matricula);
+        prof.setnLattes(nLattes);
 
         Titulacao titulacao = new Titulacao();
-        titulacao.setNomeInstituicao(Prompt.lerLinha("Digite o nome da instituição: "));
-        titulacao.setAno(Prompt.lerInteiro("Digite o ano de obtenção da titulação: "));
-        titulacao.setTituloObtido(Prompt.lerLinha("Digite o título obtido: "));
-        titulacao.setTituloTCC(Prompt.lerLinha("Digite o título do TCC: "));
-    
+        titulacao.setNomeInstituicao(nomeInstituicao);
+        titulacao.setAno(ano);
+        titulacao.setTituloObtido(tituloObtido);
+        titulacao.setTituloTCC(tituloTCC);
+
         prof.setTitulacao(titulacao);
 
         vetorProf[p] = prof;
@@ -129,23 +128,6 @@ public class ControleAcademico {
         d++;
     }    
 
-    public String listarProf() {
-        if (vetorProf == null) {
-            return "Não há professores registrados.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0; 
-    
-            for (Prof prof : vetorProf) {
-                sb.append("Prof ").append(index).append(":\n");
-                sb.append(prof.toString()).append("\n");
-                index++;
-            }
-    
-            return sb.toString(); 
-        }
-    }
-
     public String listarDisciplina() {
         if (vetorDisciplina == null) {
             return "Não há disciplinas registradas.";
@@ -189,15 +171,6 @@ public class ControleAcademico {
             return "Disciplina não encontrada.";
         }
     }    
-
-    public int selecionarProf() {
-
-        Prompt.imprimir("Os seguintes professores estão registrados: ");
-        listarProf();
-        int a = Prompt.lerInteiro("Defina o índice de seu professor: ");
-
-        return a;
-    }
 
     public int selecionarDisciplina() {
 
@@ -257,22 +230,19 @@ public class ControleAcademico {
         vetorAluno[a].setNome(editarNomeAluno);
     }
 
-    public void editarNomeProf() {
-        int a = selecionarProf();
-        vetorProf[a].setNome(Prompt.lerLinha("Digite o nome do professor: "));
+    public void editarNomeProf(int a, String editarNomeProf) {
+        vetorProf[a].setNome(editarNomeProf);
     }
 
-    public void editarTitulacao() {
-        int a = selecionarProf();
-
+    public void editarTitulacao(int ano, String nomeInstituicao, String tituloObtido, String tituloTCC, int indiceProf) {
         Titulacao titulacao = new Titulacao();
-        titulacao.setAno(Prompt.lerInteiro("Digite o ano de conclusão: "));
-        titulacao.setNomeInstituicao(Prompt.lerLinha("Digite o nome da instituição"));
-        titulacao.setTituloObtido(Prompt.lerLinha("Digite o título obtido: "));
-        titulacao.setTituloTCC(Prompt.lerLinha("Digite o título do TCC: "));
-
-        vetorProf[a].setTitulacao(titulacao);
-    }
+        titulacao.setAno(ano);
+        titulacao.setNomeInstituicao(nomeInstituicao);
+        titulacao.setTituloObtido(tituloObtido);
+        titulacao.setTituloTCC(tituloTCC);
+    
+        vetorProf[indiceProf].setTitulacao(titulacao);
+    }    
 
     public void editarNomeDisciplina() {
         int a = selecionarDisciplina();
