@@ -15,15 +15,39 @@ public class ControleAcademico {
     int p = 0;
     int d = 0;
 
-    public void adicionarAluno() {
-        Aluno aluno = new Aluno();
-        aluno.setNome(Prompt.lerLinha("Digite o nome do aluno: "));
-        aluno.setRg(Prompt.lerLinha("Digite o RG do aluno: "));
-        aluno.setMatricula(Prompt.lerLinha("Digite a matrícula do aluno: "));
+    public Aluno[] getVetorAluno() {
+        return vetorAluno;
+    }
 
+    public void setVetorAluno(Aluno[] vetorAluno) {
+        this.vetorAluno = vetorAluno;
+    }
+
+    public Prof[] getVetorProf() {
+        return vetorProf;
+    }
+
+    public void setVetorProf(Prof[] vetorProf) {
+        this.vetorProf = vetorProf;
+    }
+
+    public Disciplina[] getVetorDisciplina() {
+        return vetorDisciplina;
+    }
+
+    public void setVetorDisciplina(Disciplina[] vetorDisciplina) {
+        this.vetorDisciplina = vetorDisciplina;
+    }
+
+    public void adicionarAluno(String nome, String rg, String matricula) {
+        Aluno aluno = new Aluno();
+        aluno.setNome(nome);
+        aluno.setRg(rg);
+        aluno.setMatricula(matricula);
+    
         vetorAluno[a] = aluno;
         a++;
-    }
+    }    
 
     public void adicionarProf() {
         Prof prof = new Prof();
@@ -104,23 +128,6 @@ public class ControleAcademico {
         vetorDisciplina[d] = disciplina;
         d++;
     }    
-
-    public String listarAlunos() {
-        if (vetorAluno == null) {
-            return "Não há alunos registrados.";
-        } else {
-            StringBuilder sb = new StringBuilder();
-            int index = 0; 
-    
-            for (Aluno aluno : vetorAluno) {
-                sb.append("Aluno ").append(index).append(":\n");
-                sb.append(aluno.toString()).append("\n");
-                index++;
-            }
-    
-            return sb.toString(); 
-        }
-    }
 
     public String listarProf() {
         if (vetorProf == null) {

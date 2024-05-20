@@ -2,6 +2,7 @@ package br.edu.up.telas;
 
 import br.edu.up.Prompt;
 import br.edu.up.controles.*;
+import br.edu.up.modelos.Aluno;
 
 public class Menu07 {
     
@@ -20,6 +21,7 @@ public class Menu07 {
         int o = 0;
 
         switch (n) {
+
             case 1 : 
             Prompt.imprimir("DIGITE:\n1: Adicionar aluno");
             Prompt.imprimir("2: Listar alunos existentes");
@@ -30,14 +32,35 @@ public class Menu07 {
             o = Prompt.lerInteiro();
 
             switch (o) {
-                case 1 : ; break;
-                case 2 : ; break;
+                case 1 : 
+                String nome = Prompt.lerLinha("Digite o nome do aluno: ");
+                String rg = Prompt.lerLinha("Digite o RG do aluno: ");
+                String matricula = Prompt.lerLinha("Digite a matrícula do aluno: ");
+        
+                controle.adicionarAluno(nome, rg, matricula); 
+                break;
+                case 2 : 
+                    if (controle.getVetorAluno() == null) {
+                        Prompt.imprimir("Não há alunos registrados.");
+                    } else {
+                        StringBuilder sb = new StringBuilder();
+                        int index = 0; 
+                
+                        for (Aluno aluno : controle.getVetorAluno()) {
+                            sb.append("Aluno ").append(index).append(":\n");
+                            sb.append(aluno.toString()).append("\n");
+                            index++;
+                        }
+                
+                        Prompt.imprimir(sb.toString());
+                    }
+                break;
                 case 3 : ; break;
                 case 4 : ; break;
                 case 5 : ; break;
                 default : ; break;
             }
-            
+
             break;
             case 2 :
             Prompt.imprimir("DIGITE:\n1: Adicionar professor");
@@ -79,12 +102,15 @@ public class Menu07 {
             }
 
             break;
+
             case 0 :
             Prompt.imprimir("Saindo...");
             break;
+
             default :
             Prompt.imprimir("Dígito inválido");
             break;
+
         }
     }
 
