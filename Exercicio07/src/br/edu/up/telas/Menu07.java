@@ -30,8 +30,14 @@ public class Menu07 {
             o = Prompt.lerInteiro();
 
             switch (o) {
-                case 1 : 
+                case 1 : ; break;
+                case 2 : ; break;
+                case 3 : ; break;
+                case 4 : ; break;
+                case 5 : ; break;
+                default : ; break;
             }
+            
             break;
             case 2 :
             Prompt.imprimir("DIGITE:\n1: Adicionar professor");
@@ -42,6 +48,17 @@ public class Menu07 {
             Prompt.imprimir("6: Sair");
 
             o = Prompt.lerInteiro();
+
+            switch (o) {
+                case 1 : ; break;
+                case 2 : ; break;
+                case 3 : ; break;
+                case 4 : ; break;
+                case 5 : ; break;
+                case 6 : ; break;
+                default : ; break;
+            }
+
             break;
             case 3 :
             Prompt.imprimir("DIGITE:\n1: Adicionar disciplina");
@@ -51,6 +68,16 @@ public class Menu07 {
             Prompt.imprimir("5: Sair");
 
             o = Prompt.lerInteiro();
+
+            switch (o) {
+                case 1 : ; break;
+                case 2 : ; break;
+                case 3 : ; break;
+                case 4 : ; break;
+                case 5 : ; break;
+                default : ; break;
+            }
+
             break;
             case 0 :
             Prompt.imprimir("Saindo...");
