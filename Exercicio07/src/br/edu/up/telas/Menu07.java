@@ -63,6 +63,32 @@ public class Menu07 {
         }
     }
 
+    public String listarAlunosDisciplina(int a) {
+    
+        if (a >= 0 && a < controle.getVetorDisciplina().length) {
+            Disciplina disciplina = controle.getVetorDisciplina()[a];
+    
+            if (disciplina.getAlunos() == null) {
+                return "Não há alunos registrados nesta disciplina.";
+            } else {
+                StringBuilder sb = new StringBuilder();
+                int index = 0; 
+    
+                for (Aluno aluno : disciplina.getAlunos()) {
+                    if (aluno != null) { 
+                        sb.append("Aluno ").append(index).append(":\n");
+                        sb.append(aluno.toString()).append("\n");
+                        index++;
+                    }
+                }
+    
+                return sb.toString(); 
+            }
+        } else {
+            return "Disciplina não encontrada.";
+        }
+    }    
+
     public void executar() {
         Prompt.imprimir("Bem-vindo ao Menu! :)");
         Prompt.imprimir("DIGITE:\n1: Aluno (adicionar, listar, alterar, excluir)");
@@ -173,6 +199,7 @@ public class Menu07 {
             Prompt.imprimir("2: Listar disciplinas existentes");
             Prompt.imprimir("3: Alterar nome de disciplina");
             Prompt.imprimir("4: Excluir disciplina");
+            Prompt.imprimir("5: Listar os alunos da disciplina");
             Prompt.imprimir("0: Sair");
 
             o = Prompt.lerInteiro();
@@ -219,9 +246,24 @@ public class Menu07 {
                     controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), competencias, competenciasObrigatorias);
                     break;
                     // ana: sobre "Arrays.copyOf" - o primeiro parametro sao os elementos em si, enquanto o segundo e o tamanho do vetor :) 
-                case 2 : ; break;
-                case 3 : ; break;
-                case 4 : ; break;
+                case 2 : 
+                listarDisciplina(); break;
+                case 3 : 
+                listarDisciplina();
+                int b = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+                String editarNomeDisciplina = Prompt.lerLinha("Digite o nome da disciplina: ");
+                controle.editarNomeDisciplina(b, editarNomeDisciplina);
+                break;
+                case 4 : 
+                listarDisciplina();
+                int c = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+                controle.excluirDisciplina(c);
+                break;
+                case 5 : 
+                listarDisciplina();
+                int a = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+                listarAlunosDisciplina(a);
+                break;
                 case 0 : Prompt.imprimir("Saindo..."); break;
                 default : Prompt.imprimir("Dígito inválido"); break;
             }

@@ -116,66 +116,6 @@ public class ControleAcademico {
         d++;
     }
 
-    public String listarAlunosDisciplina() {
-        int a = selecionarDisciplina();
-    
-        if (a >= 0 && a < vetorDisciplina.length) {
-            Disciplina disciplina = vetorDisciplina[a];
-    
-            if (disciplina.getAlunos() == null) {
-                return "Não há alunos registrados nesta disciplina.";
-            } else {
-                StringBuilder sb = new StringBuilder();
-                int index = 0; 
-    
-                for (Aluno aluno : disciplina.getAlunos()) {
-                    if (aluno != null) { 
-                        sb.append("Aluno ").append(index).append(":\n");
-                        sb.append(aluno.toString()).append("\n");
-                        index++;
-                    }
-                }
-    
-                return sb.toString(); 
-            }
-        } else {
-            return "Disciplina não encontrada.";
-        }
-    }    
-
-    public int consultarAluno() {
-        Aluno aluno = new Aluno();
-        aluno.setRg(Prompt.lerLinha("Digite o RG do aluno: "));
-        for (int a = 0; a < vetorAluno.length; a++) {
-            if (aluno.getRg() == vetorAluno[a].getRg()) {
-                break;
-            }
-        }
-        return a;
-    }
-
-    public int consultarProf() {
-        Prof prof = new Prof();
-        prof.setRg(Prompt.lerLinha("Digite o RG do professor: "));
-        for (int a = 0; a < vetorProf.length; a++) {
-            if (prof.getRg() == vetorProf[a].getRg()) {
-                break;
-            }
-        }
-        return a;
-    }
-
-    public int consultarDisciplina() {
-        Disciplina disciplina = new Disciplina();
-        disciplina.setId(Prompt.lerLinha("Digite o ID da disciplina: "));
-        for (int a = 0; a < vetorDisciplina.length; a++) {
-            if (disciplina.getId() == vetorDisciplina[a].getId()) {
-                break;
-            }
-        }
-        return a;
-    }
-
     public void excluirAluno(int b) {
         vetorAluno[b] = null;
     }
@@ -185,6 +125,22 @@ public class ControleAcademico {
     }
 
     public void excluirDisciplina(int b) {
+        for (int i = 0; i < vetorProf.length; i++) {
+            if (vetorDisciplina[b].getProf().getMatricula() == vetorProf[i].getMatricula()) {
+                vetorProf[i].setDisciplina(null);
+            }
+        }
+
+        for (int i = 0; i < vetorAluno.length; i++) {
+            for (int j = 0; j < vetorAluno[i].getDisciplinas().length; j++) {
+                if (vetorDisciplina[b].getId() == vetorAluno[i].getDisciplinas()[j].getId()) {
+                    vetorAluno[i].getDisciplinas()[j] = null;
+                }
+            }
+        }
+
+        // ana: tiro primeiro a  disciplina dos objetos prof e aluno
+
         vetorDisciplina[b] = null;
     }
 
@@ -206,18 +162,24 @@ public class ControleAcademico {
         vetorProf[indiceProf].setTitulacao(titulacao);
     }    
 
-    public void editarNomeDisciplina() {
-        int a = selecionarDisciplina();
+    public void editarNomeDisciplina(int a, String editarNomeDisciplina) {
+        vetorDisciplina[a].setNome(editarNomeDisciplina);
 
-        vetorDisciplina[a].setNome(Prompt.lerLinha("Digite o nome da disciplina: "));
-    }
+        for (int i = 0; i < vetorProf.length; i++) {
+            if (vetorDisciplina[a].getProf().getMatricula() == vetorProf[i].getMatricula()) {
+                vetorProf[i].setDisciplina(vetorDisciplina[a]);
+            }
+        }
+        // ana: arrumando pra que o prof também tenha o nome da disciplina atualizado!
 
-    public void editarProfDisciplina() {
-        int a = selecionarDisciplina();
-
-        int b = selecionarProf();
-        vetorDisciplina[a].setProf(vetorProf[b]);
-        vetorProf[b].setDisciplina(vetorDisciplina[a]);
+        for (int i = 0; i < vetorAluno.length; i++) {
+            for (int j = 0; j < vetorAluno[i].getDisciplinas().length; j++) {
+                if (vetorDisciplina[a].getId() == vetorAluno[i].getDisciplinas()[j].getId()) {
+                    vetorAluno[i].getDisciplinas()[j] = vetorDisciplina[a];
+                }
+            }
+        }
+        // ana: fiz a mesma coisa com aluno!
     }
 
     public void aprovado() {
