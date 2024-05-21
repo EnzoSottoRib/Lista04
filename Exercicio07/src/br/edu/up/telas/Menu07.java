@@ -270,6 +270,8 @@ public class Menu07 {
 
             break;
 
+            case 4 : break;
+
             case 0 :
             Prompt.imprimir("Saindo...");
             break;

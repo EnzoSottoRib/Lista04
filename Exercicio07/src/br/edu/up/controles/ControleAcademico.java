@@ -117,10 +117,24 @@ public class ControleAcademico {
     }
 
     public void excluirAluno(int b) {
+        for (int i = 0; i < vetorDisciplina.length; i++) {
+            for (int j = 0; j < vetorDisciplina[i].getAlunos().length; j++) {
+                if (vetorAluno[b] == vetorDisciplina[i].getAlunos()[j]) {
+                    vetorDisciplina[i].getAlunos()[j] = null;
+                }
+            }
+        }
+
         vetorAluno[b] = null;
     }
 
     public void excluirProf(int b) {
+        for (int i = 0; i < vetorDisciplina.length; i++) {
+            if (vetorDisciplina[i].getProf().getMatricula() == vetorProf[b].getMatricula()) {
+                vetorDisciplina[i].setProf(null);
+            }
+        }
+
         vetorProf[b] = null;
     }
 
