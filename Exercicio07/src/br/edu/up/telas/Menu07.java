@@ -1,5 +1,7 @@
 package br.edu.up.telas;
 
+import java.util.Arrays;
+
 import br.edu.up.Prompt;
 import br.edu.up.controles.*;
 import br.edu.up.modelos.Aluno;
@@ -176,7 +178,43 @@ public class Menu07 {
             o = Prompt.lerInteiro();
 
             switch (o) {
-                case 1 : ; break;
+                case 1 : 
+                    String nomeDisciplina = Prompt.lerLinha("Digite o nome da disciplina: ");
+                    String idDisciplina = Prompt.lerLinha("Digite o ID da disciplina: ");
+
+                    listarProf();
+                    int iP = Prompt.lerInteiro("Digite o índice do professor: ");
+
+                    int[] indicesAlunos = new int[30];
+                    int contadorAlunos = 0;
+
+                    while (true) {
+                        listarAlunos();
+                        int b = Prompt.lerInteiro("Digite o índice do aluno: ");
+
+                        indicesAlunos[contadorAlunos] = b;
+                        contadorAlunos++;
+
+                        // ana: basicamente, ao invés de levar todos os objetos alunos (e o objeto prof ali em cima), levamos seus índices e os adicionamos no controle :)
+                    }
+
+                    String[] competenciasDescricoes = new String[4];
+                    boolean[] competenciasObrigatorias = new boolean[4];
+
+                    for (int i = 0; i < 4; i++) {
+                        competenciasDescricoes[i] = Prompt.lerLinha("Digite uma breve descrição da competência: ");
+                        
+                        String comp;
+                        do {
+                            comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
+                        } while (!comp.equals("N") && !comp.equals("C"));
+            
+                        competenciasObrigatorias[i] = comp.equals("N");
+                    }
+
+                    controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), Arrays.copyOf(competenciasDescricoes, 4), competenciasObrigatorias);
+                    // ana: sobre "Arrays.copyOf" - o primeiro parametro sao os elementos em si, enquanto o segundo e o tamanho do vetor :) 
+                    break;
                 case 2 : ; break;
                 case 3 : ; break;
                 case 4 : ; break;
