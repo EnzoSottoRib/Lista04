@@ -211,7 +211,68 @@ public class ControleAcademico {
         }
     }
 
-    public void aprovado() {
+    public void registrarSatisfacaoCompetencias(int indiceDisciplina, int indiceAluno, String[] satisfatorios) {
+        Disciplina disciplina = vetorDisciplina[indiceDisciplina];
+        Aluno aluno = disciplina.getAlunos()[indiceAluno];
+
+        int contadorNecessaria = 0;
+        int contadorComplementar = 0;
+        int satisfatoriaN = 0;
+        int satisfatoriaC = 0;
+        
+        for (int j = 0; j < satisfatorios.length; j++) {
+            Competencia competencia = disciplina.getCompetencias()[j];
+            boolean isObrigatoria = competencia.isObrigatoria();
+            boolean isSatisfatoria = satisfatorios[j].equals("S");
+
+            if (isObrigatoria) {
+                if (isSatisfatoria) {
+                    satisfatoriaN++;
+                } 
+                contadorNecessaria++;
+            } else {
+                if (isSatisfatoria) {
+                    satisfatoriaC++;
+                }
+                contadorComplementar++;
+            }
+        }
+    }
+
+    public void verificarAprovacao(int indiceDisciplina) {
+        Disciplina disciplina = vetorDisciplina[indiceDisciplina];
+
+        for (Aluno aluno : disciplina.getAlunos()) {
+            float mediaN = aluno.getSatisfatoriaNecessaria() / (float) aluno.getContadorNecessaria();
+            float mediaC = aluno.getSatisfatoriaComplementar() / (float) aluno.getContadorComplementar();
+
+            if (mediaN == 1.0 && mediaC >= 0.5) {
+                aluno.setAprovado(Aluno.Aprovado.APROVADO);
+            } else if (mediaN < 0.5 && mediaC < 0.5) {
+                aluno.setAprovado(Aluno.Aprovado.REPROVADO);
+            } else {
+                aluno.setAprovado(Aluno.Aprovado.PENDENTE);
+            }
+        }
+    }
+
+    public void imprimirResultadosAprovacao(int indiceDisciplina) {
+        Disciplina disciplina = vetorDisciplina[indiceDisciplina];
+
+        for (Aluno aluno : disciplina.getAlunos()) {
+            switch (aluno.getAprovado()) {
+                case APROVADO:
+                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Aprovado!");
+                    break;
+                case PENDENTE:
+                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Pendente!");
+                    break;
+                case REPROVADO:
+                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Reprovado!");
+                    break;
+            }
+        }
+    }
 
         for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
 

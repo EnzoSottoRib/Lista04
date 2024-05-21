@@ -301,7 +301,29 @@ public class Menu07 {
             listarDisciplina();
             int e = Prompt.lerInteiro("Defina o índice de sua disciplina:");
 
+            for (int i = 0; i < controle.getVetorDisciplina()[e].getAlunos().length; i++) {
+                Prompt.imprimir("Aluno: " + controle.getVetorDisciplina()[e].getAlunos()[i].getNome() + "\nRGM: " + controle.getVetorDisciplina()[e].getAlunos()[i].getMatricula());
+        
+                String[] satisfatorios = new String[controle.getVetorDisciplina()[e].getCompetencias().length];
+                
+                for (int j = 0; j < controle.getVetorDisciplina()[e].getCompetencias().length; j++) {
+                    Prompt.imprimir("Competência: " + controle.getVetorDisciplina()[e].getCompetencias()[j].getDescricao());
+                    
+                    String satisfatorio = "";
+                    
+                    do {
+                        satisfatorio = Prompt.lerLinha("Digite S para satisfatório e I para insatisfatório: ");
+                    } while (satisfatorio != "S" || satisfatorio != "I");
+                    
+                    satisfatorios[j] = satisfatorio;
+                }
+                
+                controle.registrarSatisfacaoCompetencias(e, i, satisfatorios);
+            }
             
+            controle.verificarAprovacao(e);
+            controle.imprimirResultadosAprovacao(e);
+
             break;
 
             case 0 :
