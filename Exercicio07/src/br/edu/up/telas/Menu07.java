@@ -200,6 +200,8 @@ public class Menu07 {
             Prompt.imprimir("3: Alterar nome de disciplina");
             Prompt.imprimir("4: Excluir disciplina");
             Prompt.imprimir("5: Listar os alunos da disciplina");
+            Prompt.imprimir("6: Adicionar novo professor na disciplina");
+            Prompt.imprimir("7: Adicionar novos alunos na disciplina");
             Prompt.imprimir("0: Sair");
 
             o = Prompt.lerInteiro();
@@ -264,6 +266,30 @@ public class Menu07 {
                 int a = Prompt.lerInteiro("Defina o índice de sua disciplina:");
                 listarAlunosDisciplina(a);
                 break;
+                case 6 :
+                listarDisciplina();
+                int d = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+
+                if (controle.getVetorDisciplina()[d].getProf() != null) {
+                    Prompt.imprimir("A disciplina já apresenta professor.");
+                } else {
+                    listarProf();
+                    int iP2 = Prompt.lerInteiro("Digite o índice do professor: ");
+                    controle.novoProfDisciplina(d, iP2);
+                }
+                break;
+                case 7 :
+                listarDisciplina();
+                int e = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+
+                for (int i = 0; i < 30; i++) {
+                    if (controle.getVetorDisciplina()[e].getAlunos()[i] == null) {
+                        listarAlunos();
+                        int iA = Prompt.lerInteiro("Digite o índice do aluno: ");
+                        controle.novoAlunoDisciplina(e, i, iA);
+                        break;
+                    }
+                }
                 case 0 : Prompt.imprimir("Saindo..."); break;
                 default : Prompt.imprimir("Dígito inválido"); break;
             }

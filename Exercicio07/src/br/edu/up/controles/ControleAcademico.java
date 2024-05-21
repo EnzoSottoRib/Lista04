@@ -196,6 +196,21 @@ public class ControleAcademico {
         // ana: fiz a mesma coisa com aluno!
     }
 
+    public void novoProfDisciplina (int a, int b) {
+        vetorDisciplina[a].setProf(vetorProf[b]);
+        vetorProf[b].setDisciplina(vetorDisciplina[a]);
+    }
+
+    public void novoAlunoDisciplina (int a, int i, int b) {
+        vetorDisciplina[a].getAlunos()[i] = vetorAluno[b];
+        for (int j = 0; j < 5; j++) {
+            if (vetorAluno[b].getDisciplinas()[j] == null) {
+                vetorAluno[b].getDisciplinas()[j] = vetorDisciplina[a];
+                break;
+            }
+        }
+    }
+
     public void aprovado() {
         Prompt.imprimir("Qual sua disciplina? ");
         int a = selecionarDisciplina();
