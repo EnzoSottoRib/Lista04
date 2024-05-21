@@ -296,7 +296,13 @@ public class Menu07 {
 
             break;
 
-            case 4 : break;
+            case 4 : 
+            Prompt.imprimir("Qual sua disciplina? ");
+            listarDisciplina();
+            int e = Prompt.lerInteiro("Defina o índice de sua disciplina:");
+
+            
+            break;
 
             case 0 :
             Prompt.imprimir("Saindo...");

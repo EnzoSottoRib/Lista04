@@ -212,8 +212,6 @@ public class ControleAcademico {
     }
 
     public void aprovado() {
-        Prompt.imprimir("Qual sua disciplina? ");
-        int a = selecionarDisciplina();
 
         for (int i = 0; i < vetorDisciplina[a].getAlunos().length; i++) {
 
