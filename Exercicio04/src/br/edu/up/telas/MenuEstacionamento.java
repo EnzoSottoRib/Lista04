@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import edu.up.controles.ControleEstacionamento;
 import edu.up.modelos.Carro;
-import edu.up.controles.*;
 
 public class MenuEstacionamento {
 

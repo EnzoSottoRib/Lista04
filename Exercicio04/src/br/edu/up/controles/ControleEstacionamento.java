@@ -3,8 +3,6 @@ package edu.up.controles;
 import edu.up.modelos.Carro;
 import edu.up.modelos.Estacionamento;
 
-import java.util.Scanner;
-
 public class ControleEstacionamento {
 
     private Estacionamento estacionamento;

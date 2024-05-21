@@ -1,32 +1,131 @@
 package br.edu.up.Telas;
 import java.util.Scanner;
+import br.edu.up.Modelos.*;
 
 import br.edu.up.Controle.ControleAeroporto;
 
 public class MenuAeroporto {
+    
+    private ControleAeroporto controleAeroporto;
+    private Scanner scanner;
 
-    private static ControleAeroporto controleAeroporto = new ControleAeroporto();
+    public MenuAeroporto(){
+        this.controleAeroporto  = new ControleAeroporto();
+        this.scanner = new Scanner(System.in);
+    }
 
     public void executar(){
 
-        Scanner scanner = new Scanner(System.in);
+        iniciarMenu();
 
         System.out.println("Você deseja registrar um passageiro(a), comandante ou comissário(a)?\n1 - Passageiro(a)\n2 - Comandante\n3 - Comissario(a)\n: ");
         int opcao = scanner.nextInt();
 
         switch(opcao){
             case 1:
-                controleAeroporto.registrarPassageiro();
+                registrarPassageiro();
                 break;
 
             case 2:
-                controleAeroporto.registrarComandante();
+                registrarComandante();
                 break;
 
             case 3:
-                controleAeroporto.registrarComissario();
+                registrarComissario();
                 break;
         }
         scanner.close();
     }
+
+    public void iniciarMenu(){
+        System.out.println("Bem vindo ao menu do aeroporto!");
+
+        System.out.println("Digite o codigo da aeronave: ");
+        int codigo = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Digite o tipo da aeronave: ");
+        String tipo = scanner.nextLine();
+
+        System.out.println("Digite a quantidade de assentos: ");
+        int qtdAsse = scanner.nextInt();
+
+        controleAeroporto.setAeronave(codigo, tipo, qtdAsse);
+    }
+
+    public void registrarPassageiro(){
+        System.out.println("Vamos registrar um(a) passageiro(a)!");
+
+        System.out.println("Digite seu nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Digite seu RG: ");
+        int rg = scanner.nextInt();
+
+        System.out.println("Digite o id de sua bagagem: ");
+        int idBagagem = scanner.nextInt();
+
+        System.out.println("Digite o id de sua passagem: ");
+        int idPassagem = scanner.nextInt();
+
+        System.out.println("Digite o número de seu assento: ");
+        int numAssento = scanner.nextInt();
+
+        System.out.println("Digite a classe do assento: ");
+        String classe = scanner.nextLine();
+
+        System.out.println("Digite a data do voo: ");
+        int data = scanner.nextInt();
+
+        controleAeroporto.registrarPassageiro(nome, rg, idBagagem, idPassagem, numAssento, classe, data);
+
+        System.out.println("Passageiro registrado com sucesso!");
+    }
+
+    public void registrarComandante(){
+        System.out.println("Vamos registrar um(a) comandante!");
+
+        System.out.println("Digite seu nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Digite seu RG: ");
+        int rg = scanner.nextInt();
+        
+        System.out.println("Digite o id da aeronautica: ");
+        int idAeronautica = scanner.nextInt();
+
+        System.out.println("Digite a matricula de funcionário: ");
+        int matriculaFuncionario = scanner.nextInt();
+
+        System.out.println("Digite o total de horas de voo: ");
+        int totalHorasVoo = scanner.nextInt();
+
+        controleAeroporto.registrarComandante(nome, rg, idAeronautica, matriculaFuncionario, totalHorasVoo);
+
+        System.out.println("Comandante registrado com sucesso!");
+    }
+
+    public void registrarComissario(){
+        System.out.println("Vamos registrar um(a) comissário(a)!");
+
+        System.out.println("Digite seu nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Digite seu RG: ");
+        int rg = scanner.nextInt();
+
+        System.out.println("Digite o id da aeronautica: ");
+        int idAeronautica = scanner.nextInt();
+
+        System.out.println("Digite a matricula de funcionário: ");
+        int matriculaFuncionario = scanner.nextInt();
+
+        System.out.println("Digite os idiomas em que é fluente: ");
+        String idiomasFluente = scanner.nextLine();
+
+        controleAeroporto.registrarComissario(nome, rg, idAeronautica, matriculaFuncionario, idiomasFluente);
+
+        System.out.println("Comissario(a) registrado(a) com sucesso!");
+    }
+
 }
