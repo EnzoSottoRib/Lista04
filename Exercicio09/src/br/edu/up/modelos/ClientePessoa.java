@@ -9,9 +9,20 @@ public class ClientePessoa extends Cliente{
         return super.getSaldo();
     }
 
-    /*public String getDados(){
+    
 
-    }*/
+    public String getDados(int i){
+        return toString() + super.getDados(i);
+    }
+
+    public ClientePessoa(String cPF, double peso, double altura, double creditoMax) {
+        CPF = cPF;
+        this.peso = peso;
+        this.altura = altura;
+        super.setVlrMaxCredito(creditoMax);
+    }
+
+
 
     public double clientePessoa(){
         double credito = 10000; 

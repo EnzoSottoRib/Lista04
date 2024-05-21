@@ -3,20 +3,22 @@ package br.edu.up.modelos;
 public class ClienteEmpresa extends Cliente{
     private String cnpj;
     private String inscEstadual;
-    private int anoFuncadao;
+    private int anoFundacao;
 
-    public double clienteEmpresa(){
-        double credito = 25000;
-        return credito;
+    public ClienteEmpresa(String cnpj, String inscEstadual, int anoFundacao, double credito){
+        this.cnpj = cnpj;
+        this.inscEstadual = inscEstadual;
+        this.anoFundacao = anoFundacao;
+        super.setVlrMaxCredito(credito);
     }
 
     public double getSaldo(){
         return super.getSaldo();
     }
 
-    /*public String getDados(){
-
-    }*/
+    public String getDados(int i){
+        return toString() + super.getDados(i);
+    }
 
     public String getCnpj() {
         return cnpj;
@@ -35,16 +37,16 @@ public class ClienteEmpresa extends Cliente{
     }
 
     public int getAnoFuncadao() {
-        return anoFuncadao;
+        return anoFundacao;
     }
 
     public void setAnoFuncadao(int anoFuncadao) {
-        this.anoFuncadao = anoFuncadao;
+        this.anoFundacao = anoFuncadao;
     }
 
     @Override
     public String toString() {
-        return "ClienteEmpresa [cnpj=" + cnpj + ", inscEstadual=" + inscEstadual + ", anoFuncadao=" + anoFuncadao + "]";
+        return "ClienteEmpresa [cnpj=" + cnpj + ", inscEstadual=" + inscEstadual + ", anoFuncadao=" + anoFundacao + "]";
     }
 
     
