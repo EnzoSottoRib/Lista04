@@ -10,13 +10,45 @@ public class Disciplina {
     Aluno[] alunos = new Aluno[30];
     Competencia[] competencias = new Competencia[4];
     int contadorAlunos;
+    int contadorNecessaria;
+    int contadorComplementar;
     
     public Disciplina(String nome, String id, Prof prof) {
         this.nome = nome;
         this.id = id;
         this.prof = prof;
         contadorAlunos = 0;
+        contadorNecessaria = 0;
+        contadorComplementar = 0;
     }
+
+    public int getContadorNecessaria() {
+        return contadorNecessaria;
+    }
+
+
+    public void setContadorNecessaria(int contadorNecessaria) {
+        this.contadorNecessaria = contadorNecessaria;
+    }
+
+
+    public int getContadorComplementar() {
+        return contadorComplementar;
+    }
+
+
+    public void setContadorComplementar(int contadorComplementar) {
+        this.contadorComplementar = contadorComplementar;
+    }
+
+    public void incrementarContadorNecessaria() {
+        contadorNecessaria++;
+    }
+
+    public void incrementarContadorComplementar() {
+        contadorNecessaria++;
+    }
+
 
     public Disciplina() {
         contadorAlunos = 0;

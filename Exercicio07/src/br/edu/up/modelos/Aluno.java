@@ -7,6 +7,8 @@ public class Aluno extends Pessoa {
     Aprovado aprovado;
     Disciplina[] disciplinas;
     int contadorDisciplina;
+    int satisfatoriaN = 0;
+    int satisfatoriaC = 0;
 
     public enum Aprovado {
         APROVADO, REPROVADO, PENDENTE
@@ -18,6 +20,30 @@ public class Aluno extends Pessoa {
 
     public void setAprovado(Aprovado aprovado) {
         this.aprovado = aprovado;
+    }
+
+    public int getSatisfatoriaN() {
+        return satisfatoriaN;
+    }
+
+    public void setSatisfatoriaN(int satisfatoriaN) {
+        this.satisfatoriaN = satisfatoriaN;
+    }
+
+    public int getSatisfatoriaC() {
+        return satisfatoriaC;
+    }
+
+    public void setSatisfatoriaC(int satisfatoriaC) {
+        this.satisfatoriaC = satisfatoriaC;
+    }
+
+    public void incrementarSatisfatoriaC() {
+        satisfatoriaC++;
+    }
+
+    public void incrementarSatisfatoriaN() {
+        satisfatoriaN++;
     }
 
     public Disciplina[] getDisciplinas() {

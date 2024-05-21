@@ -109,6 +109,12 @@ public class ControleAcademico {
         competencia.setDescricao(competenciasDescricoes[i]);
         competencia.setObrigatoria(competenciasObrigatorias[i]);
 
+        if (competenciasObrigatorias[i] == true) {
+            disciplina.incrementarContadorNecessaria();
+        } else {
+            disciplina.incrementarContadorComplementar();
+        }
+
         disciplina.getCompetencias()[i] = competencia;
         }
 
@@ -214,11 +220,6 @@ public class ControleAcademico {
     public void registrarSatisfacaoCompetencias(int indiceDisciplina, int indiceAluno, String[] satisfatorios) {
         Disciplina disciplina = vetorDisciplina[indiceDisciplina];
         Aluno aluno = disciplina.getAlunos()[indiceAluno];
-
-        int contadorNecessaria = 0;
-        int contadorComplementar = 0;
-        int satisfatoriaN = 0;
-        int satisfatoriaC = 0;
         
         for (int j = 0; j < satisfatorios.length; j++) {
             Competencia competencia = disciplina.getCompetencias()[j];
