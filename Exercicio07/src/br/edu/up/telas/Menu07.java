@@ -188,34 +188,37 @@ public class Menu07 {
                     int[] indicesAlunos = new int[30];
                     int contadorAlunos = 0;
 
-                    while (true) {
+                    while (contadorAlunos < 30) {
                         listarAlunos();
-                        int b = Prompt.lerInteiro("Digite o índice do aluno: ");
-
-                        indicesAlunos[contadorAlunos] = b;
+                        indicesAlunos[contadorAlunos] = Prompt.lerInteiro("Digite o índice do aluno: ");
                         contadorAlunos++;
 
                         // ana: basicamente, ao invés de levar todos os objetos alunos (e o objeto prof ali em cima), levamos seus índices e os adicionamos no controle :)
                     }
 
-                    String[] competenciasDescricoes = new String[4];
+                    String[] competencias = new String[4];
                     boolean[] competenciasObrigatorias = new boolean[4];
+                    String comp;
 
                     for (int i = 0; i < 4; i++) {
-                        competenciasDescricoes[i] = Prompt.lerLinha("Digite uma breve descrição da competência: ");
-                        
-                        String comp;
+
+                        competencias[i] = Prompt.lerLinha("Digite uma breve descrição da competência: ");
+
                         do {
                             comp = Prompt.lerLinha("Digite N caso a competência seja necessária, ou C caso ela seja complementar: ");
-                        } while (!comp.equals("N") && !comp.equals("C"));
+                        } while (comp != "N" || comp != "C");
             
-                        competenciasObrigatorias[i] = comp.equals("N");
+                        if (comp == "C") {
+                            competenciasObrigatorias[i] = true;
+                        } else {
+                            competenciasObrigatorias[i] = false;
+                        }
+
                     }
 
-                    controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), competenciasDescricoes, competenciasObrigatorias);
+                    controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), competencias, competenciasObrigatorias);
                     break;
                     // ana: sobre "Arrays.copyOf" - o primeiro parametro sao os elementos em si, enquanto o segundo e o tamanho do vetor :) 
-                    break;
                 case 2 : ; break;
                 case 3 : ; break;
                 case 4 : ; break;
