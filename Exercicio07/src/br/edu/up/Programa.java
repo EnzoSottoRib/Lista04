@@ -1,7 +1,10 @@
 package br.edu.up;
 
+import br.edu.up.telas.Menu07;
+
 public class Programa {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Menu07 menu = new Menu07();
+        menu.executar();
     }
 }
