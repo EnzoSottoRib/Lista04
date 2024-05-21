@@ -69,8 +69,8 @@ public class ControleAcademico {
         p++;
     }
 
-    public void adicionarDisciplina(String nomeDisciplina, String idDisciplina, int indiceProf, 
-    int[] indicesAlunos, String[] competenciasDescricoes, boolean[] competenciasObrigatorias) {
+    public void adicionarDisciplina(String nomeDisciplina, String idDisciplina, int indiceProf, int[] indicesAlunos, String[] competenciasDescricoes, boolean[] competenciasObrigatorias) {
+        
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(nomeDisciplina);
         disciplina.setId(idDisciplina);
@@ -78,18 +78,30 @@ public class ControleAcademico {
         disciplina.setProf(vetorProf[indiceProf]);
         vetorProf[indiceProf].setDisciplina(disciplina);
 
-        for (int indiceAluno : indicesAlunos) {
-        if (disciplina.getContadorAlunos() >= 30) {
-        break;
-        }
+        for (int i = 0; i < indicesAlunos.length; i++) {
+            int indiceAluno = indicesAlunos[i];
+            /* ana: ou seja, o índice que a gente enviou do menu encontra aqui no vetor aluno o seu aluno equivalente,
+            para que a gente possa tanto colocar aluno na disc. como a disc. no aluno (assim como foi feito em prof, 
+            apesar que de forma mais simples!) */
+            if (indiceAluno == 0) {
+                break; 
+            }
+            if (disciplina.getContadorAlunos() >= 30) {
+                break;
+            }
 
-        if (vetorAluno[indiceAluno].getContadorDisciplina() < 5) {
-        disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[indiceAluno];
-        disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
+            if (vetorAluno[indiceAluno].getContadorDisciplina() < 5) {
+                /* ana: ou seja, se o aluno ainda pode adicionar mais matérias */
+                disciplina.getAlunos()[disciplina.getContadorAlunos()] = vetorAluno[indiceAluno];
+                disciplina.setContadorAlunos(disciplina.getContadorAlunos() + 1);
 
-        vetorAluno[indiceAluno].getDisciplinas()[vetorAluno[indiceAluno].getContadorDisciplina()] = disciplina;
-        vetorAluno[indiceAluno].setContadorDisciplina(vetorAluno[indiceAluno].getContadorDisciplina() + 1);
-        }
+                vetorAluno[indiceAluno].getDisciplinas()[vetorAluno[indiceAluno].getContadorDisciplina()] = disciplina;
+                /* ana: o código parece complicade de primeira KKKK mas é basicamente um vetor que indica a posição do objeto
+                 * aluno > depois acessa o vetor de disciplinas dentro do modelo aluno > precisa saber qual a posicação de aluno
+                 * (de novo) e a posição do coiso de matéria! :>
+                 */
+                vetorAluno[indiceAluno].setContadorDisciplina(vetorAluno[indiceAluno].getContadorDisciplina() + 1);
+            }
         }
 
         for (int i = 0; i < 4; i++) {

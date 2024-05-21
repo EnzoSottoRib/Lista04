@@ -212,7 +212,8 @@ public class Menu07 {
                         competenciasObrigatorias[i] = comp.equals("N");
                     }
 
-                    controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), Arrays.copyOf(competenciasDescricoes, 4), competenciasObrigatorias);
+                    controle.adicionarDisciplina(nomeDisciplina, idDisciplina, iP, Arrays.copyOf(indicesAlunos, contadorAlunos), competenciasDescricoes, competenciasObrigatorias);
+                    break;
                     // ana: sobre "Arrays.copyOf" - o primeiro parametro sao os elementos em si, enquanto o segundo e o tamanho do vetor :) 
                     break;
                 case 2 : ; break;
