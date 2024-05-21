@@ -49,7 +49,6 @@ public class Disciplina {
         contadorNecessaria++;
     }
 
-
     public Disciplina() {
         contadorAlunos = 0;
     }
