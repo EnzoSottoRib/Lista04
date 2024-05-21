@@ -21,5 +21,10 @@ public class MenuCadastro {
         }
     } while (opcao != 9);
 
+    scanner.close();
+
     }
+
+    
+
 }
