@@ -6,7 +6,24 @@ import br.edu.up.modelos.*;
 
 public class ControleCadastro {
 
-    List<Cliente> listaClientes = new ArrayList<Cliente>();    
+    List<ClientePessoa> listaPessoa = new ArrayList<ClientePessoa>();  
+    List<ClienteEmpresa> listaEmpresa = new ArrayList<ClienteEmpresa>();
+    
+    public ControleCadastro(){
+        this.listaPessoa = new ArrayList<>();
+        this.listaEmpresa = new ArrayList<>();
+    }
+
+    private void addClientePessoa(ClientePessoa pessoa){
+        listaPessoa.add(pessoa);
+    }
+ 
+    private void addClienteEmpresa(ClienteEmpresa pessoa){
+        listaEmpresa.add(pessoa);
+    }
+
+
+
 
         /* O menu apresentado ao usuário deve conter os seguintes itens (encerrar o programa no Sair):
         1. Incluir cliente pessoa
@@ -19,8 +36,5 @@ public class ControleCadastro {
         8. Devolução de cliente empresa
         9. Sair */
 
-    public void adicionarPessoa(){
-        
-    }
 
 }

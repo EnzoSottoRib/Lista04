@@ -34,6 +34,11 @@ public abstract class Cliente {
         return getVlrEmprestado();
     }
 
+    public String getDados(int i){
+        return "Cliente "+ i +"\nNome = " + nome + "\nTelefone =    " + telefone + "\nemail =   " + email + "\nValor Maximo de Crédito =    "
+        + vlrMaxCredito + "\nValor de Emprestimo =  " + vlrEmprestado + "\nEndereco =   " + endereco+ "\n-->Saldo:" + getSaldo();
+    }
+
     public String getNome() {
         return nome;
     }
