@@ -9,8 +9,21 @@ public class Menu {
      public void exibirMenu() {
       int opcao;
       Scanner leitor = new Scanner(System.in);
-      Segurado segurado = new Segurado(null, null, null, null, null, null, null, null);
+      Segurado segurado = new Segurado();
       SeguradoController seguradoController = new SeguradoController();
+
+
+      if(seguradoController.getcadastrarUsuario() == null){
+        String nome = leitor.nextLine();
+        String RG = leitor.nextLine();
+        String CPF = leitor.nextLine();
+        String sexo = leitor.nextLine();
+        String telefone = leitor.nextLine();
+        String endereco = leitor.nextLine();
+        String CEP = leitor.nextLine();
+        String cidade = leitor.nextLine();
+        seguradoController.cadastrarUsuario(nome, RG, CPF, sexo, telefone, endereco, CEP, cidade);
+      }
   
       do {
           System.out.println("\nAPÓLICE DE SEGUROS");
@@ -23,21 +36,16 @@ public class Menu {
           System.out.println("7. Sair.\n");
 
           opcao = leitor.nextInt();
-
-          if( segurado == null){
-            seguradoController.cadastrarUsuario();
-            String nome = leitor.nextLine();
-            String RG = leitor.nextLine();
-            String CPF = leitor.nextLine();
-            String telefone = leitor.nextLine();
-            String endereco = leitor.nextLine();
-            String CEP = leitor.nextLine();
-            String cidade = leitor.nextLine();
-          }
           
-      } while (opcao < 7);
+          
+      
+    }while (opcao < 7);
+
   }
 
-    
 }
+  
+
+    
+
 
