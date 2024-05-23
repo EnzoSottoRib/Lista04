@@ -23,15 +23,24 @@ public class MenuAeroporto {
 
         switch(opcao){
             case 1:
-                registrarPassageiro();
+                int res = registrarPassageiro();
+                if (res == 1){
+                    System.out.println("Passageiro registrado com sucesso!");
+                }
                 break;
 
             case 2:
-                registrarComandante();
+                res = registrarComandante();
+                if (res == 1){
+                    System.out.println("Comandante registrado com sucesso!");
+                }
                 break;
 
             case 3:
-                registrarComissario();
+                res = registrarComissario();
+                if (res == 1){
+                    System.out.println("Passageiro registrado com sucesso!");
+                }
                 break;
         }
         scanner.close();
@@ -53,7 +62,7 @@ public class MenuAeroporto {
         controleAeroporto.setAeronave(codigo, tipo, qtdAsse);
     }
 
-    public void registrarPassageiro(){
+    public int registrarPassageiro(){
         System.out.println("Vamos registrar um(a) passageiro(a)!");
 
         System.out.println("Digite seu nome: ");
@@ -77,12 +86,12 @@ public class MenuAeroporto {
         System.out.println("Digite a data do voo: ");
         int data = scanner.nextInt();
 
-        controleAeroporto.registrarPassageiro(nome, rg, idBagagem, idPassagem, numAssento, classe, data);
+        controleAeroporto.registrarPassageiroControle(nome, rg, idBagagem, idPassagem, numAssento, classe, data);
 
-        System.out.println("Passageiro registrado com sucesso!");
+        return 1;
     }
 
-    public void registrarComandante(){
+    public int registrarComandante(){
         System.out.println("Vamos registrar um(a) comandante!");
 
         System.out.println("Digite seu nome: ");
@@ -100,12 +109,12 @@ public class MenuAeroporto {
         System.out.println("Digite o total de horas de voo: ");
         int totalHorasVoo = scanner.nextInt();
 
-        controleAeroporto.registrarComandante(nome, rg, idAeronautica, matriculaFuncionario, totalHorasVoo);
+        controleAeroporto.registrarComandanteControle(nome, rg, idAeronautica, matriculaFuncionario, totalHorasVoo);
 
-        System.out.println("Comandante registrado com sucesso!");
+        return 1;
     }
 
-    public void registrarComissario(){
+    public int registrarComissario(){
         System.out.println("Vamos registrar um(a) comissário(a)!");
 
         System.out.println("Digite seu nome: ");
@@ -123,9 +132,9 @@ public class MenuAeroporto {
         System.out.println("Digite os idiomas em que é fluente: ");
         String idiomasFluente = scanner.nextLine();
 
-        controleAeroporto.registrarComissario(nome, rg, idAeronautica, matriculaFuncionario, idiomasFluente);
+        controleAeroporto.registrarComissarioControle(nome, rg, idAeronautica, matriculaFuncionario, idiomasFluente);
 
-        System.out.println("Comissario(a) registrado(a) com sucesso!");
+        return 1;
     }
 
 }
