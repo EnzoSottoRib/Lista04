@@ -1,4 +1,6 @@
 package br.edu.up.Telas;
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.Scanner;
 import br.edu.up.Controle.*;
 import br.edu.up.Modelo.*;
@@ -9,8 +11,8 @@ public class Menu {
      public void exibirMenu() {
       int opcao;
       Scanner leitor = new Scanner(System.in);
-      Segurado segurado = new Segurado();
       SeguradoController seguradoController = new SeguradoController();
+      SeguroController seguroController = new SeguroController();
 
 
       if(seguradoController.getcadastrarUsuario() == null){
@@ -36,6 +38,20 @@ public class Menu {
           System.out.println("7. Sair.\n");
 
           opcao = leitor.nextInt();
+
+          switch(opcao){
+            case 1: 
+            String apolice = leitor.nextLine();
+            String segurado = leitor.nextLine();
+            Double vlrApolice = leitor.nextDouble();
+            String dtaInicio = leitor.nextLine();
+            String dtaFinal = leitor.nextLine();
+            seguroController.cadastrarSeguro(apolice, segurado, vlrApolice, dtaInicio, dtaFinal);
+            break;
+
+            case 2:
+            
+          }
           
           
       

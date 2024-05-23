@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Seguro {
     private String apolice;
-    private Segurado segurado;
+    private String segurado;
     private Double vlrApolice;
-    private LocalDate dtaInicio;
-    private LocalDate dtaFinal;
+    private String dtaInicio;
+    private String dtaFinal;
 
 
     public String getApolice() {
@@ -16,10 +16,10 @@ public class Seguro {
     public void setApolice(String apolice) {
         this.apolice = apolice;
     }
-    public Segurado getSegurado() {
+    public String getSegurado() {
         return segurado;
     }
-    public void setSegurado(Segurado segurado) {
+    public void setSegurado(String segurado) {
         this.segurado = segurado;
     }
     public Double getVlrApolice() {
@@ -28,21 +28,21 @@ public class Seguro {
     public void setVlrApolice(Double vlrApolice) {
         this.vlrApolice = vlrApolice;
     }
-    public LocalDate getDtaInicio() {
+    public String getDtaInicio() {
         return dtaInicio;
     }
-    public void setDtaInicio(LocalDate dtaInicio) {
+    public void setDtaInicio(String dtaInicio) {
         this.dtaInicio = dtaInicio;
     }
-    public LocalDate getDtaFinal() {
+    public String getDtaFinal() {
         return dtaFinal;
     }
-    public void setDtaFinal(LocalDate dtaFinal) {
+    public void setDtaFinal(String dtaFinal) {
         this.dtaFinal = dtaFinal;
     }
 
 
-    
+
 
 
     
