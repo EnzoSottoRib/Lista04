@@ -1,4 +1,4 @@
-package controles;
+package edu.up.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class Prompt {
 	}
 
 	/**
-	 * Imprime uma linha separadora no console.
+	 * Imprime uma linha separadora  no console.
 	 */
 	public static void separador() {
 		imprimir("---------------------------------------------------");

@@ -8,7 +8,7 @@ public class ControleEstacionamento {
     private Estacionamento estacionamento;
 
     public ControleEstacionamento() {
-        this.estacionamento = new Estacionamento();
+        estacionamento = new Estacionamento();
     }
 
     public String lerDadosCarro(String modelo, String placa, String cor) {
@@ -16,7 +16,7 @@ public class ControleEstacionamento {
             Carro carro = new Carro(modelo, placa, cor);
             return estacionamento.ocuparVaga(carro);
         } else {
-            return "Todas as vagas estão ocupadas!";
+            return estacionamento.lerVagasOcupadas();
         }
     }
 
@@ -27,6 +27,4 @@ public class ControleEstacionamento {
     public String emitirRelatorio() {
         return estacionamento.emitirRelatorio();
     }
-
-    
 }

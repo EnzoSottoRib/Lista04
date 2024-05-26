@@ -1,32 +1,30 @@
 package edu.up.telas;
 
-import java.util.Scanner;
-
 import edu.up.controles.ControleEstacionamento;
-import edu.up.modelos.Carro;
+
+import java.util.Scanner;
 
 public class MenuEstacionamento {
 
-    private static ControleEstacionamento controle = new ControleEstacionamento();
-    
-    Scanner scanner = new Scanner(System.in);
+    private ControleEstacionamento controle;
+    private Scanner scanner;
+
+    public MenuEstacionamento() {
+        controle = new ControleEstacionamento();
+        scanner = new Scanner(System.in);
+    }
 
     public void executar() {
-        int a = 1;
-        
+        int opcao;
+
         do {
-            System.out.println("\n-- Menu do Estacionamento --");
-            System.out.println("1- Adicionar carro");
-            System.out.println("2- Remover carro");
-            System.out.println("3- Emitir relatório");
-            System.out.println("0- Sair ");
-            System.out.print("Escolha uma opção: ");
+            exibirMenu();
+            opcao = scanner.nextInt();
+            scanner.nextLine(); 
 
-            a = scanner.nextInt();
-
-            switch (a) {
+            switch (opcao) {
                 case 1:
-                    lerDadosCarro();
+                    adicionarCarro();
                     break;
                 case 2:
                     removerCarro();
@@ -35,29 +33,38 @@ public class MenuEstacionamento {
                     emitirRelatorio();
                     break;
                 case 0:
-                    System.out.println("Saindo do sistema");
+                    System.out.println("Saindo do sistema...");
                     break;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }
-
-        } while (a != 0);
+        } while (opcao != 0);
     }
 
-    private Carro lerDadosCarro() {
-        System.out.println("Informe o modelo do carro: ");
-        String modelo = scanner.next();
-        System.out.println("Informe a placa do carro: ");
-        String placa = scanner.next();
-        System.out.println("Informe a cor do carro: ");
-        String cor = scanner.next();
+    private void exibirMenu() {
+        System.out.println("\n-- Menu do Estacionamento --");
+        System.out.println("1- Adicionar carro");
+        System.out.println("2- Remover carro");
+        System.out.println("3- Emitir relatório");
+        System.out.println("0- Sair ");
+        System.out.print("Escolha uma opção: ");
+    }
 
-        return new Carro(modelo, placa, cor);
+    private void adicionarCarro() {
+        System.out.println("Informe o modelo do carro: ");
+        String modelo = scanner.nextLine();
+        System.out.println("Informe a placa do carro: ");
+        String placa = scanner.nextLine();
+        System.out.println("Informe a cor do carro: ");
+        String cor = scanner.nextLine();
+
+        String resultado = controle.lerDadosCarro(modelo, placa, cor);
+        System.out.println(resultado);
     }
 
     private void removerCarro() {
-        System.out.print("Digite a placa do carro para remoção: ");
-        String placa = scanner.next();
+        System.out.println("Digite a placa do carro para remoção: ");
+        String placa = scanner.nextLine();
         String resultado = controle.removerCarro(placa);
         System.out.println(resultado);
     }
@@ -66,7 +73,4 @@ public class MenuEstacionamento {
         String relatorio = controle.emitirRelatorio();
         System.out.println(relatorio);
     }
-
-    
-
 }

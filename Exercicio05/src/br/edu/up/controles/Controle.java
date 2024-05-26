@@ -2,6 +2,7 @@ package controles;
 
 import modelos.Evento;
 import modelos.Reserva;
+import util.Prompt;
 
 public class Controle {
 
