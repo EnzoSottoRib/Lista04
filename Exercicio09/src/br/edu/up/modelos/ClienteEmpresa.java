@@ -21,8 +21,10 @@ public class ClienteEmpresa extends Cliente{
         return super.getSaldo();
     }
 
+    @Override
     public String getDados(int i){
-        return toString() + super.getDados(i);
+        return String.format("ClienteEmpresa\nCNPJ: %s\nInscrição Estadual: %s\nAno de Fundação: %d\n%s", 
+                            cnpj, inscEstadual, anoFundacao, super.getDados(i));
     }
 
     public String getCnpj() {

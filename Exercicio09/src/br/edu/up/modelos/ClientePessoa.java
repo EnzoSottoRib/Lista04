@@ -21,8 +21,10 @@ public class ClientePessoa extends Cliente{
         return super.getSaldo();
     }
 
+    @Override
     public String getDados(int i){
-        return toString() + super.getDados(i);
+        return String.format("ClientePessoa\nCPF: %s\nPeso: %.2f\nAltura: %.2f\n%s", 
+        cpf, peso, altura, super.getDados(i));
     }
 
     public double clientePessoa(){

@@ -29,7 +29,7 @@ public class Cidade {
 
     @Override
     public String toString() {
-        return "Cidade [nome=" + nome + ", uf=" + uf + "]";
+        return "| Cidade: " + nome + "| uf: " + uf;
     }
 
 }
