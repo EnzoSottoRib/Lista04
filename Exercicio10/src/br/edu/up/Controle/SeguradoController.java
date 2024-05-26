@@ -15,8 +15,4 @@ public class SeguradoController {
       segurado.setCidade(cidade);
     }
 
-    public String getcadastrarUsuario(){
-      return getcadastrarUsuario();
-    }
-
 }
