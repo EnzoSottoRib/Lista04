@@ -247,19 +247,4 @@ public class ControleAcademico {
         }
     }
 
-    public void imprimirResultadosAprovacao(int indiceDisciplina) {
-        for (Aluno aluno : vetorDisciplina[indiceDisciplina].getAlunos()) {
-            switch (aluno.getAprovado()) {
-                case APROVADO:
-                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Aprovado!");
-                    break;
-                case PENDENTE:
-                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Pendente!");
-                    break;
-                case REPROVADO:
-                    Prompt.imprimir("Aluno " + aluno.getNome() + ": Reprovado!");
-                    break;
-            }
-        }
-    }
 }

@@ -322,7 +322,20 @@ public class Menu07 {
             }
             
             controle.verificarAprovacao(e);
-            controle.imprimirResultadosAprovacao(e);
+            
+            for (Aluno aluno : controle.getVetorDisciplina()[e].getAlunos()) {
+                switch (aluno.getAprovado()) {
+                    case APROVADO:
+                        Prompt.imprimir("Aluno " + aluno.getNome() + ": Aprovado!");
+                        break;
+                    case PENDENTE:
+                        Prompt.imprimir("Aluno " + aluno.getNome() + ": Pendente!");
+                        break;
+                    case REPROVADO:
+                        Prompt.imprimir("Aluno " + aluno.getNome() + ": Reprovado!");
+                        break;
+                }
+            }
 
             break;
 
