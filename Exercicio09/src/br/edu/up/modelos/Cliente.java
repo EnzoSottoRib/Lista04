@@ -8,26 +8,31 @@ public abstract class Cliente {
     private double vlrMaxCredito;
     private double vlrEmprestado;
 
+    public Cliente(){
+        
+    }
 
-    public void emprestar(double valor){
+    public Cliente(String nome, String telefone, String email, double vlrMaxCredito) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.vlrMaxCredito = vlrMaxCredito;
+    }
 
-        double valtot = valor + getVlrEmprestado();
-
-        if (valtot > vlrMaxCredito){
+    public void emprestar(double valor) {
+        if (vlrEmprestado + valor > vlrMaxCredito) {
             System.out.println("Valor maior que o limite.");
         } else {
             vlrEmprestado += valor;
         }
     }
 
-    public double devolver(double valor){
-        if (vlrEmprestado < valor){
-            valor -= vlrEmprestado;
+    public void devolver(double valor) {
+        if (vlrEmprestado < valor) {
             vlrEmprestado = 0;
         } else {
             vlrEmprestado -= valor;
         }
-        return valor;
     }
 
     public double getSaldo(){

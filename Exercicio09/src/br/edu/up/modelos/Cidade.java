@@ -2,11 +2,15 @@ package br.edu.up.modelos;
 
 public class Cidade {
     private String nome;
-    private String UF;
+    private String uf;
 
-    public Cidade(String nome, String UF){
+    public Cidade(){
+        
+    }
+
+    public Cidade(String nome, String uf){
         this.nome = nome;
-        this.UF = UF;
+        this.uf = uf;
     }
     
     public String getNome() {
@@ -16,16 +20,16 @@ public class Cidade {
         this.nome = nome;
     }
     public String getUF() {
-        return UF;
+        return uf;
     }
     public void setUF(String uF) {
-        UF = uF;
+        uf = uF;
     }
 
 
     @Override
     public String toString() {
-        return "Cidade [nome=" + nome + ", UF=" + UF + "]";
+        return "Cidade [nome=" + nome + ", uf=" + uf + "]";
     }
 
 }
