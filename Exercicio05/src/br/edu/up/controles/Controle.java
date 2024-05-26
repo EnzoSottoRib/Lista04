@@ -2,7 +2,6 @@ package controles;
 
 import modelos.Evento;
 import modelos.Reserva;
-import util.Prompt;
 
 public class Controle {
 
@@ -136,14 +135,6 @@ public class Controle {
         reserva.setDia(listaEventos[n].getDia());
         reserva.setHora(listaEventos[n].getHora());
         reserva.setPrecoIngresso(listaEventos[n].getPrecoIngresso());
-
-        reserva.setNomeResponsavel(Prompt.lerLinha("Digite o nome do responsável: "));
-        do {
-            reserva.setQtdePessoas(Prompt.lerInteiro("Digite a quantidade de pessoas: "));
-            if (listaEventos[n].getLotacaoMax() > (listaEventos[n].getIngressosVendidos() + reserva.getQtdePessoas())) {
-                Prompt.imprimir("Não há ingressos suficientes.");
-            }
-        } while (listaEventos[n].getLotacaoMax() <= (listaEventos[n].getIngressosVendidos() + reserva.getQtdePessoas()));
 
         reserva.setValorTotal(listaEventos[n].getPrecoIngresso() * reserva.getQtdePessoas());
         
