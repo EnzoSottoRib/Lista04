@@ -1,8 +1,14 @@
 package br.edu.up.Modelos;
 
-public class Passageiro extends Pessoa{
+public class Passageiro extends Pessoa {
     private int idBagagem;
     private int idPassagem;
+
+    public Passageiro(String nome, int rg, int idBagagem, int idPassagem) {
+        super(nome, rg);
+        this.idBagagem = idBagagem;
+        this.idPassagem = idPassagem;
+    }
 
     public int getIdBagagem() {
         return idBagagem;
@@ -19,5 +25,4 @@ public class Passageiro extends Pessoa{
     public void setIdPassagem(int idPassagem) {
         this.idPassagem = idPassagem;
     }
-    
 }
