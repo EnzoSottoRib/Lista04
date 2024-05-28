@@ -1,5 +1,6 @@
 package br.edu.up.Telas;
 
+import java.util.List;
 import java.util.Scanner;
 import br.edu.up.Controle.SeguradoController;
 import br.edu.up.Controle.SeguroController;
@@ -13,7 +14,7 @@ public class Menu {
         SeguradoController seguradoController = new SeguradoController();
         SeguroController seguroController = new SeguroController();
 
-        // Cadastro do usuário
+        
         System.out.println("Cadastre seu usuário para acessar a apólice de seguros:");
         System.out.println("Digite seu nome:");
         String nome = leitor.nextLine();
@@ -33,7 +34,7 @@ public class Menu {
         String cidade = leitor.nextLine();
         seguradoController.cadastrarUsuario(nome, RG, CPF, sexo, telefone, endereco, CEP, cidade);
 
-        // Menu principal
+        
         do {
             System.out.println("\nAPÓLICE DE SEGUROS");
             System.out.println("1. Incluir seguro.");
@@ -45,7 +46,7 @@ public class Menu {
             System.out.println("7. Sair.");
 
             opcao = leitor.nextInt();
-            leitor.nextLine(); // Limpa o buffer
+            leitor.nextLine(); 
 
             switch (opcao) {
                 case 1:
@@ -56,7 +57,7 @@ public class Menu {
                     String segurado = leitor.nextLine();
                     System.out.println("Digite o valor de sua apólice:");
                     Double vlrApolice = leitor.nextDouble();
-                    leitor.nextLine(); // Limpa o buffer
+                    leitor.nextLine(); 
                     System.out.println("Digite a data inicial da apólice:");
                     String dtaInicio = leitor.nextLine();
                     System.out.println("Digite a data final da apólice:");
@@ -79,19 +80,31 @@ public class Menu {
                     break;
 
                 case 3:
-                    
+                System.out.printf("Digite o número da apólice do seguro que deseja excluir: ");
+                numeroApolice = leitor.nextLine();
+                boolean seguroExcluido = seguroController.excluirSeguro(numeroApolice);
+                
+                if (!seguroExcluido) {
+                    System.out.printf("\nSeguro não encontrado para o número da apólice fornecido.");
+                } else {
+                    System.out.printf("\nSeguro excluído com sucesso.");
+                }
                     break;
 
                 case 4:
-                    
+                    seguroController.excluirTodosSeguros();
+                    System.out.printf("Todos os seguros foram excluidos com sucesso!");
                     break;
 
                 case 5:
-                    
+                    List<Seguro> todosSeguros = seguroController.getSeguros();
+                    for (Seguro seguro : todosSeguros) {
+                    System.out.println(seguro);
+                    }   
                     break;
 
                 case 6:
-                    
+                    System.out.printf("A quantidade de seguros cadastrados é de: %d", seguroController.getQnt());
                     break;
 
                 case 7:
@@ -104,7 +117,7 @@ public class Menu {
 
         } while (opcao != 7);
 
-        leitor.close(); // Fecha o scanner ao finalizar
+        leitor.close(); 
     }
 }
 
