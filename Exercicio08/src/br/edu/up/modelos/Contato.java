@@ -1,24 +1,17 @@
-package br.edu.up.controles;
-import java.util.Scanner;
+package br.edu.up.modelos;
+
 
 public class Contato {
 
-    static int codigo;
+    private Integer codigo;
     private String nome;
     private String telefone;
-    Scanner leitor = new Scanner(System.in);
-    
-    public Contato(int codigo, String nome, String telefone){
-        this.codigo = codigo;
-        this.nome = nome;
-        this.telefone = telefone;
-    }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -45,20 +38,6 @@ public class Contato {
                 ", Nome='" + nome + '\'' +
                 ", Telefone='" + telefone + '\'' +
                 '}';
-    }
-
-    public void criarContato(){
-        Contato contato = new Contato(codigo, nome, telefone);
-
-        System.out.printf("Digite o código de seu contato: ");
-        codigo = leitor.nextInt();
-        leitor.nextLine();
-
-        System.out.printf("Digite o nome de seu contato: ");
-        nome = leitor.nextLine();
-
-        System.out.printf("Digite o telefone de seu contato: ");
-        telefone = leitor.nextLine();
     }
 
     }

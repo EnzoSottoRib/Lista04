@@ -1,5 +1,8 @@
 package br.edu.up.controles;
 import java.util.List;
+import br.edu.up.modelos.*;
+
+
 import java.util.ArrayList;
 
 public class Agenda {
@@ -13,33 +16,51 @@ public class Agenda {
         return listaContatos;
     }
 
-    public void adicionarContato(Contato contato) {
-        listaContatos.add(contato);
+    public void criarContato(int codigo, String nome, String telefone){
+        Contato contato = new Contato();
+        contato.setCodigo(codigo);
+        contato.setNome(nome);
+        contato.setTelefone(telefone);
     }
 
 
-    public void listarContatos() {
-        System.out.println("Lista de Contatos:");
-        for (Contato contato : listaContatos) {
-
-            System.out.println(contato); 
-            
-        }
+    public void criarContatoComercial(String cnpj){
+        Comercial comercial = new Comercial();
+        comercial.setCnpj(cnpj);
     }
 
-    public void excluirContato(int codigo) {
-        boolean contatoEncontrado = false;
+    public void criarContatoPessoal(String aniversario){
+        Pessoal pessoal = new Pessoal();
+        pessoal.setAniversario(aniversario);
+    }
+
+    public Contato buscarContato(Integer codigo) {
         for (Contato contato : listaContatos) {
-            if (contato.getCodigo() == codigo) {
-                listaContatos.remove(contato);
-                System.out.println("Contato removido com sucesso.");
-                contatoEncontrado = true;
-                break; // Para evitar a ConcurrentModificationException
+            if (contato.getCodigo().equals(codigo)) {
+                return contato;
             }
         }
-        if (!contatoEncontrado) {
-            System.out.println("Nenhum contato encontrado com o código especificado.");
+        return null; 
+    }
+
+    public boolean excluirContato(Integer codigo) {
+        Contato contatoParaExcluir = null;
+        for (Contato contato : listaContatos) {
+            if (contato.getCodigo().equals(codigo)) {
+                contatoParaExcluir = contato;
+                break;
+            }
+        }
+        if (contatoParaExcluir != null) {
+            listaContatos.remove(contatoParaExcluir);
+            return true; 
+        } else {
+            return false;
         }
     }
+
+
+    
+
 }
 
